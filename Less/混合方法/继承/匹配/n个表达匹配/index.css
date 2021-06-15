@@ -1,0 +1,4 @@
+.li:nth-child(1n + 3),
+.class {
+  color: red;
+}

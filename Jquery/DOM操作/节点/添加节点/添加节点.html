@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>添加节点</title>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script>
+        $(function () {
+            var a = $('<div class="d2">我是d2</div>')
+            // 向内容后面添加
+            $('#d1').append(a)
+            $(a).appendTo('#d1')
+            // 向内容前面添加
+            $('#d1').prepend(a)
+            $(a).prependTo('#d1')
+            // 向结构后面添加
+            $('#d1').after(a)
+            $(a).insertAfter('#d1')
+            // 想结构前面添加
+            // $('#d1').before(a)
+            // $(a).insertBefore('#d1')
+        })
+    </script>
+</head>
+<body>
+    <div id="d1">我是你爸爸</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+@import 'mixin/index.less';
+#one {
+    color: @color16; // false
+}
+#one {
+    color: @color; // false
+}
+#one {
+    color: @string; // false
+}
+#one {
+    color: @number; // false
+}
+#one {
+    color: @pix; // false
+}
+#one {
+    color: @bfb; // false
+}
+#one {
+    color: @keyword; // false
+}
+#one {
+    color: @url; // false
+}
+#one {
+    color: @em; // false
+}
+
+#one {
+    color: @ruleset; // true
+}

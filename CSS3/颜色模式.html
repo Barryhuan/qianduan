@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>颜色模式</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#box1 {
+				width: 200px;
+				height: 200px;
+				margin: 50px auto;
+				background-color: rgb(255, 155, 255);
+				/* rgba（r，g，b，透明度） */
+				background-color: rgba(255, 155, 255, 0.5)
+			}
+			
+			#box2 {
+				width: 200px;
+				height: 200px;
+				margin: 50px auto;
+				/* hsl(色相，饱和度，亮度(PS的正常亮度是100%，但是浏览器是0%是纯黑色，50%， 100%是纯白)) */
+				/* hsla(色相，饱和度，亮度, 透明度) */
+				/* 色相：0是红色，120是绿色， 240是蓝色 其他角度如30是橙色， 60是黄色，90是黄绿色，150是青色*/
+				background-color: hsla(0, 100%, 50%, 0.5);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1"></div>
+		<div id="box2"></div>
+	</body>
+</html>

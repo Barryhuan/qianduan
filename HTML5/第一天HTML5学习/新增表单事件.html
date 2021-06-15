@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>新增表单事件</title>
+</head>
+<body>
+    <form action="#">
+        手机号：<input type="tel" name="phone" id="phone" required pattern="\d+"><br>
+        <input type="submit" value="提交">
+    </form>
+    <script>
+        // 获取改变的内容
+        document.getElementById('phone').oninput = function () {
+            console.log(this.value)
+        }
+        // 当验证无效的时候
+        document.getElementById('phone').oninvalid = function () {
+            // 设置提示内容
+            this.setCustomValidity("我是你爸爸")
+        }
+    </script>
+</body>
+</html>

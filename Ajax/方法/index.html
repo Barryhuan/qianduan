@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>XMLHttpRequest方法</title>
+	</head>
+	<body>
+		<script>
+			var ajax = new XMLHttpRequest()
+
+			// 方法
+			// 中断请求，触发onabort函数
+			ajax.abort()
+
+			// 指定发送请求的参数
+			// 1. method 'GET' 'POST' 'HAAD' 'PUT' 'DELETE'
+			// 2. url 请求发送目标的URL
+			// 3. async 表示请求是否异步，如果设置为false，则要等待send方法收到服务器返回的结果才会进行，导致浏览器失去反应，不能轻易使用
+			// 4. user 表示用于认证的用户名，默认为空字符串。该参数可选
+			// 5. password 表示用于认证的密码，默认为空字符串。该参数可选
+			ajax.open()
+
+			// 发送请求
+			// 不带参数，则表示发送的请求只有一个头信息，也就是发送url请求链接
+			// 典型的就是GET方法请求
+
+			// 带参数，则表示发送的请求有头信息和信息体，url上要带上数据
+			// 典型的就是POST方法请求
+
+			// 能发送的数据类型
+			// send() 只发送URL
+			// send(ArrayBufferView data) 发送二级制数组数据
+			// send(Blob data) 发送二进制对象
+			// send(Document data) 发送文档对象
+			// send(String data) 发送文本信息
+			// send(FromData data) 发送表单信息
+			ajax.send()
+
+			// 设置HTPP请求的头信息
+			// 该方法必须在open方法后，send方法前使用
+			// 第一个参数是字符串，表示头信息的字段名
+			// 第二个参数表示头信息的字段值
+			// 如果该方法多次调用，设定同一个字段，则每一次调用的值会被合并成一个单一的值发送
+			ajax.setRequestHeader()
+
+			// 获取响应信息头的字段值
+			ajax.getResponseHeader('字段名')
+
+			// 获取所有响应信息头的字段值
+			ajax.getAllResponseHeader()
+
+			// 将服务器响回的数据按原始数据传送回来
+			// 必须在send方法前调用
+			ajax.overrideMimeType('String')
+		</script>
+	</body>
+</html>

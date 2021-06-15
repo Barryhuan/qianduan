@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>文本筛选</title>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            $(':input').keyup(function () {
+                $('tbody tr').hide()
+                .filter(':contains("' + ($(this).val())+ '")')
+                .show()
+                
+            }).keyup()
+        })
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        table {
+            width: 300px;
+            border-collapse: collapse;
+            margin: 20px 0 0 20px;
+        }
+
+        thead tr {
+            text-align: left;
+            border-bottom: 1px solid #000;
+            height: 30px;
+        }
+
+        tbody tr {
+            height: 30px;
+        }
+
+        tbody td {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    筛选：<input type="text" size="20"><br>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>暂住地</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>浙江宁波</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>女</td>
+                <td>浙江宁波</td>
+            </tr>
+            <tr>
+                <td>王五</td>
+                <td>女</td>
+                <td>浙江杭州</td>
+            </tr>
+            <tr>
+                <td>找六</td>
+                <td>男</td>
+                <td>湖南长沙</td>
+            </tr>
+            <tr>
+                <td>Rain</td>
+                <td>女</td>
+                <td>浙江温州</td>
+            </tr>
+            <tr>
+                <td>MAXMAN</td>
+                <td>男</td>
+                <td>浙江杭州</td>
+            </tr>
+            <tr>
+                <td>王六</td>
+                <td>女</td>
+                <td>浙江杭州</td>
+            </tr>
+            <tr>
+                <td>李字</td>
+                <td>男</td>
+                <td>浙江宁波</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>女</td>
+                <td>湖南长沙</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

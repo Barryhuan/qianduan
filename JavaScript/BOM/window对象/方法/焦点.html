@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Window对象的方法</title>
+</head>
+
+<body>
+    <button id="b1">点击</button>
+    <script>
+        let b1 = document.getElementById('b1')
+        b1.onclick = function () {
+            // 这2个属性最好是按window.focus来写，不然可能会弄混
+            // 这2个属性是为新窗口用的
+            // 感觉也没什么大用
+            window.focus()
+            window.blur()
+        }
+    </script>
+</body>
+
+</html>

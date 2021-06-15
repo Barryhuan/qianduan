@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>焦点轮播图</title>
+        <meta charset="utf-8">
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            #box {
+                width: 490px;
+                margin: 50px auto;
+                border: 1px solid #000;
+                padding: 10px;
+            }
+
+            #box .inner {
+                width: 490px;
+                height: 276px;
+                overflow: hidden;
+                position: relative;
+            }
+
+            #box .inner ul {
+                width: 1000%;
+                position: absolute;
+                top: 0;
+            }
+
+            #box .inner ul li{
+                float: left;
+            }
+
+            #jd {
+                width: 490px;
+                height: 50px;
+                position: absolute;
+                top: 113px;
+                left: 0;
+                display: none;
+            }
+
+            #left {
+                display: none;
+                float: left;
+                width: 48px;
+                height: 48px;
+                margin-left: 5px;
+                background: url('img/left.png') no-repeat;
+                cursor: pointer;
+            }
+
+            #right {
+                display: block;
+                float: right;
+                width: 48px;
+                height: 48px;
+                margin-right: 5px;
+                background: url('img/right.png') no-repeat;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <div class="inner">
+                <ul style="left : 0">
+                    <li><img src="img/1.jpg"></li>
+                    <li><img src="img/2.png"></li>
+                    <li><img src="img/3.png"></li>
+                    <li><img src="img/4.jpg"></li>
+                    <li><img src="img/5.png"></li>
+                    <li><img src="img/6.png"></li>
+                </ul>
+                <div id="jd"><a id="left"></a><a id="right"></a></div>
+            </div>
+        </div>
+        <script>
+            var box = document.getElementById('box')
+            var inner = box.children[0]
+            var ul = inner.children[0]
+            var lis = ul.children
+            var jd = document.getElementById('jd')
+            var left = document.getElementById('left')
+            var right = document.getElementById('right')
+            var imgWidth = inner.offsetWidth
+            inner.onmouseover = function () {
+                jd.style.display = 'block'
+            }
+
+            inner.onmouseout = function () {
+                jd.style.display = 'none'
+            }
+
+            // 设置索引值
+                var pic = 0
+            right.onclick = function () {
+                // 判断索引值是否为最后一个，要是就直接结束事件
+                if (pic === lis.length - 1) {
+                    return
+                }
+                // 每点击一次索引自增
+                pic ++
+                if (pic === lis.length - 1) {
+                    right.style.display = 'none'
+                    left.style.display = 'block'
+                } else {
+                    right.style.display = 'block'
+                    left.style.display = 'block'
+                }
+                // 获取目标长度
+                var target = -(pic * imgWidth)
+                // 调用动画函数
+                animate(ul, target)
+            }
+
+            left.onclick = function () {
+                // 判断索引值是否为第一个，要是就直接结束事件
+                if (pic === 0) {
+                    return
+                }
+                pic --
+                if (pic === 0) {
+                    left.style.display = 'none'
+                    right.style.display = 'block'
+                } else {
+                    left.style.display = 'block'
+                    right.style.display = 'block'
+                }
+                var target = -(pic * imgWidth) 
+                animate(ul, target)
+            }
+
+            function animate(obj, target) {
+                clearInterval(obj.timer)
+                obj.timer = setInterval(function () {
+                    var nowLeft = ul.offsetLeft
+                    var speed = target > nowLeft ? 490 : -490
+                    if (Math.abs(target - nowLeft) >= Math.abs(speed)) {
+                        nowLeft += speed
+                        obj.style.left = nowLeft + 'px'
+                    } else {
+                        obj.style.left = target + 'px'
+                        clearInterval(obj.timer)
+                    }
+                }, 20)
+            }
+        </script>
+    </body>
+</html>

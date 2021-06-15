@@ -1,0 +1,35 @@
+// Less有非，或，与
+// 非：not ；
+// 或：，；
+// 与：and；
+
+// and
+#one (@width) when (@width > 0) and (@width < 100px) {
+   width: @width;
+}
+
+#tow {
+    #one(150px); // false
+    #one(50px); // true
+}
+
+// ,
+.one (@width) when (@width < 0) , (@width > 100px) {
+   margin: @width;
+}
+
+.two {
+    .one(-1px); // true
+    .one(50px); // false
+    .one(150px); // true
+}
+
+// not
+.three (@width) when not (@width < 0){
+   height: @width;
+}
+
+.four {
+    .three(-1px); // flase
+    .three(10px); // true
+}

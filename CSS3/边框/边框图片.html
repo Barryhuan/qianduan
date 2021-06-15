@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>边框图片</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			div {
+				width: 500px;
+				height: auto;
+				border: 27px solid #000;
+				box-sizing: border-box;
+				/*
+					border-image是边框图片
+					image-source：引入边框图片
+					image-slice：
+					slice主要是裁剪图片，这是关键，数值越大说明上右下左的裁剪的数值越大，图片就会越来越小（上下左右裁剪的是图片本身，如果数值太大就会将整个图片显示（四个角））
+					将边框图片从上右下左裁剪为一个9宫格，中间的透明，要用fill填充显示，默认单位是px，给他添加单位会出错
+					数值越大，边框图片在边框里越小，数值越小，边框图片越大，跟图片有关
+					slice会将边框图片分为四个角，四个边，一个中间框，四条边，分为上右下左线
+					四个边主要是用来展示的
+					border-top-image和border-bottom-image受水平的影响，如果border-image-repeat：水平 垂直
+					那么这2条边受水平的影响，
+					border-left-image和border-right-image受垂直的影响
+					image-width：等同于border-width，边框图片的本质是背景，只有border和padding能影响内容
+					image-outset：基本不会用，也就是扩大边框，用的话要用box-sizing属性的border-box，才不会影响其他元素
+					image-repeat：有水平和垂直2个方向，有3个值
+					stretch：拉伸
+					repeat：重复
+					round：缩小重复
+				*/
+				border-image-source: url('1.jpg'); 
+				border-image-slice: 27 fill;
+				border-image-width: 27px;
+				border-image-outset: 0;
+				border-image-repeat: stretch;
+				/* 简写形式: border-image: source slice / width / outset repeat */
+				border-image: url('1.jpg') 27 fill / 27px / 0 stretch repeat;
+				}
+		</style>
+	</head>
+	<body>
+		<div>
+			我是我是我是我是我是我是我是我是我是我是我是我是我失散我是我是我晚上我我我我我
+			我是我是我是我是我是我是我是我是我是我是我是我是我失散我是我是我晚上我我我我我
+			我是我是我是我是我是我是我是我是我是我是我是我是我失散我是我是我晚上我我我我我
+			我是我是我是我是我是我是我是我是我是我是我是我是我失散我是我是我晚上我我我我我
+		</div>
+	</body>
+</html>

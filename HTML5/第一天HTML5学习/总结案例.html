@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>表单元素总结案例</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        fieldset {
+            width: 400px;
+            height: 640px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        input {
+            width: 400px;
+            height: 30px;
+            margin: 10px 0;
+        }
+
+        #submit {
+            width: 404px;
+        }
+
+        meter {
+            width: 404px;
+            height: 30px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <form action="#">
+        <fieldset>
+            <legend>学生案例</legend>      
+            <label for="userName">姓名：</label> <br><input type="text" id="userName" name="userName" placeholder="请输入用户名"> <br>
+            <label for="userPhone">手机号码：</label><br><input type="tel" id="userPhone" name="userPhone" required pattern="\d{1, 11}"><br>
+            <label for="userEmail">邮箱地址：</label><br><input type="email" id="userEmail" name="userEmail" multiple> <br>
+            <label for="userSchool">所属学院：</label><br><input type="text" list="school" id="userSchool" name="userSchool" placeholder="请选择">
+            <datalist id="school">
+                <option value="广东南华工商职业技术学院" label="我的学院"></option>
+                <option value="清华大学" label="我的学院"></option>
+                <option value="北京大学" label="我的学院"></option>
+            </datalist>
+            <label for="userTest">入学成绩：</label><br><input type="number" value="0" min="0" max="100" id="userTest" name="userTest"> <br>
+            基础水平：<br><meter min="0" value="0" max="100" high="60" low="30" id="userSP" name="userSP"></meter> <br>
+            入学日期：<br><input type="date" id="userStartDate" name="userStartDate"> <br>
+            毕业日期：<br><input type="date" id="userendDate" name="userendDate"> <br>
+            <input type="submit" value="提交" id="submit">
+        </fieldset>
+    </form>
+</body>
+</html>

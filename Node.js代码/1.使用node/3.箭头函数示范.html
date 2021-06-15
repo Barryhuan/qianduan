@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>箭头函数示范</title>
+</head>
+<body>
+    <button id='btn'>按钮</button>
+    <script>
+    var btn = document.getElementById('btn');
+
+    btn.onclick = function () {
+        // console.log(this);
+        // 因为setTimeout是window的方法，所以window.setTimeout的函数里的this指向window
+        setTimeout(function() {
+            console.log(this);
+            this.style.backgroundColor = 'red';
+        },1000);
+        // 箭头函数可以让this指向外部函数的对象，onclick的函数的this对象是btn，所以箭头函数的this指向btn
+        setTimeout(() => {
+            console.log(this);
+            this.style.backgroundColor = 'red';
+        },1000);
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>径向渐变</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			div {
+				width: 300px;
+				height: 200px;
+				/*
+				   radial-gradient：径向渐变属性会根据形状宽高改变形状，如果为长方形或其他形状，为ellipse椭圆形，正方形为circle圆形
+				   参数：
+				   形状：ellipse 椭圆形， circle 圆形
+				   大小：最远边 farthest-side， 最近边 closest-side， 最远角 farthest-corner 最近角 closest-corner
+				   原点位置： 
+							关键字 ：
+							at left top， at left bottom， at right top， at right bottom，
+							at left center， at right center， 只要是关键字只有一个，后面一个默认是center
+							像素：像素只有一个，另一个也是自动给定一个居中值
+							百分比：50% 50%， 要是只有一个默认是50%
+				*/
+				background: radial-gradient(ellipse closest-corner at 50% 50%, blue, red);
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

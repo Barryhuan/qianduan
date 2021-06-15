@@ -1,0 +1,8 @@
+.li:hover:visited {
+    color: red;
+}
+
+.class:extend(.li:hover:visited) {}
+
+// 要是状态顺序不一样，则无法实现继承 .li:visited:hover
+

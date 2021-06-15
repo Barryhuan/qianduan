@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>菜单</title>
+        <meta charset="utf-8">
+        <style type="text/css">
+            *{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            li{
+                float: left;
+                width: 100px;
+                height: 50px;
+                line-height: 50px;                 
+                background-color: red;
+                text-align: center;  
+                margin: 0 10px;
+                
+            }   
+
+            a{
+                text-decoration: none; 
+                color : black;
+            }
+
+            .cur {
+                background-color: blue; 
+            }
+        </style>
+    </head>
+    <body>
+        <ul id="ul1">
+            <li><a href="javascript:void(0)">首页</a></li>
+            <li><a href="javascript:void(0)">播客</a></li>
+            <li><a href="javascript:void(0)">相册</a></li>
+            <li><a href="javascript:void(0)">关于</a></li>
+            <li><a href="javascript:void(0)">帮助</a></li>
+        </ul>
+        <script>
+            var ul = document.getElementById('ul1')
+            for (var i = 0; i < ul.children.length; i++) {
+                var li = ul.children[i]
+                var a = li.firstElementChild
+                a.onclick = click
+            }
+
+            function click() {
+                for (var i = 0; i < ul.children.length; i++) {
+                    var li = ul.children[i]
+                    li.className =''
+                }
+
+                this.parentNode.className = 'cur'
+                return false
+            }
+        </script> 
+    </body>
+</html>

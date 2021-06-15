@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>scroll系列</title>
+		<style>
+			/* 窗口滚动 */
+			body {
+				width: 4000px;
+				height: 3000px;
+				margin: 0;
+				padding: 0;
+			}
+			/* demo滚动 */
+			#demo {
+				width: 200px;
+				height: 200px;
+				padding: 10px;
+				background-color: #F00;
+				overflow: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo">
+			更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容
+			更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容内容更多内容内容更多内容
+			更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容
+			更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容更多内容内容更多内容内容更多内容
+		</div>
+		<script>
+			var demo = document.getElementById('demo')
+			// scrollWidth + scrollHeight (padding + 内容的高宽)
+			// 理想情况下是这种
+			console.log('scrollWidth：' + demo.scrollWidth) // 220 content(200px) + padding(20px) 
+			console.log('scrollHeight：' + demo.scrollHeight) // 629 整个内容的高度
+			// 但是为demo设置了overflow：auto，滚动条也占据了一段位置，demo的宽高会变小了
+			// 实际的宽是203，高是629
+			// 可以通过onscroll事件算出已经滚动的内容的高宽
+			demo.onscroll = function () {
+				console.log(demo.scrollTop)
+				console.log(demo.scrollLeft)
+			}
+			// 整个窗口滚动
+			window.onscroll = function () {
+				console.log(scroll().scrollTop)
+				console.log(scroll().scrollLeft)
+			}
+			
+			function scroll() {
+				return {
+					scrollTop: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+					scrollLeft: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+				}
+			}
+		</script>
+	</body>
+</html>

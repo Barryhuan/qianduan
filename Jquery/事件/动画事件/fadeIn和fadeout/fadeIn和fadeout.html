@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>淡入和淡出</title>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script>
+        $(function () {
+            $('#d1').hover(function () {
+                $(this).stop().fadeOut('fast')
+            }, function () {
+                $(this).stop().fadeIn('slow')
+            })
+        })
+    </script>
+    <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+    
+            #d1 {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div id="d1"></div>
+    </body>
+</html>

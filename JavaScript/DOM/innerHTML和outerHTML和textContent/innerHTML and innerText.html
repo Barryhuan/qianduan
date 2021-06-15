@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerHTML and innerText</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">
+        我是超级大帅哥
+        <div class="d2">
+            我是帅哥
+        </div>
+    </div>
+    <script type="text/javascript">
+        var d1 = document.querySelector('#d1')
+        console.log(d1.innerHTML)
+        // 我是超级大帅哥
+        // <div class="d2">
+        //     我是帅哥
+        // </div>
+
+        console.log(d1.innerText) 
+        // 我是超级大帅哥
+        // 我是帅哥
+
+        // innerHTML获取的时候是获取到元素内部的内容（包括标签和文本），不会影响本体元素
+        // innerText获取的时候是获取元素全部的文本内容（只有文本）
+
+        d1.innerHTML = '<div class="div">我是帅帅帅<p>我是超超超</p></div>'
+        // <div id="d1"><div class="div">我是帅帅帅<p>我是超超超</p></div></div>
+        // innerHTML设置的时候是只在内部设置内容（包括标签和文本），不会影响本体元素
+        // 将元素的内容替换成标签和文本
+
+        d1.innerText = '<div class="div">我是帅帅帅<p>我是超超超</p></div>'
+        // <div id="d1">&lt;div class="div"&gt;我是帅帅帅&lt;p&gt;我是超超超&lt;/p&gt;&lt;/div&gt;</div>
+        // innerText设置的时候是只在内部设置文本（只有文本），不会影响本体元素
+        // 将元素内的内容全部替换成文本 
+    </script>
+</body>
+</html>

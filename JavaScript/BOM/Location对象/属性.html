@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Location对象的属性</title>
+</head>
+
+<body>
+    <button id="b1">点击</button>
+    <script>
+        let b1 = document.getElementById('b1')
+        b1.onclick = function () {
+            // 都可以设置和获取
+            // 获取完整的路径
+            console.log('获取完整的路径：' + location.href)
+
+            // 获取url部分（除去协议和主机端口的部分，获取文件路径的部分）
+            console.log('获取url的部分路径' + location.pathname)
+
+            // 获取协议 + 主机 + 端口号的部分
+
+            console.log('协议 + 主机 + 端口号：' + location.origin)
+            // 获取主机号和端口号
+            console.log('主机号和端口号：' + location.host)
+
+            // 获取主机号（端口号前面的）
+            console.log('主机号：' + location.hostname)
+
+            // 获取端口号
+            console.log(location.port)
+
+            // 获取当前url的协议
+            console.log(location.protocol)
+
+            // 获取从？开始的查询（包括？）
+            console.log(location.search)
+
+            // 获取从#开始
+            console.log(location.hash)
+        }
+    </script>
+</body>
+
+</html>

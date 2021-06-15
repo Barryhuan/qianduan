@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event对象</title>
+    <style type="text/css">
+        span {
+            color: red;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event对象的属性和方法</h1>
+    <h2>监听方法</h2>
+    <p><span>addEventListener()：为元素对象添加监听对器</span></p>
+    <p><span>removeEventListener()：为元素对象移除监听器</span></p>
+    <p><span>dispatchEvent(自定义的事件对象)：自定义触发事件</span></p>
+    <h2>属性</h2>
+    <h3>只读属性：</h3>
+    <p><span>bobbles</span>: 判断事件是否冒泡</p>
+    <p><span>cancelable</span>：判断事件是否拥有使用preventDefault()的能力</p>
+    <p><span>target</span>: 事件对象的目标对象</p>
+    <p><span>path</span>：从目标到顶部的冒泡路径或者是从顶部到目标的捕获阶段所经过的对象所组成的数组</p>
+    <p><span>defaultPrevent</span>：判断是否使用了preventdefault()</p>
+    <p><span>eventphase</span>：当前事件所处的阶段：0-事件触发阶段 1-捕获阶段 2-事件目标阶段 3-事件冒泡阶段</p>
+    <p><span>isTursted</span>：当前事件是用户触发还是脚本触发</p>
+    <p><span>composed</span>：表示当前事件能否从ShadowDOM冒泡到普通的DOM间隔里</p>
+    <p><span>currentTarget</span>：表示事件监听的对象</p>
+    <p><span>type</span>：返回事件类型</p>
+    <p><span>timestamp</span>：表示事件进行的时间</p>
+    <h3>读写属性</h3>
+    <p><span>cancelbubbles</span>：可以获取和设置是否阻止事件冒泡，true为阻止冒泡，false则为不阻止冒泡</p>
+    <p><span>returnValue</span>：当值为true时说明支持默认事件，为false时阻止默认事件</p>
+    <h2>方法</h2>
+    <p><span>event.composedPath()</span>：跟path的效果是一样的，返回一个触发路径</p>
+    <p><span>event.preventDefault()</span>：阻止默认事件</p>
+    <p><span>event.stopPropagation()</span>：阻止冒泡事件</p>
+</body>
+</html>

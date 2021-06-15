@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="file" class="file" onchange="getFileInfo()"><br>
+        <input type="submit" value="提交">
+    </form>
+    <img src="" alt="" >
+    <script>
+        function getFileInfo() {
+            // 先获取文件
+            var file = document.querySelector('.file').files
+            // 创建读取reader数据的对象
+            var reader = new FileReader()
+            // 读取文件
+            reader.readAsDataURL(file[0])
+            // 当结果完成时
+            reader.onload = function () {
+                // 将结果赋给img的src
+                document.querySelector('img').src = reader.result
+                console.log(reader.result)
+            }
+        }
+
+        // Filereader是一个构造函数
+        // 属性（都是只读属性）：
+        // 1.Filereader.readyState 表示文件读取状态 1.empty 值：0 没有读取到文件 2.loding 值：1 正在加载文件 3.done 值：2 完成加载
+        // 2.Filereader.error 表示读取文件错误
+        // 3.Filereader.result 表示读取文件的结果
+
+        // 方法：
+        // 1.Filereader.readerAsText 读取文本并转化为UTF-8的正常文本
+        // 2.Filereader.readerAsArrayBuffer 读取文件转化为ArrayBuffer对象
+        // 3.Filereader.readerAsDataURL 读取文件（通常是图片或其他格式的文件）并将它们转化为base64编码格式
+        // 4.Filereader.readerAsBinaryString 将读取的文件转化为二进制形式吧，通常是传给后台
+        // 5.Filereader.abort 中断读取操作，并返回readyState为Done，也就是完成
+
+        // 事件：
+        // 1.Filereader.onload 表示文件读取成功
+        // 2.Filereader.onloadStart 表示文件读取开始
+        // 3.Filereader.onloadEnd   表示文件读取结束（无论成功或失败）
+        // 4.Filereader.oneror 表示文件读取错误时触发
+        // 5.Filereader.onabort 表示文件中断时触发
+        // 6.Filereader.onprogation 表示文件在读取Blob时触发（Blob是二进制容器）
+    </script>
+</body>
+</html>

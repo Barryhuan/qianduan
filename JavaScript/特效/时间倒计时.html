@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>时间倒计时</title>
+        <meta charset="UTF-8">
+        <style type="text/css">
+            #time {
+                width: 600px;
+                height: 500px;
+                margin: 150px auto 0;
+                padding: 20px;
+                text-align: center;
+            }
+
+            #time h1 {
+                margin-bottom: 20px;
+            }
+
+            span {
+                display: inline-block;
+                margin: 0 10px;
+                background-color: orange;
+                color: white;
+                height: 50px;
+                line-height: 50px;
+                font-size: 30px;
+            }
+
+            #day {
+                width: 100px;
+            }
+
+            #hours {
+                width: 50px;
+            }
+
+            #minutes {
+                width: 50px;
+            }
+
+            #seconds {
+                width: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="time">
+            <h1></h1>
+            <span><span id="day">00</span>天</span>
+            <span><span id="hours">00</span>时</span>
+            <span><span id="minutes">00</span>分</span>
+            <span><span id="seconds">00</span>秒</span>
+        </div>
+        <script>
+            // 设置结束时间
+            var end = new Date('2019-6-16 23:00:00')
+            // 获取标签
+            var day = document.getElementById('day')
+            var hours = document.getElementById('hours')
+            var minutes = document.getElementById('minutes')
+            var seconds = document.getElementById('seconds')
+            // 调用函数，以免在开始的时候为00
+            bianli()
+            // 调用周期定时器
+            setInterval(bianli, 1000) 
+            // 设置定时器所需要的函数
+            function bianli() {
+                var start = new Date()
+                var son = times(start, end)
+                day.innerText = son.day
+                hours.innerText = son.hours
+                minutes.innerText = son.minutes
+                seconds.innerText = son.seconds
+            }
+            // 设置计算时间差的函数
+            function times(start, end) {
+                // 计算开始到结束的毫秒数
+                var time = end - start
+                // 将毫秒转换成秒
+                var timeint = time/1000
+                // console.log(timeint)
+                // 设置变量存储值
+                var day, hours, minutes, seconds
+                // console.log(Window.hasOwnProperty('hours')) // false 多次声明变量不是全局变量
+                day = Math.round(timeint / 60 / 60 / 24)  // 将秒转换为整天数
+                hours = Math.round(timeint / 60 / 60 % 24) // 将秒转化为整小时
+                minutes = Math.round(timeint / 60 % 60) // 将秒转化为整分
+                seconds = Math.round(timeint % 60) // 将秒转化为整秒
+
+                return {
+                    day : day,
+                    hours : hours,
+                    minutes : minutes,
+                    seconds : seconds
+                }
+            }
+        </script>
+    </body>
+</html>

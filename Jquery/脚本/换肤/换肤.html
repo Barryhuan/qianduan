@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>换肤</title>
+    <link href="css/default.css" rel="stylesheet" type="text/css">
+    <link href="css/skin_1.css" rel="stylesheet" type="text/css" id="hf">
+    <script src="js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="../jquery.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            var li = $('ul li')
+            li.click(function () {
+                $(this).addClass('selected')
+                .siblings().removeClass('selected')
+                $('#hf').attr('href', 'css/'+ this.id+'.css')
+                console.log(this.id)
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div id="big_box">
+        <ul id="ulbox">
+            <li id="skin_1" title="灰色" class="selected"></li>
+            <li id="skin_2" title="紫色"></li>
+            <li id="skin_3" title="红色"></li>
+            <li id="skin_4" title="天蓝色"></li>
+            <li id="skin_5" title="橘色"></li>
+            <li id="skin_6" title="淡绿色"></li>
+        </ul>
+        <div id="box">
+            <div class="left_box">时事新闻</div>
+            <div class="right_box">娱乐新闻</div>
+        </div>
+    </div>
+</body>
+
+</html>

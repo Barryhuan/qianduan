@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>2D旋转</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin: 200px auto;
+				transition: transform 2s;
+			}
+			div:active {
+				/* 2D的旋转只有一个参数：即角度，正值为顺时针， 负值为逆时针 */
+				/* transform: rotate(90deg); */
+				transform: rotate(-90deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

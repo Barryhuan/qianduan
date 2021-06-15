@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>生命周期</title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p id="text">{{msg}}</p>
+			<button @click="destroydEvent">停止</button>
+			<button @click="updateBoolean">更改数据</button>
+		</div>
+		<script>
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					msg: true
+				},
+				methods: {
+					destroydEvent() {
+						this.$destroy();
+					},
+					tilk() {
+						console.log(this.msg)
+					},
+					updateBoolean() {
+						this.msg = !this.msg
+					}
+				},
+				beforeCreate() {
+					// console.log(this.msg) // undefined，Vue实例未初始化完成,data和methods都没有定义好
+					// this.tilk() // this.tilk is not a function
+				},
+				created() {
+					console.log(this.msg) // true
+					this.tilk() // true
+				},
+				beforeMount() {
+					console.log(document.getElementById('text').innerText) // {{msg}} 这里还未挂载到页面上
+					console.log(this.msg) // true 内存中的数据依旧是true
+				},
+				mounted() {
+					console.log(document.getElementById('text').innerText) // true 这里已经挂载到页面上了
+					console.log(this.msg) // true
+				},
+				beforeUpdate() {
+					console.log(document.getElementById('text').innerText) // true 但是页面中的数据还是旧的(虽然页面是发生了改变，但是这是原理，与实际发生的不同)
+					console.log(this.msg) // false 内存中的数据是最新的
+				},
+				updated() {
+					console.log(document.getElementById('text').innerText) // false 数据与页面同步
+					console.log(this.msg) // false 数据与页面同步
+				},
+				beforeDestroy() {
+					console.log('我未被销毁，可以被看到' + this.msg) 
+					this.tilk() 
+				},
+				destroyed() {
+					console.log('我已经被销毁，无法被看到' + this.msg) 
+					this.tilk() + '我已经被销毁，无法被看到';
+				}
+			})
+		</script>
+	</body>
+</html>

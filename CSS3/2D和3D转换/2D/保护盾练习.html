@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>保护盾练习</title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: #008000;
+			}
+			
+			#box {
+				width: 480px;
+				height: auto;
+				margin: 50px auto;
+			}
+			
+			#box img {
+				transition: transform 2s;
+			}
+			
+			img:nth-child(1) {
+				transform: translate(-300px, 100px) rotate(30deg);
+			}
+			img:nth-child(2) {
+				transform: translate(-300px, 300px) rotate(60deg);
+			}
+			img:nth-child(3) {
+				transform: translate(300px, 510px) rotate(999deg);
+			}
+			img:nth-child(4) {
+				transform: translate(666x, 888px) rotate(3deg);
+			}
+			img:nth-child(5) {
+				transform: translate(666px, 666px) rotate(90deg);
+			}
+			img:nth-child(6) {
+				transform: translate(360px, 360px) rotate(360deg);
+			}
+			img:nth-child(7) {
+				transform: translate(888px, 150px) rotate(40deg);
+			}
+			img:nth-child(8) {
+				transform: translate(230px, 900px) rotate(50deg);
+			}
+			img:nth-child(9) {
+				transform: translate(800px, 300px) rotate(0deg);
+			}
+			
+			#box:hover img {
+				transform: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<img src="img/shield_1_01.png">
+			<img src="img/shield_1_02.png">
+			<img src="img/shield_1_03.png">
+			<img src="img/shield_1_04.png">
+			<img src="img/shield_1_05.png">
+			<img src="img/shield_1_06.png">
+			<img src="img/shield_1_07.png">
+			<img src="img/shield_1_08.png">
+			<img src="img/shield_1_09.png">
+		</div>
+	</body>
+</html>

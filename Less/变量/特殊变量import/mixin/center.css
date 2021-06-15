@@ -1,0 +1,7 @@
+.juzhong {
+  width: 100px;
+  color: red;
+}
+.juzhong:hover {
+  border: 1px solid #000;
+}

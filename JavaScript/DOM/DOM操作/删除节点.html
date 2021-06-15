@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>删除节点</title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#father {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+			.son {
+				width: 50px;
+				height: 50px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="father"></div>
+		<script>
+			var father = document.getElementById('father')
+			// 创建一个子节点
+			var son = document.createElement('p')
+			father.appendChild(son)
+			// 创建一个文本节点
+			var text = document.createTextNode('我是子节点的文本')
+			// 添加到子节点中
+			son.appendChild(text)
+			// 创建一个属性节点
+			var atr = document.createAttribute('class')
+			
+			// 可以直接通过setAttribute来设置里面的值,不用那么麻烦
+			son.setAttribute('class', 'n');
+			
+			// 第一种：删除子节点的属性节点
+			// 1.首先通过获取当前元素的属性节点
+			// 2.然后将获取到的元素节点传入
+			// var atrNode = son.getAttributeNode('class')
+			// son.removeAttributeNode(atrNode)
+			
+			// 第二种删除子节点的属性节点
+			son.removeAttribute('class')
+			// 删除子节点的文本节点
+			// 要传入文本节点
+			son.removeChild(text)
+			
+			// 删除子节点
+			son.remove()
+		</script>
+	</body>
+</html>

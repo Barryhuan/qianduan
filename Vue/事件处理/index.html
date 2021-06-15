@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件处理</title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h2>绑定事件</h2>
+			<button @click="a">事件a</button>
+			<button @click="b('我是事件b')">事件b</button>
+			<button @click="c($event)">事件c</button>
+			
+			<h2>事件修饰符</h2>
+			<div style="width: 200px; height: 200px; background-color: red" @click="d">
+				<div style="width: 100px; height: 100px; background-color: blue" @click.stop="e"></div>
+			</div>
+			<a href="https://www.baidu.com" v-on:click.prevent="g">百度</a>
+			
+			<h2>按键修饰符</h2>
+			<input type="text" @keyup.13="t">
+			<input type="text" @keyup.enter="t">
+		</div>
+		<script>
+			new Vue({
+				el: '#app',
+				methods: {
+					a(){
+						alert('我是事件a')
+					},
+					b(value) {
+						alert('我是事件b')
+					},
+					c(event) {
+						alert(event.target.innerHTML)
+					},
+					d() {
+						alert('我是大盒子')
+					},
+					e() {
+						alert('我是小盒子')
+					},
+					g() {
+						alert('我是阻止默认行为的prevent修饰符，而且我不会跳转！')
+					},
+					t() {
+						alert('我是按键修饰符13= enter')
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

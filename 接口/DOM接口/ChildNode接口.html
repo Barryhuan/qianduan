@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ChildNode接口</title>
+	</head>
+	<body>
+		<div id="d1">哈哈哈哈</div>
+		<script type="text/javascript">
+			var d1 = document.querySelector("#d1");
+
+			// methods
+
+			// 移除自身
+			d1.remove();
+
+			// 插入到元素内容之前
+			d1.before();
+
+			// 插入到元素内容之后
+			d1.after();
+
+			// 完全替换节点和内容
+			d1.replaceWith();
+		</script>
+	</body>
+</html>

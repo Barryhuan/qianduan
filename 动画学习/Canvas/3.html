@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>园的使用</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        #box {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #FFF;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .6);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="box" width="800px" height="800px"></canvas>
+    <script>
+        var box = document.querySelector('#box')
+
+        if (box.getContext) {
+            let cav = box.getContext('2d')
+            cav.fillStyle = 'blue'
+            cav.arc(200, 200, 60, 0, 2 * Math.PI, true)
+            // cav.stroke()
+            cav.fill()
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>缓存动画框架</title>
+        <meta charset="UTF-8">
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            #demo {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                position: absolute;
+                left : 0;
+                top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="b1">点我</button>
+        <div id="demo"></div>
+        <script>
+            var b1 = document.getElementById('b1')
+            var demo = document.getElementById('demo')        
+            b1.onclick = function () {
+                animate(demo, {'width' : 400, 'height' : 300, 'opacity' : 1})
+            }   
+            
+            function animate(obj, json, fn) {
+                clearInterval(obj.timer)
+                obj.timer = setInterval(function () {
+                    // 假设所有值都达到目标
+                    var flag = true
+                    for (var k in json) {
+                        // 因为opacity的值不带px而且数值小
+                        if (k === 'opacity') {
+                            // leader的值放大
+                            var leader = getStyle(obj, k) * 100
+                            // targetr的值放大
+                            var target = json[k] * 100
+                            // console.log('属性名：' + k + '-----值：' +json[k])
+                            var speed = (target - leader) / 10
+                            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed)
+                            leader += speed
+                            // 将值降到正常值
+                            obj.style[k] = leader / 100
+                        } else if (k === 'zIndex') {
+                            // 如果为z-index属性则直接赋值
+                            obj.style.zIndex = json[k]
+                        } else {
+                            var leader = parseInt(getStyle(obj, k))
+                            var target = json[k]
+                            // console.log('属性名：' + k + '-----值：' +json[k])
+                            var speed = (target - leader) / 10
+                            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed)
+                            leader += speed
+                            obj.style[k] = leader + 'px'
+                        }                      
+                        
+                        // console.log(obj.style[k])
+                        if (leader !== target) {
+                            flag = false
+                        }
+                    }
+                    // 判断所有的属性是否都达到目标值
+                    if (flag) {
+                        clearInterval(obj.timer)
+                        // 当动画结束后再调用回调函数
+                        // 判断传入的参数里有没有函数
+                        if (fn) {
+                            fn()
+                        }
+                    }
+                    
+                }, 15)
+            }
+            
+            // 封装获取属性的方法
+            function getStyle(obj, attr) {
+                if (window.getComputedStyle) {
+                    return window.getComputedStyle(obj, null)[attr]
+                } else {
+                    return obj.currentStyle[attr]
+                }
+            }
+
+            // 普通的缓存动画函数
+            // function animate(obj, target) {
+            //     clearInterval(obj.timer)
+            //     obj.timer = setInterval(function (){
+            //         var leader = obj.offsetLeft
+            //         var speed = (target - leader) / 10
+            //         speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed)
+            //         leader += speed
+            //         obj.style.left = leader + 'px'
+            //         if (leader === target) {
+            //             clearInterval(obj.timer)
+            //         }
+            //     }, 15)
+            // }
+
+            // function animate(obj, attr, target) { 第一个版本
+            //     clearInterval(obj.timer)
+            //     obj.timer = setInterval(function () {
+            //         var leader = parseInt(getStyle(obj, attr))
+            //         // console.log(leader)
+            //         var speed = (target - leader) / 10
+            //         speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed)
+            //         leader += speed
+            //         obj.style[attr] = leader + 'px'
+            //         if (leader === target) {
+            //             clearInterval(obj.timer)
+            //         }
+            //     }, 15)
+            // }
+        </script>
+    </body>
+</html>

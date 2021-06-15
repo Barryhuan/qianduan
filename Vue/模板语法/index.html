@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>模板语法</title>
+		<script src="../js/vue.js"></script>
+		<style>
+			.red {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<h1>模板语法</h1><br>		
+			<h2>指令</h2>
+			<p>v-model，v-bind，v-on这些都是指令</p><br>
+				<div>
+					<h4>文本输出指令：v-text</h4>
+					<p v-text="src"></p>
+					<h4>标签输出指令：v-html</h4>
+					<p v-html="src"></p>
+				</div><br>
+				
+			<h3>指令一：强制数据绑定（属性）</h3>
+				<div>
+					<p>第一种写法：v-bind:href="href"</p>
+					<a v-bind:href="href">我是被绑定的标签a</a>
+					<p>第二种写法：:class="red"</p>
+					<a :class="red">我是红色</a>
+				</div><br>
+			
+			<h3>指令二：绑定监听事件</h3>
+				<div>
+					<p>第一种写法：v-on:click="alert"</p>
+					<button v-on:click="alert">跳出提示</button>
+					<p>第二种写法：@click="over"</p>
+					<button id="color" @mouseover="over" @mouseout="out">悬浮变色</button>
+				</div><br>
+			
+			
+			<h2>双括号</h2>
+			<p>{{}}和指令的作用是一样的</p><br>
+			
+			
+			
+			
+			<h2>实例</h2>
+				<div>
+					<p>实现同步输出</p>
+					<input type="text" v-model="msg">
+					<p>Hellow {{msg}}</p><br>
+				</div>
+		</div>
+		<script>
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					msg: 'Barry',
+					src: '<a href="https://www.baidu.com">百度</a>',
+					href: 'http://www.baidu.com',
+					red: 'red'
+				},
+				methods: {
+					alert() {
+						console.log(this)
+						alert(this.msg);
+					},
+					over() {
+						var color = document.getElementById('color')
+						color.style.backgroundColor="yellow";
+					},
+					out() {
+						var color = document.getElementById('color')
+						color.style.backgroundColor="";
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

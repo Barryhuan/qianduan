@@ -1,0 +1,91 @@
+标签
+<body>是块级标签，margin为8px
+<fieldset>表示领域，是块级元素，margin是左右2px，border是2px，padding分别是左右12px，下10，上5.6
+<legend>表示解释说明，是块级元素，也是fieldset是标题，padding为左右2px
+<p>表示段落，是块级元素，margin上下16px
+<ul>表示无序列表，<ol>表示有序列表，都是块级元，margin是上下16px，padding是左40px
+<li>表示列表，是块级元素
+
+<form>表单，是块级元素，属性action提交到的服务器地址，method提交方式
+<select>是行内块元素，select的border为1px，子元素有option选项和optgroup选项组都是块级元素，option的padding左右2px，下1px
+<textarea>是行内块元素，border为1px，padding为2px
+<input>是行内块，里面的所有都是行内块
+<input type="text">的border为2px，padding上下1px
+<input type="password">的border为2px，padding上下1px
+<input type="tel">的border为2px，padding上下1px
+<input type="url">的border为2px，padding上下1px
+<input type="email">的border为2px，padding上下1px
+<input type="datetime">的border为2px，padding上下1px
+<input type="number">的border为2px，padding为上下1px
+
+<input type="checkbox">的margin是上下右为3px，左为4px
+<input type="radio">的margin是上右是3px，左为5px
+<input type="color">的border为1px，padding为上下1px，左右为2px
+<input type="search">的border为2px，padding为1px
+
+<input type="date">的border为2px，padding左1px
+<input type="month">的border为2px，padding左1px
+<input type="week">的border为2px，padding左1px
+<input type="datetime-local">的border为2px，padding左1px
+
+<input type="range">的margin为2px
+
+<input type="button">的border为2px，padding上下为1px,左右为6px
+<input type="reset">的border为2px，padding为上下1px，左右为6px
+<input type="submit">的border为2px，padding为上下1px，左右为6px
+<button>是行内块元素，border为2px，padding为上下1px，左右6px
+
+<dl>自定义列表，是块级元素，margin上下16px
+<dt>和<dd>是块级元素，dd的margin左为40px
+
+<talbe>是表格，是display：table
+table里面有四大部分
+<caption>表格标题，display: table-caption
+<thead>表头，display: table-header-group
+<tbodu>表体，display: table-row-group
+<tfoot>表底，display: table-footer-group
+
+<tr>行，display: table-cell
+<th>和<td>格子，display: table-cell，padding为1px
+
+
+表单归类
+输入类：
+text -- password -- tel -- email
+
+点击类：
+button -- image -- submit -- reset
+
+新增类：
+url -- search -- color -- range
+
+其他类：
+file -- hidden --  select -- textarea
+
+控件类：
+checkbox -- radio
+
+
+HTML5的新增标签：
+<header>：头部
+<main>：主体
+<footer>：底部
+<section>：部分
+<artical>：文章
+<aside>：其他
+<audio>：音乐
+<video>：视频
+<canvas>：绘图
+<figure>：属于主体，常用来引用文章，图片，超链接，移除主体不会对主体有影响
+<figcaption>：属于figure标题
+<progrees>：进度条
+<meter>：记量条
+
+<hgroup>：标题组
+<datalist>：列表选项    
+<dialog>：对话框
+<mark>：高亮文本
+<details>：用于描述文档或文档某个部分的细节，配合组件<summary>
+<ruby>和<rt>：用来表示一些难懂的字体的拼读，ruby显示的字体，rt用来显示音节
+<output>：输出结果
+<time>：时间（无效果）

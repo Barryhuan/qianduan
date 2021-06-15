@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>创造节点</title>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script>
+        $(function () {
+            // 事件绑定-----------------------------------------------------------------------------------------------------------------
+            $('#b1').bind('click', myclick = function () {
+                console.log('你他妈居然在点我')
+            }).bind('click', function () {
+                console.log('你他妈居然在还点我')
+            }).bind('mouseover', myover = function () {
+                console.log('你他妈居然在看我')
+            }).bind('mouseover', myover1 = function () {
+                console.log('你他妈居然依旧看完')
+            })
+            // 绑定多个事件
+            // $('#b1').bind('mouseover mouseout', function () {
+            //     console.log('我进去也出来了')
+            // })
+            // 这个相当于hover事件，但是hover事件绑定的是mouseenter和mouseleave
+
+            // 自定义事件命名空间
+            $('#b1').bind('click#plig', function () {
+                console.log('操')
+            })
+            // 触发指定自定义事件,跟第一个事件搭配
+            // 在弄了触发事件才会，同时给对象使用自定义事件和事件，会覆盖事件，自定义事件
+            // 自定义事件则无法单独使用
+            $('#b2').click(function () {
+                $('#b1').trigger('click#plig')
+            })
+            // 只能点一次的事件绑定
+            // $('#b1').one('click', function () {
+            //     console.log('你他妈居然在点我')
+            // })
+
+
+            // 清除事件-----------------------------------------------------------------------------------------------------------------
+            $('#b3').click(function () {
+                $('#b1').unbind('mouseover', myover)
+            })
+        })
+    </script>
+</head>
+<body>
+    <button id="b1">点老子一</button>
+    <button id="b2">点我老二</button>
+    <button id="b3">清除老一</button>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>背景样式</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			div {
+				width: 300px;
+				height: 100px;
+				border: 1px solid red;
+				/* 颜色样式 */
+				/* background-color: red; */
+				
+				/* 
+				   
+				   要是有图片大小和容器大小一样的话，图片会覆盖颜色 
+				   图片大于容器，则会显示一部分
+				   图片小于容器，则会进行平铺
+				*/
+				background-image: url('1.jpg');
+				
+				/* 平铺属性 */
+				/* background-repeat: repeat; *//* 默认值 x和y方向平铺*/ 
+				background-repeat: no-repeat; /* 不平铺
+				/* background-repeat: repeat-x;*/ /* x方向 */ 
+				/* background-repeat: repeat-y; *//* y方向 */ 
+				/* background-repeat: round; *//* 等比例缩小平铺 */ 
+				/* background-repeat: space; *//* 按照一定比例分隔平铺（间距值） */ 
+				/* background-repeat: inherit;*/ /* 从父元素继承background-repeat属性 */ 
+				
+				/* background-attachment: fixed; */ /* 图片固定的不会随着滚动改变 */
+				/* background-attachment: scroll */ /* 图片随着滚动而滚动 */
+				/* background-attachment: local; *//* 图片会跟着内容的滚动而滚动 */
+				
+				/* 设置图片的高宽 
+				   同时设置的宽高会让图片失真
+				   还有设置auto自适应
+				   可以设置像素，百分比
+				*/
+				background-size: 200px 400px;
+				
+				/* 
+				   contain属性
+				   如果图片大于容器，会让图片缩小比例自动适应容器, 会产生空隙
+				   如果图片小于容器，会让图片放大比例自动适应容器, 会产生空隙
+				   （图片包含在容器里）
+				 */
+				background-size: contain;
+				
+				/* 
+				   cover属性
+				   如果图片大于容器，会让图片等比例缩小, 会铺满整个容器，一部分无法显示
+				   如果图片小于容器，会让图片等比例放大, 会造成内容溢出
+				   主要应用于轮播图或者banner的自适应
+				   （图片铺满容器）
+				*/
+				background-size: cover;
+				
+				
+				/* clip和origin一般用于精灵图的设置和裁剪 */
+				/* 设置原点的位置
+				   填充图片都会以左上角的位置为原点
+				   border-box: 和边框重叠，从边框的位置填充
+				   padding-box: 和paddi重叠，从内边距的位置开始填充
+				   content-box：和内容重叠，从内容的位置开始填充
+				 */
+				background-origin: border-box;
+				/* background-origin: padding-box; */
+				/* background-origin: content-box; */
+				
+				/* 裁剪属性
+				   border-box: 和边框重叠，从边框的位置裁剪
+				   padding-box: 和paddi重叠，从内边距的位置开始裁剪
+				   content-box：和内容重叠，从内容的位置开始裁剪
+				*/
+			   background-clip: border-box;
+			   /* background-clip: padding-box; */
+			   /* background-clip: content-box; */
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

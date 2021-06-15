@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>localStorage</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    数据：<input type="text" id="text"><br>
+    <input type="button" value="设置" id="set">
+    <input type="button" value="获取" id="get">
+    <input type="button" value="清除" id="clear">
+    <script>
+        var set = document.querySelector('#set')
+        set.onclick = function () {
+            var name = document.querySelector('#text').value
+            // 设置localStorage
+            window.localStorage.setItem('UserName', name)
+            console.log(name)
+        }
+
+        var get = document.querySelector('#get')
+        get.onclick = function () {
+            // 获取localStorage
+            console.log(window.localStorage.getItem('UserName'))
+        }
+
+        var clear = document.querySelector('#clear')
+        // 清除localStorage 
+        clear.onclick = function () {
+            window.localStorage.clearItem('UserName')
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>手风琴</title>
+        <meta charset="UTF-8">
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+
+            #box {
+                width: 1150px;
+                height: 276px;
+                margin: 50px auto;
+                border: 1px solid red;
+                overflow: hidden;
+            }
+
+            #box ul {
+                width: 1300px;
+            }     
+
+            #box ul li {
+                width: 240px;
+                height: 276px;
+                background: url(img/1.png);
+                float: left;
+            }            
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <script>
+            var box = document.getElementById('box')
+            var ul = box.children[0]
+            var lis = ul.children
+
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].style.background = 'url(img/'+ (i+1) +'.png)'
+                lis[i].onmouseover = function () {
+                    for (var j = 0; j < lis.length; j++) {
+                        animate(lis[j], {'width' : 100})
+                    }
+                    animate(this, {'width' : 800})
+                }
+            }
+
+            box.onmouseout = function () {
+                for (var i = 0; i < lis.length; i++) {
+                    animate(lis[i], {'width' : 240})
+                }
+            }
+
+            function animate(obj, json) {
+                clearInterval(obj.timer)
+                obj.timer = setInterval(function () {
+                    var flag = true
+                    for (var k in json) {                        
+                        var leader = parseInt(getStyle(obj, k))
+                        var target = json[k]
+                        console.log('属性名：' + k + '-----值：' +json[k])
+                        var speed = (target - leader) / 10
+                        speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed)
+                        leader += speed
+                        obj.style[k] = leader + 'px'
+                        console.log(obj.style[k])
+                        if (leader !== target) {
+                            flag = false
+                        }
+                    }
+                    if (flag) {
+                        clearInterval(obj.timer)
+                    }
+                    
+                }, 15)
+            }
+            // 封装获取属性
+            function getStyle(obj, attr) {
+                if (window.getComputedStyle) {
+                    return window.getComputedStyle(obj, null)[attr]
+                } else {
+                    return obj.currentStyle[attr]
+                }
+            }
+        </script>
+    </body>
+</html>

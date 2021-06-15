@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>矩形</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        #box {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #FFF;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .6);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="box" width="800px" height="800px"></canvas>
+    <script>
+        var box = document.querySelector('#box')
+        if (box.getContext) {
+            var cav = box.getContext('2d')
+            cav.strokeStyle = 'pink'
+            cav.lineWidth = 2
+            cav.strokeRect(100.5, 100.5, 100, 100)
+
+            cav.fillStyle = 'blue'
+            cav.strokeStyle = 'red'
+            cav.lineWidth = 3
+            cav.fillRect(0, 0, 100, 100)
+            // cav.clearRect(0, 0, 99, 99)
+
+
+        } else {
+            alert('请更换高级一定的浏览器')
+        }
+    </script>
+</body>
+</html>

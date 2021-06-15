@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>遍历节点</title>
+		<style type="texxt/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			#father {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="father">
+			<div class="son"></div>
+			<p>我</p>
+			<input type="text" name="老王">
+			<span>操</span>
+			<!--哈哈哈  -->
+		</div>
+	</body>
+	<script>
+		var father = document.getElementById('father')
+		
+	// 获取父节点 (body)
+	
+		var fatherNode = father.parentNode
+		console.log(fatherNode)
+		// 获取父节点的父节点 (根节点：html)
+		var grandfatherNode = father.parentNode.parentNode
+		console.log(grandfatherNode)
+		// 获取父节点的父节点的父节点( 文档节点：#document)
+		var grandgrandfatherNode = father.parentNode.parentNode.parentNode
+		console.log(grandgrandfatherNode)
+		
+	// 获取父元素 (body)
+	
+		var fatherElement = father.parentElement
+		console.log(fatherElement)
+		
+		// 获取父元素的父元素 (html)
+		var grandfatherElement = father.parentElement.parentElement
+		console.log(grandfatherElement)
+		
+		// 获取父元素的父元素的父元素 (不存在：null)
+		var grandgrandfatherElement = father.parentElement.parentElement.parentElement
+		console.log(grandgrandfatherElement)
+		
+	// 遍历子节点
+	
+		// 获取所有子节点,包括(空格，文本，注释),一般是NodeList节点集合
+		var sonNode = father.childNodes
+		console.log(sonNode) // NodeList(11)
+		
+		// 获取第一个子节点:一般只获取到空格或文本 
+		var firstChildNode = father.firstChild
+		console.log(firstChildNode) // #text
+		
+		// 获取最后一个子节点:一般只获取到空格或文本 
+		var lastChildNode = father.lastChild
+		console.log(lastChildNode) // #text
+	
+	// 遍历子元素
+		
+		// 获取所有子元素,一般是HTMLCollection元素集合
+		var sonElement = father.children
+		console.log(sonElement) // HTMLCollection(4) [div.son, p, input, span, 老王: input]
+		
+		// 获取第一个子元素(div.son)
+		var firstChildElement = father.firstElementChild
+		console.log(firstChildElement) // <div class="son"></div>
+		
+		// 获取最后一个子元素(span)
+		var lastChildElement = father.lastElementChild
+		console.log(lastChildElement) // <span>操</span>
+		
+	// 遍历兄弟节点
+
+		var son = document.querySelector('.son')
+		console.log(son)
+		// 获取一个下一个兄弟节点
+		var nextNode = son.nextSibling
+		console.log(nextNode) // #text
+		// 获取一个上一个兄弟节点
+		var previousNode = son.previousSibling
+		console.log(previousNode) // #text
+
+	// 遍历兄弟元素
+
+		// 获取一个下一个兄弟元素
+		var nextElement = son.nextElementSibling
+		console.log(nextElement) // <p>我</p>
+		// 获取一个上一个兄弟元素(因为是第一个，所有就没有上一个兄弟元素)
+		var previousElement = son.previousElementSibling
+		console.log(previousElement) // null
+		
+	</script>
+</html>

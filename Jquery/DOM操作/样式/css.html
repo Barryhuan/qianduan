@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>css</title>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script>
+        $(function () {
+            // 设置的style里的属性
+            // css只设置一个属性
+            $('#d1').css('width', 20)
+            // css设置多个属性
+            $('#d1').css({'height' : 20, 'background': 'red'})
+            // css获取属性，而且只能获取一个
+            // 获取的值是字符串
+            var a = $('#d1').css('height')
+            console.log(a)
+        })
+    </script>
+</head>
+<body>
+    <div id="d1"></div>
+</body>
+</html>

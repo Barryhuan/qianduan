@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>transition过渡效果</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			div {
+				width: 300px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				top: 200px;
+				left: 0;
+				/* transition
+				   transition：可以让拥有具体数值的实现，如背景属性，left属性，只有状态值的就不行：如display
+				   transition-property：要过渡的属性；
+				   transition-duration：过渡所需要的时间
+				   transition-timing-function：过渡所需要的速度
+				   linear：匀速
+				   ease：先慢后快再慢
+				   ease-in：先慢后快
+				   ease-out：先快后慢
+				   ease-in-out： 先慢后慢
+				   cubic-bezier（n，n，n，n）：n：0~1
+				   step(n)：n动画实现的次数
+				   transition-delay： 延迟的时间
+				*/
+			   /* transition-property: left;
+			   transition-duration: 2s;
+			   transition-timing-function: ease;
+			   transition-delay: 2s; */
+			   /* 简写形式 */
+			   transition: left 0.5s linear 0s, background 0.3s linear 0s, height 0.5s linear 0s; 
+			   
+			}
+			
+			div:active {
+				height: 500px;
+				left: 1000px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

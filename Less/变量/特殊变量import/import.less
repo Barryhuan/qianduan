@@ -1,0 +1,67 @@
+//@import "mixin/center.less";
+
+// @import "路径.扩展名";
+// @import可以放在文件的任何位置
+//@import "mixin/center";
+// 没有扩展名的话默认是.less
+
+//@import "mixin/center.php";
+// 其他文件格式则会转化为less文件
+//----------------------------------------------------------------------------------
+// @import导入选项
+
+// 1.reference: 导入less文件，为里面的每个样式添加引用的标记,只有被混合调用或者继承时，引用标记会被解除，否则都不会编译到CSS文件中
+// 下面的例子中，center.less文件中有&
+//@import (reference) "mixin/center.less";
+//#one {
+//  
+//}
+
+// 2.inline: 考虑到有些CSS文件不兼容的情况下，将文件中的所有样式输出到CSS文件中，可以使用inline选项
+//@import (inline) "mixin/center.less";
+//#two {}
+
+// 3.less：将导入的文件全部作为Less文件使用
+//@import (less) "mixin/center.less";
+
+// 4.css：将导入的文件全部作为css文件使用,将文件中的内容全部输出到css中
+//@import (css) "mixin/center.less";
+//#wrap {
+//  width: 100px;
+//  height: 100px;
+//}
+
+// 5.once：导入的文件只执行一次，后面的导入同名的文件无效
+//@import (once) "mixin/center.less";
+//@import (once) "mixin/center.less"; // 这个无效
+
+//.juzhong {
+//color: red;
+//}
+//.juzhong:hover {
+//border: 1px solid #000;
+//}
+
+
+// 6.multiple：导入的文件执行多次，后面的导入同名的文件每声明一次调用一次
+//@import (multiple) "mixin/center.less";
+//@import (multiple) "mixin/center.less"; // 这个有效
+
+// 输出结果
+
+//.juzhong {
+//color: red;
+//}
+//.juzhong:hover {
+//border: 1px solid #000;
+//}
+//.juzhong {
+//color: red;
+//}
+//.juzhong:hover {
+//border: 1px solid #000;
+//}
+
+// 7.optional：文件存在时允许导入文件，要是没有optional话Less则会出现FileError错误
+@import (optional) "mixin/center.less";
+// 不过这里会报错，我也不知为什么

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>包裹节点</title>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script>
+        $(function () {
+            var a = $('<div>哈哈</div>')
+            // 包裹单个节点,和其他一起用会有问题
+            // $('#d1').wrap(a)
+            // 包裹多个节点
+            $('div').wrapAll(a)
+            // 包裹节点内容
+            // $('#d1').wrapInner(a)
+        })
+    </script>
+</head>
+<body>
+    <div id="d1">我的天呀</div>
+    <div id="d2">我的老天呀</div>
+</body>
+</html>

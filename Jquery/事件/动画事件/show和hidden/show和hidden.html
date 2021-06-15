@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>show和hidden</title>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script>
+        // 显示和隐藏：'fast':0.2s, 'slow':0.6, 'normal':0.4
+        // 改变高度和宽度和透明度
+        $(function () {
+            $('#d1').mouseover(function () {
+                $(this).stop().hide('.2s')
+            }).mouseout(function () {
+                $(this).stop().show('.6s')
+            })
+
+        })
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #d1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d1"></div>
+</body>
+
+</html>

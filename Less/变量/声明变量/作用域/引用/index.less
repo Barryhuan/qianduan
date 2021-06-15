@@ -1,0 +1,19 @@
+@one: {
+//  width: @width;
+    height: @height;
+};
+
+#one {
+    @width: 100px;
+    .two {
+        @two : @one;
+        @height: 200px;
+    }
+}
+
+.class {
+    #one .two;
+    @two();
+}
+
+// 引用不会进入新的范围里寻找变量，例如@width

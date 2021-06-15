@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义插件</title>
+		<script src="../js/vue.js"></script>
+		<script src="index.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p v-myzhiling="msg">{{msg}}</p>
+		</div>
+		<script>
+			Vue.use(myPlugin)
+			var vue = new Vue({
+				el: '#app',
+				data: {
+					msg: '我是老王'
+				}
+			})
+			Vue.myGlobalMethod()
+			vue.$mymethod()
+		</script>
+	</body>
+</html>

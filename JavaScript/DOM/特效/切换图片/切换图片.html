@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>切换图片</title>
+    </head>
+    <body>
+        <input type="button" value="点我" id="photo">
+        <img src="../imgs/1.png" id="img">
+        <script>
+            var button = document.getElementById('photo')
+            var img = document.getElementById('img')
+            var flag = 1
+            button.onclick = function(){              
+                if (flag === 1) {
+                    img.src = '../imgs/2.jpg'
+                    flag = 2
+                } else if (flag === 2) {
+                    img.src = '../imgs/1.png'
+                    flag = 1
+                }
+            }
+        </script>
+    </body>
+</html>

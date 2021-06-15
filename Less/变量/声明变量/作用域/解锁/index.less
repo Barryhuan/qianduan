@@ -1,0 +1,26 @@
+#one {
+    @width: 500px;
+    .one {
+        @color: {
+            width: @width;
+        };
+    }
+}
+
+#two {
+    @width: 400px;
+    .two {
+        @width: 100px;
+        #one .one;
+        // #one .one相当于把@width: 500px;放在这里
+        @color();
+        // 结果为width: 500px
+    }
+}
+
+.class {
+    #two .two;
+    @color();
+}
+
+// 通过解锁混合来调用声明变量，获取当前范围访问权（也就是通过混合的解锁带着声明变量到处访问）

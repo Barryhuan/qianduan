@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <img src="img/1.png">
+        <input type="button" id="b1" value="全屏">
+        <input type="button" id="b2" value="退出全屏">
+        <input type="button" id="b3" value="判断是否为全屏还是不是全屏">
+    </div>
+    <script>
+        // 点击显示全屏
+        var div = document.querySelector('div')
+        document.querySelector('#b1').onclick = function () {
+            // requestFullscreen的screen的s必须小写才能用
+            div.requestFullscreen()
+        }
+        // 点击退出全屏
+        document.querySelector('#b2').onclick = function () {
+            // 谷歌的要加webkit，火狐要用moz，ie要用ms
+            document.webkitCancelFullScreen()
+            // exit也是退出的意思，但是screen的s必须小写才可以用
+            // document.exitFullscreen()
+        }
+        // 点击判断是否为全屏
+        document.querySelector('#b3').onclick = function () { 
+            console.log(document.fullscreenElement)
+            // document.fullscreenElement是判断屏幕状态，要是全屏，则返回一个对象，没有则返回一个null
+            // 把它放在if（中）则会自动转换为boolean值，以此判断
+        }
+    </script>
+</body>
+</html>

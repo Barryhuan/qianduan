@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>伪类选择器</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			/* 兄弟伪类 + ：只指定相邻的元素，要是有其他的元素阻挡则无效*/
+			.first + div {
+				display: block;
+				width: 100px;
+				height: 100px;
+				line-height: 100px;
+				cursor: pointer;
+				background-color: blue;
+			}
+			/* 兄弟伪类 ~ ：指定后面的所有元素，要是有其他的元素阻挡也生效*/
+			.first ~  span{
+				display: block;
+				width: 100px;
+				float: left;
+				margin:0 5px;
+				height: 100px;
+				line-height: 100px;
+				cursor: pointer;
+				background-color: red;
+			}
+		</style>	
+	</head>
+	<body>
+		<div>
+			<div class="first">1</div>
+			<div>操</div>
+			<span>老王</span>
+			<span>老许</span>
+			<span>老陈</span>
+			<span>老曹</span>
+			<input type="text">
+		</div>
+	</body>
+</html>

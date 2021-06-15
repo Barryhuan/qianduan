@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>奇偶行换色</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div id="d1">
+            <ul>
+                <li>西施</li>
+                <li>貂蝉</li>
+                <li>王昭君</li>
+                <li>邓花蓉</li>
+            </ul>
+        </div>
+        <script>
+            var ul = document.getElementById('d1').firstElementChild
+            for (var i = 0; i < ul.children.length; i++) {
+                var li = ul.children[i]
+                if (i % 2 === 0) {
+                    li.style.background = 'red'
+                } else {
+                    li.style.background = 'blue'
+                }
+            }
+        </script>
+    </body>
+</html>

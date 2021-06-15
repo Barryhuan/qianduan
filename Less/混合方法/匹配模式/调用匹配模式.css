@@ -1,0 +1,35 @@
+#one {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  background-color: #ffff00;
+}
+#two {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  background-color: #ffc0cb;
+}
+#three {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+  background-color: #0000ff;
+}
+#four {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  right: 0;
+  background-color: #ff0000;
+}
+#five {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  background-color: #008000;
+}

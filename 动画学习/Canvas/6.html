@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>文字font and text</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        #box {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #FFF;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .6);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="box" width="800px" height="800px"></canvas>
+    <script>
+        let box = document.querySelector('#box')
+        if (box.getContext) {
+            let cav = box.getContext('2d')
+            cav.shadowColor = 'black'
+            cav.shadowBlur = 2
+            cav.shadowOffsetX = 2
+            cav.shadowOffsetY = 2
+            cav.font = '900 40px Arial' // 跟CSS的font属性是一样的，综合属性
+            // 是以字体最左边的字作为参考
+            cav.fillStyle = 'red'
+            // cav.textAlign = 'left'
+            // cav.textAlign = 'right'
+            // cav.textAlign = 'center'
+            // cav.textAlign = 'end'
+            cav.textAlign = 'start'
+            // cav.textBaseline = 'top' // 基线下面,中间隔点距离 
+            // cav.textBaseline = 'bottom' // 基线上面，中间隔点距离
+            // cav.textBaseline = 'middle' // 基线中间
+            // cav.textBaseline = 'hanging' // 基线下面，紧贴基s线
+            // cav.textBaseline = 'alphabetic' // 基线上面，紧贴基线
+            cav.textBaseline = 'ideographic' // 基线
+
+            cav.textBaseline = 'alphabetic'
+            cav.fillText('Hello Word', 300, 400)
+            cav.strokeText('靓仔，快来玩啊!', 300, 100)
+            
+            let text = '我好帅啊，我真滴是'
+            cav.strokeText('width:' + cav.measureText(text).width, 300, 200)
+            console.log(cav.measureText(text)) // width: 360
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>canvas的基本使用</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #test {
+            background-color: red;
+            margin: auto;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0; 
+        }
+    </style>
+</head>
+<body>
+    <canvas id="test" width ="500" height="500"/>
+    <script>
+        let canvas = document.querySelector('#test')
+        // 判断是否有画笔
+        if (canvas.getContext) {
+        // 获取画笔
+            var cav = canvas.getContext('2d')
+            cav.strokeStyle = 'yellow'
+            cav.moveTo(50, 50)
+            cav.lineTo(100, 100)
+            cav.lineTo(200, 50)
+            // 这个要按照顺序来弄，显示close，然后是stroke
+            cav.closePath()
+            cav.stroke()
+            // beginPath是用来清除路径容器的
+            cav.beginPath()
+            cav.fillStyle = 'blue'
+            cav.moveTo(250, 250)
+            cav.lineTo(300, 450)
+            cav.lineTo(500, 300)
+            // cav.fill会自动调用closePath
+            cav.fill()
+
+            cav.beginPath()
+            
+            cav.strokeStyle = 'pink'
+            cav.lineWidth = 25
+            // cav.lineCap = 'butt' // 线段末端以方形结束
+            // cav.lineCap = 'round' // 线段末端以圆形结束
+            cav.lineCap = 'square' // 线段末端以方形结束,但是会增加一个宽度和线段相等，高度是线段厚度的一半的矩形区域
+            // cav.lineCap不能和closePath一起使用，会显示不出来
+            cav.moveTo(100, 150)
+            cav.lineTo(100, 250)
+            // cav.closePath()
+            cav.stroke()
+            
+            cav.beginPath()
+            cav.fillStyle = 'purple'
+            // 画个矩形
+            cav.rect(0, 460, 10, 10)
+            cav.fill()
+
+            // stroke属性对rect无效
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+CMD主要是阿里用的规范，但是现在已经卖到国外，主要是阿还在用
+CMD结合了AMD和commonJs
+CMD是通用模块定义，但也是在浏览器端加载是异步的，使用时才会加载
+模块暴露：
+没有依赖的：
+define(function (require, exports, module) {
+    module.exports = value
+})
+
+有依赖的：
+define(function (require, exports, module) {
+    引入同步模块
+    var module2 = require('./modules/module3')
+    引入异步模块
+    require.async('./module3', function (m3) {
+
+    })
+    暴露模块
+    module.exports = value
+})
+
+引入模块
+define(function (require) {
+    var m1 = require('./modules/module1')
+    var m2 = require('./modules/module2')
+})

@@ -1,0 +1,30 @@
+#one {
+    .two {
+        .three {
+            width: 500px;
+            height: 500px;        }
+    }
+}
+
+#two {
+    #one .two > .three;
+}
+
+// 命名空间指的就是混合方法
+
+// 保护命名空间
+// 通过判断语句when来实现
+#three (@width) when (@width = 100px) {
+    color: red;
+}
+
+#four {
+    #three(200px);
+}
+
+
+// !important关键字实现在优先级最顶
+
+#five {
+    #one > .two > .three() !important;
+}

@@ -1,0 +1,8 @@
+.a.b.test,
+.test.c,
+.a.ttt.test {
+  color: red;
+}
+.test:hover {
+  color: blue;
+}

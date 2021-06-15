@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>替换节点</title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#father {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+			.son {
+				width: 50px;
+				height: 50px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="father">
+			<div>我的第一个</div>
+			<div>我的第二个</div>
+			<div>我的第三个</div>
+		</div>
+		<script>
+			// 获取父节点
+			var father = document.getElementById('father')
+			
+			// 创建一个子节点
+			var son = document.createElement('p')
+			// 创建一个文本节点并添加到子节点中
+			var text = document.createTextNode('我是子节点的文本节点')
+			son.appendChild(text)
+			
+		// 替换第一个子节点
+			
+			// 获取第一个子节点
+			var firstSon = father.firstElementChild
+			// 通过父节点来实现替换
+			// 第一个是要替换的节点,第二个参数是被替换的节点
+			father.replaceChild(son, firstSon)
+			
+			console.log(document.URL)
+		</script>
+	</body>
+</html>

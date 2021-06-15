@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件代理</title>
+</head>
+<body>
+    <ul id="color_list">
+        <li>
+            <a href="###">1</a>
+        </li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        // 一般的方法
+        // (function (event) {
+        //     var ul = document.querySelector("#color_list")
+        //     var lis = ul.children
+        //     for(var i = 0; i < lis.length; i++) {
+        //         lis[i].addEventListener("click", showclick, false)
+        //     }
+        //     function showclick(event) {
+        //         var target = event.target
+        //         console.log("我是li的" + target.innerText)
+        //     }
+        // })()
+
+        // 事件代理的方法
+        (function () {
+          var ul = document.querySelector("#color_list")
+          ul.addEventListener("click",showclick, false)
+          function showclick(event) {
+              var target = event.target
+              console.log(event.target)
+              if (target.nodeName.toLowerCase() === "li") {
+                  console.log("我是li的" + target.innerText)
+              } else if (target.nodeName.toLowerCase() === "a") {
+                  console.log("我是a的" + target.innerText)
+              }
+          }
+        })()
+    </script>
+</body>
+</html>

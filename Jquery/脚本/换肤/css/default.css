@@ -1,0 +1,92 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#big_box {
+  width: 400px;
+  margin: 20px;
+}
+
+#ulbox {
+  width: 300px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #999;
+}
+
+#ulbox li {
+  width: 14px;
+  height: 14px;
+  float: left;
+  margin: 13px 15px 0;
+  cursor: pointer;
+  background: url(../img/theme.gif);
+}
+
+#box {
+  width: 200px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+#box div {
+  width: 80px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  float: left;
+  cursor: pointer;
+  background-color: #999;
+  margin: 0 5px;
+}
+
+#ulbox #skin_1 {
+  background-position: 0px 0px;
+}
+
+#ulbox #skin_2 {
+  background-position: 15px 0px;
+}
+
+#ulbox #skin_3 {
+  background-position: 35px 0px;
+}
+
+#ulbox #skin_4 {
+  background-position: 55px 0px;
+}
+
+#ulbox #skin_5 {
+  background-position: 75px 0px;
+}
+
+#ulbox #skin_6 {
+  background-position: 95px 0px;
+}
+
+#ulbox #skin_1.selected {
+    background-position: 0px 15px !important;
+}
+
+#ulbox #skin_2.selected {
+    background-position: 15px 15px !important;
+}
+
+#ulbox #skin_3.selected {
+    background-position: 35px 15px !important;
+}
+
+#ulbox #skin_4.selected {
+    background-position: 55px 15px !important;
+}
+
+
+#ulbox #skin_5.selected {
+    background-position: 75px 15px !important;
+}
+
+#ulbox #skin_6.selected {
+    background-position: 95px 15px !important;
+}

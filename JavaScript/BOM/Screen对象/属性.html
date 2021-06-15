@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Screen的属性</title>
+    <style type="text/css">
+        /* body {
+            
+        } */
+    </style>
+</head>
+
+<body>
+    <button id="b1">点击</button>
+    <script>
+        let b1 = document.getElementById('b1')
+        b1.onclick = function () {
+            // 返回屏幕的宽高
+            console.log('返回屏幕的宽：' + window.screen.width, '返回屏幕的高：' + window.screen.height)
+            // 返回屏幕的宽：1920  返回屏幕的高：1080
+
+            // 返回屏幕的宽高(除了window任务栏)
+            console.log('返回屏幕的宽(除window任务栏)：' + window.screen.availWidth, '返回屏幕的高(除window任务栏)：' + window.screen.availHeight)
+            // 返回屏幕的宽(除window任务栏)：1920 返回屏幕的高(除window任务栏)：1050
+
+            console.log('左边用第一个像素点：' + window.screen.availLeft) // 左边用第一个像素点：1920
+
+            console.log('顶部的第一个像素点：' + window.screen.availTop) // 顶部的第一个像素点：0
+
+            // 返回目标设备或缓冲器上的调色板的比特深度
+            console.log('目标设备或缓冲器上的调色板的比特深度：' + window.screen.colorDepth) // 目标设备或缓冲器上的调色板的比特深度：24
+
+            // 获取屏幕的像素点
+            console.log('返回屏幕的分辨率：' + window.screen.pixelDepth)  // 返回屏幕的像素点：24
+
+            // 返回当前屏幕的转向
+            console.log( window.screen.orientation) // ScreenOrientation { type: "landscape-primary", angle: 0, onchange: null }
+            
+             // 屏幕方向对象
+            console.log(window.screen) 
+            // Screen { availWidth: 1920, availHeight: 1050, width: 1920, height: 1080, colorDepth: 24, pixelDepth: 24, top: 0, left: 1920, availTop: 0, availLeft: 1920 }
+        }
+    </script>
+</body>
+
+</html>

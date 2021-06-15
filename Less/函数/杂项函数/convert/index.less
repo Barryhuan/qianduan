@@ -1,0 +1,11 @@
+// 转化单位
+// 时间单位：s - ms
+// 距离单位：cm, mm, m - in, pt, pc
+// 角度单位：deg, turn, rad, grad
+
+@width: convert(5px, rad);
+// 如果转化失败则会返回第一个参数
+#one {
+    @width: convert(5px, cm); // 转化成功则实现转换
+    width: @width;
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 490px;
+            border: 1px solid #000;
+            margin: 50px auto;
+            padding: 10px;
+        }
+
+        #box .inner {
+            width: 490px;
+            height: 278px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .inner ul {
+            width: 1000%;
+            height: 278px;
+            position: absolute;
+            top: 0;
+        }
+
+        .inner ul li {
+            float: left;
+        }
+
+        .inner ol {
+            position: absolute;
+            top: 230px;
+            left: 105px;
+            width: 300px;
+            height: 40px;
+        }
+
+        .inner ol li {
+            float: left;
+            width: 40px;
+            line-height: 40px;
+            margin: 0 5px;
+            text-align: center;
+            cursor: pointer;
+            background-color: yellow;
+        }
+
+        .inner ol li.current {
+            background-color: red;
+        }
+
+        #arr {
+            width: 100%;
+            height: 48px;
+            position: absolute;
+            top: 120px;
+            display: none;
+        }
+
+        #left {
+            float: left;
+            width: 48px;
+            height: 48px;
+            cursor: pointer;
+            background: url('img/left.png') no-repeat;
+        }
+
+        #right {
+            float: right;
+            width: 48px;
+            height: 48px;
+            cursor: pointer;
+            background: url('img/right.png') no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="inner">
+            <ul style="left: 0">
+                <li><img src="img/1.jpg"></li>
+                <li><img src="img/2.png"></li>
+                <li><img src="img/3.png"></li>
+                <li><img src="img/4.jpg"></li>
+                <li><img src="img/5.png"></li>
+                <li><img src="img/6.png"></li>
+            </ul>
+            <ol></ol>
+            <div id="arr"><a id="left"></a><a id="right"></a></div>
+        </div>
+    </div>
+    <script>
+        var timer = null;
+        var box = document.getElementById('box')
+        var inner = box.children[0]
+        var ul = inner.children[0]
+        var uls = ul.children
+        var ol = inner.children[1]
+        var imgWidth = inner.offsetWidth
+        var arr = document.getElementById('arr')
+        var left = document.getElementById('left')
+        var right = document.getElementById('right')
+
+        for (let i = 0; i < uls.length; i++) {
+            let li = document.createElement('li')
+            li.innerText = i + 1
+            ol.appendChild(li)
+        }
+
+        ol.children[0].className = 'current'
+
+        var first = uls[0].cloneNode(true)
+        ul.appendChild(first)
+
+        var ols = ol.children
+        
+        for(let i = 0; i < ols.length; i++) {
+            ols[i].index = i
+            ols[i].onmouseover = lb
+        }
+
+        function lb() {
+            for(let i = 0; i < ols.length; i++) {
+                ols[i].className = ''
+            }
+            this.className = 'current'
+            var target = -(this.index * imgWidth)
+            animate(ul, target)
+            
+            this.pic = this.index
+            this.squer = this.index
+        }
+
+        inner.onmouseover = function () {
+            arr.style.display = 'block'
+            clearInterval(timer)
+        }
+
+        inner.onmouseout = function () {
+            arr.style.display = 'none'
+            timer = setInterval(right.onclick, 1000)
+        }
+
+        var pic = 0
+        var squer = 0
+
+        right.onclick = function () {
+            if (pic === uls.length -1) {
+                ul.style.left = 0
+                pic = 0
+            }
+            pic ++
+
+            var target = -(pic * imgWidth)
+            animate(ul, target)
+
+            if (squer < ols.length -1) {
+                squer ++
+            } else {
+                squer = 0
+            }
+
+            for(let i = 0; i < ols.length; i++) {
+                ols[i].className = ''
+            }
+            ols[squer].className = 'current'
+        }
+
+        left.onclick = function () {
+            if (pic === 0) {
+                ul.style.left = -(uls.length -1 * imgWidth)
+                pic = uls.length -1
+            }
+
+            pic --
+
+            var target = - (pic * imgWidth)
+            animate(ul, target)
+
+            if (squer > 0) {
+                squer --
+            } else {
+                squer = ols.length -1
+            }
+
+            for (let i = 0; i < ols.length; i++) {
+                ols[i].className = ''
+            }
+            ols[squer].className = 'current'
+        }
+        console.log(uls.length)
+        console.log(ols.length)
+        timer = setInterval(right.onclick, 1000)
+        function animate(obj, target) {
+            clearInterval(obj.timer)
+            obj.timer = setInterval(function () {
+                var leader = ul.offsetLeft
+                var speed = target > leader ? 490 : -490
+                if (Math.abs(target - leader) >= Math.abs(speed)) {
+                    leader += speed
+                    obj.style.left = leader + 'px'
+                } else {
+                    obj.style.left = target + 'px'
+                    clearInterval(obj.timer)
+                }
+            }, 35)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>三次贝塞尔曲线（歪脸文浩）</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        #box {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .6);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="box" width="800px" height="800px"></canvas>
+    <script>
+        let box = document.querySelector('#box')
+        if (box.getContext) {
+            let cav = box.getContext('2d')
+            
+            cav.beginPath()
+            cav.fillStyle = 'black'
+            cav.arc(400, 400, 400, 0, 2 * Math.PI, false)
+            cav.fill()
+            
+            cav.beginPath()
+            cav.fillStyle = 'red'
+            cav.shadowColor = 'red'
+            cav.shadowBlur = 20
+            cav.moveTo(100, 250)
+            cav.bezierCurveTo(100, 350, 300, 350, 300, 250)
+            cav.fill()
+            
+            cav.beginPath()
+
+            cav.moveTo(500, 250)
+            cav.bezierCurveTo(500, 350, 700, 350, 700, 250)
+            cav.fill()
+
+            cav.beginPath()
+            
+            cav.fillStyle = 'black'
+            cav.shadowColor = "transparent"
+            cav.shadoBlur = 0
+            cav.arc(200, 250, 50, 0, 1 * Math.PI, false)
+            cav.fill()
+            cav.beginPath()
+
+            cav.fillStyle = 'black'
+            cav.shadowColor = "transparent"
+            cav.shadoBlur = 0
+            cav.arc(600, 250, 50, 0, 1 * Math.PI, false)
+            cav.fill()
+            cav.beginPath()
+
+            cav.strokeStyle = 'red'
+            cav.lineWidth = 5
+            cav.shadowColor = 'yellow'
+            cav.shadowBlur = 10
+            cav.moveTo(200, 600)
+            cav.quadraticCurveTo(300, 750, 600, 500)
+            cav.stroke()
+        }
+    </script>
+</body>
+</html>

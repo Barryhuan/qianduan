@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Element元素接口</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			div {
+				width: 100px;
+				height: 100px;
+				padding: 10px;
+				margin: 0 auto;
+				background-color: #000;
+				border: 1px solid #666;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1" class="d2 d3 d4 d5 d6" name="老王" title="老徐" data-small-school="北京大学">
+			哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+			<p>66666666666666</p>
+			<p>66666666666666</p>
+		</div>
+		<script title="text/javascript">
+			// Element继承的接口有：Node，EventTarget，ParentNode，ChildNode，NonDocumentTypeChildNode，Animatable
+			var d1 = document.querySelector("#d1");
+
+			// Attribute/属性
+
+			// 基本属性  ---------------------------------------------------------------------------------------------------------------------
+
+			// 获取元素的id属性
+			console.log("id：" + d1.id);
+
+			// name 获取或设置一个 DOM 对象的name属性；
+			// 它只能应用于下列元素：
+			// <a>, <select>, <button>, <form>, <meta>, <textarea>, <img>, <input>, <map>
+			// , <object>, <param>, <applet>, and <frame><iframe>.
+			console.log("name：" + d1.name);
+
+			// 返回当前元素的标签名(大写的标签名)
+			console.log("tagName：" + d1.tagName);
+
+			// 返回元素的本地化名字
+			console.log("localName：" + d1.localName);
+
+			// 返回元素的命名空间，无则返回null
+			console.log("namespaceURIt：" + d1.namespaceURI);
+
+			// 返回当前文档的域名
+			console.log("baseURI：" + d1.baseURI);
+
+			// 获取和设置元素内的所有属性
+			// 返回一个集合，但是这个集合是一个NamedNodeMap（名称节点映射）对象，不是数组，没有数组的方法，其包含的 属性 节点的索引顺序随浏览器不同而不同
+			// attributes 是字符串形式的名/值对，每一对名/值对对应一个属性节点
+			// NamedNodeMap对象的属性有：NamedNodeMap.length
+			// NamedNodeMap对象的方法有：
+			// 1.NamedNodeMap.item() : 根据索引来获取值，超过长度则返回null
+			// 2.NamedNodeMap.getNamedItem()：传入属性字符串获取属性的值
+			//   NamedNodeMap.getNamedItemNS()：根据给定的命名空间参数和name参数返回一个Attr对象。
+
+			// 3.NamedNodeMap.setNamedItem()：替换或添加一个属性节点（Attr）到映射（map）中。
+			//   NamedNodeMap.setNamedItemNS()：替换、添加给定命名空间参数和name参数的Attr对象
+
+			// 4.NamedNodeMap.removeNamedItem()：移除一个属性节点（Attr）
+			//   NamedNodeMap.removeNamedItemNS()：删除给定命名空间参数和name参数的Attr 对象
+			console.log("attributes：" + d1.attributes);
+
+			// 返回一个元素的类属性的实时 DOMTokenList 集合
+			// DOMTokenList.add()：添加一个或者是多个类名，用，分开字符串的类名
+			// DOMTokenList.remove()：移出一个或者是多个类名，用，分开字符串的类名
+			// DOMTokenList.replace()：替换类名，左边为是被替换的类名，右边则为要替换的类名
+			// DOMTokenList.toggle()：添加或移除类名，如果类名已经存在则删除它，没有则添加类名
+			console.log("classList：" + d1.classList);
+
+			// 获取和设置元素类名集合字符串
+			console.log("className：" + d1.className);
+
+			// 返回元素内容
+			console.log("innerHTML：" + d1.innerHTML);
+
+			// 获取和设置元素全部的内容
+			console.log("outerHTML：" + d1.outerHTML);
+
+			// 宽高属性  ---------------------------------------------------------------------------------------------------------------
+
+			// 获取元素的（content + padding）的高度
+			console.log("clientHeight ：" + d1.clientHeight);
+
+			// 获取元素的（content + padding）的宽度
+			console.log("clientWidth：" + d1.clientWidth);
+
+			// 没啥子用
+			console.log("clientLeft：" + d1.clientLeft);
+
+			// 没啥子用
+			console.log("clientTop：" + d1.clientTop);
+
+			// 获取元素的（content + padding）的宽度
+			console.log("scrollWidth：" + d1.scrollWidth);
+
+			// 获取元素的（content + padding）的高度
+			console.log("scrollHeight：" + d1.scrollHeight);
+
+			// 获取元素水平滚动的距离
+			console.log("scrollLeft：" + d1.scrollLeft);
+
+			// 获取元素垂直滚动的距离
+			console.log("scrollTop：" + d1.scrollTop);
+
+			// 关系属性  -------------------------------------------------------------------------------------------------------------
+
+			// 获取元素的下一个兄弟元素
+			console.log("nextElementSibling ：" + d1.nextElementSibling);
+
+			// 获取元素的上一个兄弟元素
+			console.log("previousElementSibling：" + d1.previousElementSibling);
+
+			// 返回子元素的数量
+			console.log("childElementCount：" + d1.childElementCount);
+
+			// 其他属性  ------------------------------------------------------------------------------------------------------------
+
+			// 会返回已插入元素所在的Shadow DOM slot的名称
+			console.log("slot：" + d1.slot);
+
+			// 表示元素挂载的shadow root可以使用
+			console.log("shadowRoot：" + d1.shadowRoot);
+
+			// 仅当使用支持名称空间的解析器时（使用XML MIME类型提供文档时）,这才起作用。这不适用于HTML文档。
+			console.log("prefix：" + d1.prefix);
+
+			// 表明元素是否是可编辑的
+			console.log("contentEditable：" + d1.contentEditable);
+
+			// 元素过渡到或过渡到全屏模式时触发的全屏更改事件的事件处理程序
+			console.log("onfullscreenchange：" + d1.onfullscreenchange);
+
+			// Element 过渡到或退出全屏模式发生错误后处理事件fullscreenerror的事件处理程序
+			console.log("onfullscreenerror：" + d1.onfullscreenerror);
+
+			// --------------------------------------------------------------------------------------------------------------------------------------------
+
+			// methods
+
+			//  ---------------------  节点操作  ---------------------
+
+			// (ParentNode)
+			// 将节点插入到底部
+			d1.append();
+			// (Node)
+			// 将节点插入到底部
+			d1.appendChild();
+
+			// (ChildNode)
+			// 插入到同级元素的后面，而且可以同事传入多个值 child.after(span, "Text") 结果："<div><p></p><span></span>Text</div>"
+			// 同时插入的时候不会将文本插入到元素里的
+			d1.after();
+
+			// (ChildNode)
+			// 插入到同级元素的前面面，而且可以同事传入多个值 child.before(span, "Text") 结果："<div><span></span>Text<p></p></div>"
+			// 同时插入的时候不会将文本插入到元素里的
+			d1.before();
+
+			// (Node)
+			// 插入到某个元素之前
+			// 语法：var insertedNode = parentNode.insertBefore(newNode, referenceNode)
+			// insertedNode 被插入节点(newNode)
+			// parentNode 新插入节点的父节点
+			// newNode 用于插入的节点
+			// referenceNode  newNode将要插在这个节点之前
+			d1.insertBefore();
+
+			// (Node)
+			// 返回的是一个布尔值，表示传入的节点是否为该节点的后代节点
+			d1.contains();
+
+			// (Node)
+			//返回一个布尔值,表明当前节点是否包含有子节点(没有参数)
+			d1.hasChildNodes();
+
+			// (Node)
+			// 返回当前文档的根节点元素，也就是HTML
+			d1.getRootNode();
+
+			// (Element)
+			// 将元素插入到其它元素的位置里
+			// 语法：element.insertAdjacentElement(position, element);
+			// position
+			// 'beforebegin': 在该元素本身的前面
+			// 'afterbegin':只在该元素当中, 在该元素第一个子孩子前面
+			// 'beforeend':只在该元素当中, 在该元素最后一个子孩子后面
+			// 'afterend': 在该元素本身的后面
+			d1.insertAdjacentElement();
+
+			// (Element)
+			// 将元素插入到其它元素的位置里
+			// element.insertAdjacentHTML(position, text);
+			// position
+			// 'beforebegin': 在该元素本身的前面
+			// 'afterbegin':只在该元素当中, 在该元素第一个子孩子前面
+			// 'beforeend':只在该元素当中, 在该元素最后一个子孩子后面
+			// 'afterend': 在该元素本身的后面
+			d1.insertAdjacentHTML();
+
+			// (Element)
+			// 将文本插入到周围的位置里
+			// element.insertAdjacentText(position, element);
+			// position
+			// 'beforebegin': 在该元素本身的前面
+			// 'afterbegin':只在该元素当中, 在该元素第一个子孩子前面
+			// 'beforeend':只在该元素当中, 在该元素最后一个子孩子后面
+			// 'afterend': 在该元素本身的后面
+			d1.insertAdjacentText();
+
+			// (ParentNode)
+			// 将元素和文本添加到内容的前面
+			d1.prepend();
+
+			// (ChildNode)
+			// 将自身从DOM树中移除
+			d1.remove();
+
+			// (Node)
+			// 移除自身指定的子节点
+			d1.removeChild();
+
+			// (ChildNode)
+			// 替换掉自身想要替换的节点
+			d1.replaceWith();
+
+			// (Node)
+			// 删除自身的全部子节点
+			d1.replaceChild();
+
+			//  ---------------------  监听器  ---------------------
+
+			// (EventTarget)
+			// 为元素添加监听器
+			d1.addEventListener();
+
+			// 为元素移出监听器
+			// (EventTarget)
+			d1.removeEventListener();
+
+			// 触发自定义事件
+			// (EventTarget)
+			d1.dispatchEvent();
+
+			//  ---------------------  获取操作  ---------------------
+
+			// (Element)
+			// 返回元素的大小及其相对于视口的位置
+			d1.getBoundingClientRect();
+
+			// (Element)
+			// 返回一个指向客户端中每一个盒子的边界矩形的矩形集合
+			d1.getClientRects();
+
+			// (Element)
+			// 获取子元素的类名
+			d1.getElementsByClassName();
+
+			// (Element)
+			// 获取子元素的标签名
+			d1.getElementsByTagName();
+
+			// (Element)
+			// 获取子元素命名空间的标签名
+			d1.getElementsByTagNameNS();
+
+			// (ParentNode)
+			// 选择元素
+			d1.querySelector();
+
+			// (ParentNode)
+			// 选择全部元素
+			d1.querySelectorAll();
+
+			//  ---------------------  属性操作  ---------------------
+
+			// (Element)
+			// 获取元素种指定属性的值
+			d1.getAttribute("属性名");
+
+			// (Element)
+			// 获取元素所有的属性
+			d1.getAttributeNames();
+
+			// (Element)
+			// 需要命名空间配合获取属性
+			d1.getAttributeNS();
+
+			// (Element)
+			// 返回指定元素的指定属性节点 例子: var idAttr = t.getAttributeNode("id"); alert(idAttr.value == "top")
+			d1.getAttributeNode();
+
+			// (Element)
+			// 通过命名空间URI和名称来获取属性节点
+			d1.getAttributeNodeNS();
+
+			// (Element)
+			// 返回一个布尔值，指示该元素是否包含有指定的属性
+			d1.hasAttribute();
+
+			// (Element)
+			// 返回一个布尔值，指示该元素是否包含有指定的属性（需要命名空间）
+			d1.hasAttributeNS();
+
+			// (Element)
+			// 返回一个布尔值true或false,来表明当前元素节点是否有至少一个的属性
+			d1.hasAttributes();
+
+			// (Element)
+			// 移除自身的指定的属性名
+			d1.removeAttribute();
+
+			// (Element)
+			// 移除自身的属性节点（需要命名空间）
+			d1.removeAttributeNS();
+
+			// (Element)
+			// 移除自身指定的属性节点(要先获取属性节点才能移除)
+			d1.removeAttributeNode();
+
+			// (Element)
+			// 设置指定元素上的某个属性值。如果属性已经存在，则替换。如果属性不存在则添加
+			// 语法：element.setAttribute(name, value)
+			d1.setAttribute();
+
+			// (Element)
+			// 添加一个新属性或更改具有给定命名空间和名称的一个属性的值
+			d1.setAttributeNS();
+
+			// (Element)
+			// 为指定的 Element 添加属性节点
+			// element.setAttributeNode(attribute)
+			d1.setAttributeNode();
+
+			// (Element)
+			// 切换给定元素的某个布尔值属性的状态
+			// 语法：Element.toggleAttribute(name [, force])
+			d1.toggleAttribute();
+
+			//  ---------------------  滚动操作  ---------------------
+
+			// (Element)
+			// 给定的元素中滚动到某个特定坐标
+			d1.scroll(x, y);
+
+			// (Element)
+			// 使得元素滚动一段特定距离
+			d1.scrollBy(x, y);
+
+			// (Element)
+			// 可以使界面滚动到给定元素的指定坐标位置
+			d1.scrollTo(x, y);
+
+			// (Element)
+			// 让当前的元素滚动到浏览器窗口的可视区域内
+			d1.scrollIntoView();
+
+			// (Element)
+			// 将不在浏览器窗口的可见区域内的元素滚动到浏览器窗口的可见区域
+			d1.scrollIntoViewIfNeeded();
+
+			//  ---------------------  其他操作  ---------------------
+
+			// (Element)
+			// 给指定的元素挂载一个Shadow DOM，并且返回对 ShadowRoot 的引用
+			d1.attachShadow();
+
+			// (Animatable)
+			// 创建新Animation的便捷方法，将它应用于元素，然后运行动画。它将返回一个新建的Animation对象实例
+			d1.animate();
+
+			// (Animatable)
+			// 将返回Animation影响此元素的所有对象的数组，或计划在将来进行此操作的对象。它也可以选择返回Animation子代元素的对象。
+			d1.getAnimations();
+
+			// (Element)
+			// 获取：匹配特定选择器且离当前元素最近的祖先元素（也可以是当前元素本身）。如果匹配不到，则返回null
+			d1.closest();
+
+			// (Element)
+			// Element设置调用它的元素是否具有由给定指针ID标识的指针的指针捕获
+			d1.hasPointerCapture();
+
+			// (Element)
+			// 如果元素被指定的选择器字符串选择，Element.matches()  方法返回true，否则返回false  例子：matches('.endangered')
+			d1.matches();
+
+			// (Element)
+			// Element释放（停止）先前为特定指针设置的指针捕获
+			d1.releasePointerCapture();
+
+			// (Element)
+			// 允许您异步请求将指针锁定在给定元素上。
+			d1.requestPointerLock();
+
+			// (Element)
+			// 用于发出异步请求使元素进入全屏模式
+			d1.requestFullscreen();
+
+			// (Element)
+			// 将特定元素指定为未来指针事件的捕获目标。指针的后续事件将以捕获元素为目标，直到捕获被释放
+			d1.setPointerCapture();
+
+			// (Element)
+			// 在处理一个 mousedown 事件过程中调用这个方法来把全部的鼠标事件重新定向到这个元素，
+			// 直到鼠标按钮被释放或者 document.releaseCapture()被调用
+			// 语法：element.setCapture(retargetToElement)
+			d1.setCapture();
+		</script>
+	</body>
+</html>

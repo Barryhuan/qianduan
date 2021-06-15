@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>兄弟遍历</title>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script>
+        $(function () {
+            // 紧邻的下一个元素
+            var next = $('#d1').next()
+            console.log(next)
+            // 紧邻的上一个元素
+            var prev = $('#d2').prev()
+            console.log(prev)
+            // 其他所有兄弟元素的集合
+            var siblings = $('#d5').siblings()
+            console.log(siblings)
+        })
+    </script>
+</head>
+<body>
+    <div id="d1"></div>
+    <div id="d2"></div>
+    <div id="d3"></div>
+    <div id="d4"></div>
+    <div id="d5"></div>
+    <div id="d6"></div>
+    <div id="d7"></div>
+    <div id="d8"></div>
+    <div id="d9"></div>
+    <div id="d10"></div>
+</body>
+</html>

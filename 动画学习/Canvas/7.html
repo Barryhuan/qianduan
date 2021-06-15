@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>线性渐变</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        #box {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #FFF;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .6);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="box" width="800px" height="800px"></canvas>
+    <script>
+        let box = document.querySelector('#box')
+        if (box.getContext) {
+            let cav = box.getContext('2d')
+            let grd = cav.createLinearGradient(0, 0, 0, 800);
+            grd.addColorStop(0, 'red')
+            grd.addColorStop(0.1, 'yellow')
+            grd.addColorStop(0.3, 'black')
+            grd.addColorStop(0.4, 'blue')
+            grd.addColorStop(0.5, 'green')
+            grd.addColorStop(0.6, 'purple')
+            grd.addColorStop(0.7, 'orange')
+            grd.addColorStop(0.8, 'blue')
+            grd.addColorStop(0.9, 'red')
+            grd.addColorStop(1, 'red')
+            cav.fillStyle = grd
+            cav.fillRect(0, 0, 800, 800)
+        }
+    </script>
+</body>
+</html>

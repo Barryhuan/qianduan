@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>offset系列</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			/* 没有添加定位属性 */
+			#demo {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				border: 20px solid #000;
+				padding: 20px;
+				margin: 20px;
+			}
+			/* 添加定位属性 */
+			#demo {
+				position: relative;
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				border: 20px solid #000;
+				padding: 20px;
+				margin: 20px;
+			}
+			#demo .son {
+				width: 100px;
+				height: 100px;
+				background-color: #0000FF;
+				border: 10px solid yellow;
+				padding: 10px;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo">
+			<div class="son"></div>
+		</div>
+		<script>
+			var demo = document.getElementById('demo')
+			var son = demo.firstElementChild
+		// 父元素
+			// offsetWidth + offsestHeight
+			console.log(demo.offsetWidth) // 280 content(200px) + border(40px) + padding(40px)
+			console.log(demo.offsetHeight) // 280 content(200px) + border(40px) + padding(40px)
+
+			// offsetLeft + offsetTop
+			console.log('demo.offsetLeft：' + demo.offsetLeft) // 父元素是body, margin（20px)
+			console.log('demo.offsetTop：' + demo.offsetTop) // 父元素是body,margin (20px)
+
+		// 子元素
+			// offsetWidth + offsertHeihgt
+			console.log(son.offsetWidth) // 140 content(100px) + padding(20px) + border(20px)
+			console.log(son.offsetHeight) // 140 content(100px) + padding(20px) + border(20px)
+
+			// offsetLeft + offsetTop
+			console.log(son.offsetLeft) // 70   父元素是demo,但是没有定位属性,所以父元素是body, 子margin(10px) + demoPadding(20px) + demoBorder(20px) + demoMargin(20px)
+			console.log(son.offsetTop) // 70   父元素是demo,但是没有定位属性,所以父元素是body,子margin(10px) + demoPadding(20px) + demoBorder(20px) + demoMargin(20px)
+
+			// demo加了定位属性
+			console.log('son.offsetLeft：' + son.offsetLeft) // 30 父元素是demo,拥有定位属性,所以父元素还是demo, 子margin(10px) + demoPadding(20px)
+			console.log('son.offsetTop：' + son.offsetTop) // 30  父元素是demo,拥有定位属性,所以父元素还是demo, 子margin(10px) + demoPadding(20px)
+
+		// 没有定位属性的offsetParent,以son为例
+			console.log(son.offsetParent) // 返回body对象
+
+		// 拥有定位属性的offsetParent,以son为例
+			console.log(son.offsetParent) // 返回demo对象
+
+		</script>
+	</body>
+</html>

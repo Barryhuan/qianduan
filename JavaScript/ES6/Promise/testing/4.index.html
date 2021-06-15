@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const getContent = function (url) {
+            const promise = new Promise((resolve, reject) => {
+                const handler = function () {
+                    if (this.readyState !== 4) {
+                        return
+                    }
+                    if (this.status === 200) {
+                        resolve(this.response)
+                    } else {
+                        reject(new Error(this.statusText))
+                    }
+                }
+                const xhr = new XMLHttpRequest()
+                xhr.open('GET', url)
+                xhr.onreadystatechange = handler
+                xhr.responseType = 'text'
+                xhr.send()
+            })
+            return promise
+        }
+
+        getContent('./txt.txt').then((value) => {
+            console.log('content：' + value)
+        }, (error) => {
+            console.log(error)
+        })
+    </script>
+</body>
+
+</html>

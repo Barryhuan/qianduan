@@ -1,0 +1,22 @@
+.result {
+  width: 100px;
+  width: 200px;
+  width: 300px;
+  width: 400px;
+  width: 500px;
+}
+.con-1 {
+  width: 20%;
+}
+.con-2 {
+  width: 40%;
+}
+.con-3 {
+  width: 60%;
+}
+.con-4 {
+  width: 80%;
+}
+.con-5 {
+  width: 100%;
+}

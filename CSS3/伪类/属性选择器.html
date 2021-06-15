@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>属性选择器</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			
+			/* 为所有li元素拥有class属性添加样式*/
+			li[class] {
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				background-color: red;
+				float: left;
+				margin: 50px 10px;
+				cursor: pointer;
+			}
+			
+			/* 为li元素中值是li1red的添加样式（指定1）*/
+			li[class = li1red] {
+				color: yellow;
+			}
+			/* 以|= 是以等于li3或为前缀或者-符号前 3种可能下*（指定3）/ */
+			li[class |= li3] {
+				font-size: 40px;
+			}
+			/* 以~= 空格符号的字符，前后都可以（指定7） */
+			li[class ~= llll] {
+				background-color: #0000FF;
+			}
+			/* 为li元素中值包含red的添加样式（指定8） */
+			li[class *= red] {
+				background-color: gray;
+			}
+			
+			/* 为li元素中属性前缀是yellow的添加样式 （指定4）*/
+			li[class ^= yellow] {
+				background-color: blue;
+			}
+			
+			/* 为li元素中属性后缀是blue的添加样式 （指定2和9）*/
+			li[class $= blue] {
+				background-color: green;
+			}
+			/* 复合属性选择器*/
+			li[id][class = li1red] {
+				background-color: pink;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li class="li1red" id="laow">1</li>
+				<li class="li2blue">2</li>
+				<li class="li3-123">3</li>
+				<li class="yellowli4">4</li>
+				<li class="li5">5</li>
+				<li class="li6green">6</li>
+				<li class="li7 llll">7</li>
+				<li class="li8red">8</li>
+				<li class="li9blue">9</li>
+			</ul>
+		</div>
+	</body>
+</html>

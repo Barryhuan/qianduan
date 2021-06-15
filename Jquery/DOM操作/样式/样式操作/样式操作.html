@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>样式操作</title>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            height: 10000px;
+        }
+        #d1 {
+            width: 100px;
+            height: 100px;
+            margin: 100px auto;
+            position: absolute;
+            top: 20px;
+            left: 200px;
+            background-color: red;
+        }
+    </style>
+    <script>
+        $(function () {
+            // 获取和获取高度，获取到的是数值而不是字符串
+            var heightSet = $('#d1').height('400px')
+            console.log($('#d1').height())
+
+            // 获取和设置宽度，获取到的是数值而不是字符串
+            var widthset = $('#d1').width('400px')
+            console.log($('#d1').width())
+
+            // 获取offset的left和top值，这里是算上margin的
+            var offset = $('#d1').offset()
+            console.log(offset)
+            // 这里是margin+left
+            var offsetLeft = offset.left
+            console.log('offsetLeft：' + offsetLeft)
+            // 这里是margin + top
+            var offsetTop = offset.top
+            console.log('offsetTop：' + offsetTop)
+
+            // 获取scroll的left和top值，这里是滚动的值
+            var scrollLeft = $('#d1').scrollLeft()
+            console.log('scrollLeft：' + scrollLeft)
+            var scrollTop = $('#d1').scrollTop()
+            console.log('scrollTop：' + scrollTop)
+
+            // 获取position的left和top，这里是不算上margin的，也就是position所定义的值
+            var position = $('#d1').position()
+            console.log(position)
+            var positionLeft = position.left
+            console.log(positionLeft)
+            var positionTop = position.top
+            console.log(positionTop)
+        })
+    </script>
+</head>
+
+<body>
+    <div id="d1"></div>
+</body>
+
+</html>

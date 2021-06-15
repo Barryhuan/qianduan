@@ -1,0 +1,26 @@
+// 比较运算符有>，>=，=，=<，<这五种
+#one (@width) when (@width > 0) {
+    width: fuck;
+}
+
+#one (@width) when (@width >= 100px) {
+    width: 100px;
+}
+
+#one (@width) when (@width = 200px) {
+    width: 200px;
+}
+
+#one (@width) when (@width <= 300px) {
+    width: 300px;
+}
+
+#one (@width) when (@width < 400px) {
+    width: 400px;
+}
+
+#two {
+    #one(100px);
+}
+
+// 重复的条件不会被覆盖

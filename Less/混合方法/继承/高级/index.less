@@ -1,0 +1,15 @@
+.li-style > .a {
+    color: red;
+} 
+
+.bottom.li-style {
+    &:extend(.li-style > .a);
+}
+
+// 将2个不同的HTML代码共用同样的样式
+// 输出结果
+
+// .li-style > .a,
+// .bottom.li-style {
+//   color: red;
+// }

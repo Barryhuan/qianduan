@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>canvas绘制圆形</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			body {
+				background-color: gray;
+			}
+			
+			#canvas {
+				position: absolute;
+				margin: auto;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+		<script>
+			var canvas = document.getElementById('canvas')
+			if (canvas.getContext) {
+				var can = canvas.getContext('2d')
+				// arc四个部分参数
+				// 1.原点坐标位置 下列的:250,250
+				// 2.半径 下列的:230
+				// 3.开始角度: 0°
+				// 4.结束角度: 90°   Math.Pi = π = 180° = 3.14
+				// 5.时针方向: 默认false为顺时针, true为逆时针
+				can.beginPath()
+				can.arc(250, 250, 230, 0, 90 * Math.PI/180, true)
+				// can.closePath()
+				can.stroke()
+			}
+		</script>
+	</body>
+</html>

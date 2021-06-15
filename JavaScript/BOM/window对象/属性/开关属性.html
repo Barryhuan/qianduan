@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Window对象的属性</title>
+</head>
+<body>
+    <button id="b1">点击</button>
+    <script>
+        let b1 = document.getElementById('b1')
+        b1.onclick = function () {
+            // 判断窗口是否关闭
+            console.log(window.closed)
+            // 返回创建此窗口的窗口的引用
+            // window.open(url，name，参数，ture||false)
+            // url：窗口链接(一般为null)
+            // name：窗口名称（一般为空），如果是已经存在的窗口名称，会返回该窗口的引用，而且第三参数会无效
+            // 参数：宽高等一系列字符串参数
+            // true||false，true时替换历史记录，false则会创建新的历史记录
+            let mywindow = window.open('', '', 'width=200,height=200')
+            mywindow.document.write('This is mywindow')
+            console.log(mywindow.opener)
+        }
+    </script>
+</body>
+</html>

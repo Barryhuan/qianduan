@@ -1,0 +1,18 @@
+[title='mmp'],
+.class,
+.one,
+.two {
+  color: red;
+}
+[title="mmp"],
+.class,
+.one,
+.two {
+  color: red;
+}
+[title=mmp],
+.class,
+.one,
+.two {
+  color: red;
+}

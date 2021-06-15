@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>开关灯</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <input type="button" value="关灯" id="close">
+        <script>
+            var close = document.getElementById('close')
+            var flag = true
+            close.onclick = function () {
+                if (flag) {
+                    document.body.style.background = 'black'
+                    this.value = '开灯'
+                    flag = false
+                } else {
+                    document.body.style.background = 'white'
+                    this.value = '关灯'
+                    flag = true
+                }
+            }
+        </script>
+    </body>
+</html>

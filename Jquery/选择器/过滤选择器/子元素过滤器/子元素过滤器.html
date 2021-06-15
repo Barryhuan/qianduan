@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>子元素过滤器</title>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script>
+        $(function () {
+            // 子元素过滤器
+            // 可以用li，也可以直接空格
+            // 1.子元素选择器
+            $('ul li:nth-child(odd)').text('我是子元素中奇数')
+            // 2.第一个子元素选择器
+            $('ul li:first-child').text('我是第一个子元素')
+            // 3.最后子元素选择器
+            $('ul :last-child').text('我是最后一个子元素')
+            // 4.唯一子元素选择器
+            $('div:only-child').text('我是唯一的子元素')
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+    <div id="d1">
+        <div class="d1"></div>
+        <div class="d1-1"></div>
+    </div>
+    <div id="d2">
+        <div class="d2"></div>
+    </div>
+</body>
+</html>

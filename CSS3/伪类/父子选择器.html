@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>伪类选择器</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			ul {
+				clear: both;
+				width: 500px;
+				height: 300px;
+			}
+			ul li {
+				float: left;
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				border: 1px solid #000;
+				margin: 1px;
+				cursor: pointer;
+			}
+			/* 相对于父元素的第一个子元素,要是有其他类型的元素，则无效 */
+			li:first-child {
+				background-color: blue;
+			}
+			/* 相对于父元素的最后子元素 要是有其他类型的元素，则无效*/
+			li:last-child {
+				background-color: #00008B;
+			}
+			/* 无视其他类型的元素，按照指定的需求来 */
+			/* li:first-of-type {
+				background-color: red;
+			} */
+			
+			/* li:last-of-type {
+				background-color: #00008B;
+			} */
+			/* nth-child（索引/关键字/表达式），要是有其他类型元素会错误 */
+			li:nth-child(5) {
+				font-size: 40px;
+			}
+			/* 偶数 */
+			/* li:nth-of-type(even) {
+				background-color: pink;
+			} */
+			/* 奇数 */
+			/* li:nth-of-type(odd) {
+				background-color: purple;
+			} */
+			/* 选择前面5个 */
+			/*
+				第一次：-0 + 5 = 5
+				第二次：-1 + 5 = 4
+				第三次：-2 + 5 = 3
+				第四次：-3 + 5 = 2
+				第五次：-4 + 5 = 1
+				当n等于-4时则退出，因为索引值是从1开始的
+			*/
+			/* li:nth-of-type(-n + 5) {
+				color: red;
+			} */
+
+			/* li:nth-last-of-type(-n + 5) {
+				color: green;
+			} */
+			/* 给空元素（不包括空格） */
+			/* li:empty {
+				background-color: red;
+			} */
+			/* 这个元素没有在这里展示，只是说明作用：给跳转到的锚点添加样式 */
+			/* li:target {
+				
+			} */
+		</style>	
+	</head>
+	<body>
+		<ul id="ul">
+			<div></div>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+			<li>11</li>
+			<li>12</li>
+			<li>13</li>
+			<li>14</li>
+			<li>15</li>
+			<li>16</li>
+			<li>17</li>
+			<li>18</li>
+			<li>19</li>
+			<li>20</li>
+			<li>21</li>
+			<li>22</li>
+			<li>23</li>
+			<li></li>
+			<li>25</li>
+			<li>26</li>
+			<li>27</li>
+			<li>28</li>
+			<li>29</li>
+			<li>30</li>
+			<li>31</li>
+			<li>32</li>
+			<li>33</li>
+			<li>34</li>
+			<li>34</li>
+			<div></div>
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>头部导航栏</title>
+        <meta charset="UTF-8">
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                height: 3000px;
+            }
+            div {
+                width: 1500px;
+                margin: 0 auto 20px;
+            }
+            #d1 {
+                height: 202px;
+            }
+
+            #d2 {
+                height: 196px;
+            }
+
+            #d3 {
+                height: 893px;
+            }
+
+            .fixed {
+                position: fixed;
+                top: 0;
+                left: 50%;
+                margin-left: -750px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="d1">
+            <img src="img/1.png">
+        </div>
+        <div id="d2">
+            <img src="img/2.png">
+        </div>
+        <div id="d3">
+            <img src="img/3.png">
+        </div>
+    </body>
+
+    <script>
+        var d1 = document.getElementById('d1')
+        var d2 = document.getElementById('d2')
+        var d3 = document.getElementById('d3')
+
+        window.onscroll = function () {
+                if (scrollEvnet().top > 222) {
+                    d2.className = 'fixed'
+                    d3.style.marginTop = '255px'
+                } else {
+                    d2.className = ''
+                    d3.style.marginTop = '0'
+                }
+        }
+
+        function scrollEvnet() {
+            return {
+                left: window.pageXoffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+                top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+            }
+        }
+    </script>
+</html>

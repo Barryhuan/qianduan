@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>放射渐变</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        #box {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #FFF;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .6);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="box" width="800px" height="800px"></canvas>
+    <script>
+        let box = document.querySelector('#box')
+        if (box.getContext) {
+            let cav = box.getContext('2d')
+            let bgr = cav.createRadialGradient(400,400,80,400,400,800)
+            bgr.addColorStop(0, 'red');
+            bgr.addColorStop(.5, 'yellow')
+            bgr.addColorStop(1, 'blue')
+            cav.fillStyle = bgr
+            cav.fillRect(0,0, 800, 800)
+        }
+    </script>
+</body>
+</html>

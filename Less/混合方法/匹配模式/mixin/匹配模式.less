@@ -1,0 +1,30 @@
+.absolute(@_, @color) {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+}
+
+.absolute(L, @color) {
+    left: 0;
+    background-color: @color;
+}
+
+.absolute(R, @color) {
+    right: 0;
+    background-color: @color;
+}
+
+.absolute(T, @color) {
+    top: 0;
+    background-color: @color;
+}
+
+.absolute(B, @color) {
+    bottom: 0;
+    background-color: @color;
+}
+
+
+// 匹配模式是按照不同需求创造多个同名的混合方法，根据字母不同选择不同的混合方法
+// 当@_只有一个时，.absolute里面也必须只有一个参数（这样才能匹配到）
+// 当（@_, @color）时，传入的参数也必须@color，才能匹配到

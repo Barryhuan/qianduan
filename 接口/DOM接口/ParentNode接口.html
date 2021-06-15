@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParentNode接口</title>
+</head>
+<body>
+    <div id="d1">哈哈哈哈</div>
+    <script type="text/javascript">
+        var d1 = document.querySelector('#d1')
+        // Attribute / Property
+        
+        // 获取子元素集合
+        d1.children
+        
+        // 获取第一个子元素
+        d1.firstElementChild
+
+        // 获取最后一个子元素
+        d1.lastElementChild
+        
+        // 获取当前元素的子元素数量
+        d1.childElementCount
+
+        // methods
+
+        // 添加节点和内容到元素后面
+        d1.append()
+        
+        // 添加节点和内容到节点前面
+        d1.prepend()
+
+        // 选择第一个元素
+        d1.querySelector()
+
+        // 选择全部的元素。返回一个ListNode集合
+        d1.querySelectorAll()
+    </script>
+</body>
+</html>

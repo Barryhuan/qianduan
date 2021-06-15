@@ -1,0 +1,20 @@
+.a {
+    color: red;
+}
+
+.b {
+    background-color: white;
+ }
+
+.class:extend(.a, .b) {}
+
+// 输出结果
+// a,
+// .b,
+// .class,
+// .class {
+//   color: red;
+// }
+
+// 会有2个.class，这是因为.a和.b是一样的，逻辑是继承者会继承.a和.b的，而且是同一个，但是less里没有检测复制的功能，所以会出现2个一样的继承者
+// 如果.a和.b的样式不一样，则不会出现这种情况

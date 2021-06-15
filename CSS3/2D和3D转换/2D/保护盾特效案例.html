@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>保护盾特效案例</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			body {
+				background-color: rgb(49, 150, 91);
+			}
+			#box {
+				width: 424px;
+				height: auto;
+				margin: 200px auto;
+			}
+			#box img {
+				transition: transform 1s;
+			}
+			#box img:nth-of-type(1) {
+				transform: translate(-200px, -100px) rotate(-30deg); 
+			}
+			#box img:nth-of-type(2) {
+				transform: translate(350px, -20px) rotate(90deg); 
+			}
+			#box img:nth-of-type(3) {
+				transform: translate(-380px, 23px) rotate(180deg); 
+			}
+			#box img:nth-of-type(4) {
+				transform: translate(333px, -40px) rotate(66deg); 
+			}
+			#box img:nth-of-type(5) {
+				transform: translate(-120px, -300px) rotate(88deg); 
+			}
+			#box img:nth-of-type(6) {
+				transform: translate(-120px, 302px) rotate(-270deg); 
+			}
+			#box img:nth-of-type(7) {
+				transform: translate(-220px, 39px) rotate(-66deg); 
+			}
+			#box img:nth-of-type(8) {
+				transform: translate(220px, -34px) rotate(90deg); 
+			}
+			#box img:nth-of-type(9) {
+				transform: translate(80px, -30px) rotate(-180deg); 
+			}
+			
+			#box:hover img{
+				transform: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<img src="img/shield_1_01.png">
+			<img src="img/shield_1_02.png">
+			<img src="img/shield_1_03.png">
+			<img src="img/shield_1_04.png">
+			<img src="img/shield_1_05.png">
+			<img src="img/shield_1_06.png">
+			<img src="img/shield_1_07.png">
+			<img src="img/shield_1_08.png">
+			<img src="img/shield_1_09.png">
+		</div>
+	</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node接口</title>
+</head>
+
+<body>
+    <div id="d1">哈哈哈哈哈</div>
+    <script type="text/javascript">
+        var d1 = document.querySelector('#d1')
+        // Node接口继承：EventTarget接口
+
+        // Attribute/property
+
+        // 在HTML中，baseURL表示协议和域名，以及一直到最后一个'/'之前的文件目录
+        d1.baseURI
+
+        // 获取包含全部子节点的NodeList集合
+        d1.childNodes
+
+        // 获取父节点
+        d1.parentNode
+
+        // 获取父元素
+        d1.parentElement
+
+        // 获取第一个子节点
+        d1.firstChild
+
+        // 获取最后一个字节点
+        d1.lastChild
+
+        // 获取下一个子节点
+        d1.nextSibling
+
+        // 获取上一个子节点
+        d1.previousSibling
+
+        // 获取节点名字
+        d1.nodeName
+
+        // 获取节点类型
+        d1.nodeType
+
+        // 获取节点的值
+        d1.nodeValue
+
+        // 获取节点的文本内容
+        d1.textContent
+
+        // 返回一个布尔值用来检测该节点是否已连接(直接或者间接)到一个上下文对象上，比如通常DOM情况下的Document对象，或者在shadow DOM情况下的ShadowRoot对象
+        d1.isConnected // true
+
+
+        
+        // methods
+        // 添加节点
+        d1.appendChild()
+
+        // 插入节点
+        d1.insertBefore()
+
+        // 替换节点
+        d1.replaceChild()
+
+        // 克隆节点
+        d1.cloneNode()
+
+        // 移除指定的子元素
+        d1.removeChild()
+
+        // 返回一个 Boolean 布尔值，来表示传入的节点是否为该节点的后代节点
+        d1.contains()
+
+        // 判断节点是否包含子节点
+        d1.hasChildNodes()
+
+        // 对该元素下的所有文本子节点进行整理，合并相邻的文本节点并清除空文本节点
+        d1.normalize()
+
+        // 返回上下文对象的根结点。如何是HTML文档则返回document，如果shadow root节点存在的话，也可以在返回的节点中包含它
+        d1.getRootNode()
+
+        // 返回一个 Boolean 类型值。接受一个命名空间 URI 作为参数，当参数所指代的命名空间是默认命名空间时返回 true，否则返回 false
+        d1.isDefaultNamespace()
+
+        // 返回一个 Boolean 类型值。当两个node节点为相同类型的节点且定义的数据点匹配时（即属性和属性值相同，节点值相同）返回 true，否则返回 false
+        d1.isEqualNode()
+
+        // 返回一个 Boolean 类型值。返回这两个节点的引用比较结果
+        d1.isSameNode()
+
+        // 返回包含参数 URI 所对应的命名空间前缀的 DOMString，若不存在则返回 null。如果存在多个可匹配的前缀，则返回结果和浏览器具体实现有关
+        d1.lookupPrefix()
+
+        // 接受一个前缀，并返回前缀所对应节点命名空间 URI 。如果 URI 不存在则返回 null。传入 null 作为 prefix 参数将返回默认命名空间
+        d1.lookupNamespaceURI()
+
+
+
+
+    </script>
+</body>
+
+</html>

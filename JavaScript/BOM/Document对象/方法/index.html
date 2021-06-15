@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document对象的方法</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+            // ------------- 监听器方法 -------------
+
+                    // 为元素对象添加监听器
+                    document.addEventListener()  
+
+                    // 为元素对象移出监听器
+                    document.removeEventListener()
+
+                    // 触发自定义事件
+                    // （EventTarget）
+                    document.dispatchEvent()
+            
+            // ------------- 创建元素方法 -------------
+
+                    // 创建一个元素节点
+                    document.createElement()
+
+                    // 创建一个属性节点
+                    document.createAttribute()
+
+                    // 创建一个文本节点
+                    document.createTextNode()
+                    
+                    // 创建一个注释节点
+                    document.createComment()
+
+                    // 创建一个具有指定的命名空间URI和限定名称的元素(参数1：URI，参数2：元素字符串名称)
+                    document.createElementNS()
+
+                    // 创建一个新的空白的文档片段
+                    document.createDocumentFragment()
+
+                    // 创建一个指定的事件
+                    document.createEvent()
+
+                    // 返回一个新的 NodeIterator对象
+                    document.createNodeIterator()
+
+                    // 创建一个新的处理指令节点，并返回
+                    document.createProcessingInstruction()
+
+                    // 返回一个 Range 对象
+                    // 一旦一个 Range 对象被建立，在使用他的大多数方法之前需要去设置他的临界点
+                    document.createRange()
+
+                    // 能创建并返回一个 TreeWalker 对象
+                    document.createTreeWalker()
+
+            // ------------- 获取元素方法 -------------
+
+                    // 获取元素ID
+                    document.getElementById()
+
+                    // 获取元素标签名
+                    document.getElementsByTagName()
+
+                    // 获取元素Name属性
+                    document.getElementsByName()
+
+                    // 获取元素类名
+                    document.getElementsByClassName()
+
+                    // 获取元素
+                    // (parentNode)
+                    document.querySelector()
+
+                    // 获取元素的集合
+                    // (parentNode)
+                    document.querySelectorAll()
+
+            // ------------- 指令编辑文档方法 -------------
+
+                    // 可查询浏览器中指定的编辑指令是否可用
+                    document.queryCommandEnabled()
+
+                    // 查询浏览器中指定的编辑指令是否是不确定的
+                    document.queryCommandIndeterm()
+
+                    // 查询浏览器中指定的编辑指令的状态码
+                    // 1表示指定命令在对象内已执行；
+                    // 0表示指定命令在对象内未执行，处于可执行状态；
+                    // -1表示指定命令在对象内处于不可用状态
+                    document.queryCommandState()
+
+                    // 查询浏览器中指定的编辑指令是否被支持
+                    document.queryCommandSupported()
+
+                    // 返回查询浏览器中指定的编辑指令的值
+                    document.queryCommandValue()
+                    
+                    // 允许运行命令来操纵可编辑内容区域的元素
+                    document.execCommand()
+                    
+            // ------------- 操作节点方法 -------------
+
+                    // 将外部文档的节点导入当前文档，并将节点从原文档中删除
+                    document.adoptNode()
+
+                    // 将外部文档的一个节点拷贝一份,然后可以把这个拷贝的节点插入到当前文档中
+                    document.importNode()
+
+                    // 删除节点
+                    // （Node）
+                    document.removeChild()
+
+                    // 克隆节点
+                    // （Node）
+                    document.cloneNode()
+
+                    // 可以在父节点的第一个子节点之前插入一系列Node对象或者DOMString对象
+                    // （ParentNode）
+                    document.prepend()
+
+                    // 替换节点
+                    // （Node）
+                    document.replaceChild()
+
+                    // 插入文档某一节点的前面
+                    // （Node）
+                    document.insertBefore()
+                    
+                    // 插入文档某一节点的后面
+                    // （Node）
+                    document.appendChild()
+
+                    // 可以比较当前节点与任意文档中的另一个节点的位置关系。
+                    // （Node）
+                    document.compareDocumentPosition()
+
+                    // 比较两个节点是否相同
+                    // （Node）
+                    document.isEqualNode()
+
+                    // 判断两个节点是否是相同的节点,即指向同一个对象
+                    // （Node）
+                    document.isSameNode()
+
+                    // 判断当前节点是否拥有子节点，有则true，无则false
+                    // （Node）
+                    document.hasChildNodes()
+
+                    // 接受一个命名空间URI作为参数,如果该命名空间是当前节点的默认命名空间,则返回true,否则返回false
+                    // （Node）
+                    document.isDefaultNamespace()
+
+                    // 返回当前节点上与指定命名空间前缀绑定的命名空间URI,如果没有,返回null,如果参数为null,返回默认的命名空间
+                    // （Node）
+                    document.lookupNamespaceURI()
+
+                    // 返回一个和指定命名空间URI绑定的命名空间前缀.如果没有,返回null. 如果有多个绑定的前缀, 返回的结果根据浏览器实现而定
+                    // （Node）
+                    document.lookupPrefix()
+
+                    // 对该元素下的所有文本子节点进行整理，合并相邻的文本节点并清除空文本节点
+                    // 将当前节点和它的后代节点”规范化“（normalized）。在一个"规范化"后的DOM树中，不存在一个空的文本节点，或者两个相邻的文本节点
+                    // （Node）
+                    document.normalize()
+
+                    // 判断传入的节点是否为该节点的后代节点
+                    // （Node）
+                    document.contains()
+            // ------------- 输入输出方法 -------------
+
+                    // 打开文档输入流
+                    document.open()    
+                    
+                    // 将写入的文本字符串导入到当前文档中，但是需要事先调用document.open()打开文档输入流，后面则用document.close()关闭文档输入流
+                    // 在XHTML文档中不能用，会报错
+                    document.write()
+
+                    // 跟write一样，不过会自动添加一个换行符
+                    document.writeln()
+
+                    
+                    // 关闭文档输入流
+                    document.close()
+
+            // ------------- 返回对象方法 -------------
+
+                    // 返回document根节点或者是ShadowRoot
+                    // 在标准的网页中调用将会返回一个 HTMLDocument 对象表示整个网页。
+                    // 在Shadow DOM里调用将会返回一个与之相关联的 ShadowRoot 
+                    // （Node）
+                    document.getRootNode()
+
+                    // 返回一个Selection对象，该对象表示用户选择的文本范围或插入符号的当前位置
+                    document.getSelection()
+
+                    // 返回一个CaretPosition包含DOM节点的对象，以及该节点内的插入符号和插入符号的字符偏移量
+                    document.caretPositionFromPoint()
+
+                    // 返回一个 Range 对象（指定坐标的文档片段）
+                    document.caretRangeFromPoint()
+
+                    // 返回当前页面中有效的动画组成的数组
+                    document.getAnimations()
+
+            // ------------- XPath方法 -------------
+
+                    // 根据传入的 XPath 表达式以及其他参数，返回一个 XPathResult 对象
+                    // (XpathEvaluatorBase)
+                    document.evalua()
+
+                    // 创建一个 XPathNSResolver,根据作用域中的定义解析命名空间指定节点
+                    // (XpathEvaluatorBase)
+                    document.createNSResolver()
+
+                    // 该方法将编译生成一个 XPathExpression ,可以用来多次的执行
+                    // (XpathEvaluatorBase)
+                    document.createExpression()
+
+            // ------------- 其他方法 -------------
+
+                    // 返回给定坐标点的顶端 element
+                    document.elementFromPoint()
+
+                    // 返回在特定坐标点下的HTML元素数组。
+                    document.elementsFromPoint()
+
+                    // 让当前文档退出全屏模式
+                    document.exitFullscreen()
+
+                    // 可异步的解锁鼠标；追踪是否解锁成功，需要监听pointerlockchange 和pointerlockerror 事件
+                    document.exitPointerLock()
+
+                    // 捕获指定类型的所有事件
+                    document.captureEvents()
+                    
+                    // 从捕获特定类型的事件中释放窗口
+                    document.releaseEvents()
+
+                    // 清除整个指定文档（现在无效）
+                    document.clear()
+
+                    // 判断当前文档中是否有元素获取到焦点，返回true or false
+                    document.hasFocus()
+
+    </script>
+</body>
+</html>

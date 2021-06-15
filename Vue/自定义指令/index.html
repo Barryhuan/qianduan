@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>自定义指令</title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- ref指令是一个标识，在js中可以利用(this.$refs.标识) 来获取对象 -->
+			<p ref="mmp">{{msg}}</p>
+			<button @click="totextContent">点击</button>
+			<p v-my-upper="msg">{{msg}}</p>
+		</div>
+		<div id="test">
+			<p v-my-lower="qqq">{{qqq}}</p>
+		</div>
+		<script>
+			// 自定义指令 全局
+			// el代表标签对象
+			// binding是一个对象,包含了指令的各种属性
+			Vue.directive("my-upper", function (el, binding) {
+				el.innerHTML = binding.name;
+			});
+
+			// 自定义指令 局部(只在一个vue对象里使用)
+			new Vue({
+				el: "#app",
+				data: {
+					msg: "我是老王",
+				},
+				methods: {
+					totextContent() {
+						console.log(this.$refs.mmp);
+						// <p>我是老王</p>
+					},
+				},
+			});
+
+			new Vue({
+				el: "#test",
+				data: {
+					qqq: "@3@",
+				},
+				directives: {
+					"my-lower": function (el, binding) {
+						console.log(el, binding);
+					},
+				},
+			});
+		</script>
+	</body>
+</html>

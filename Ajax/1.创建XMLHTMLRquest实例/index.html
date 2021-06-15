@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>创建XMLHttpLRequet实例</title>
+	</head>
+
+	<body>
+		<div id="d1"></div>
+		<button onclick="send()">发送数据</button>
+		<script>
+			var d1 = document.querySelector('#d1')
+			function send() {
+				var xr = new XMLHttpRequest()
+				xr.open('GET', 'localhost/data/test.txt', true)
+				xr.onreadystatechange = function () {
+					if (xr.readyState === 4) {
+						if (xr.status === 200) {
+							var text = xr.responseText
+							d1.textContent = text
+						} else {
+							console.error(xr.statusText)
+						}
+					} else {
+						confirm('数据正在请求中~~~')
+					}
+				}
+				xr.send()
+			}
+		</script>
+	</body>
+</html>

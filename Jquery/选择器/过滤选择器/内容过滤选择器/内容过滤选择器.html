@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>内容过滤选择器</title>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script>
+        $(function () {
+            // 内容选择器
+            $('p:contains("我操")').text('真TM棒啊')
+            // 选择选择器
+            $('#d2:has(".d2")').css({'width': 100, 'height' : 100, 'background':'red'})
+            // 选择无子元素的元素（包括文本元素）
+            $('div:empty').text('我没有孩子')
+            // 选择有子元素的元素（包括文本元素）
+            $('div:parent').text('我有孩子')
+            // 这2个选择器一起使用会出现错误，没有孩子变为有孩子
+        })
+    </script>
+</head>
+<body>
+    <div id="d1">
+        <div class="d1"></div>
+    </div>
+    <div id="d2">
+        <div class="d2"></div>
+    </div>
+    <p>我操</p>
+    <div></div>
+</body>
+</html>

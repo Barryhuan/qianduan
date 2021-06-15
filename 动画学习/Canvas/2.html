@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>路径的使用</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        #box {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #FFF;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .6);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="box" width="800px" height="800px"></canvas>
+    <script>
+        var box = document.querySelector('#box')
+
+        if (box.getContext) {
+            var cav = box.getContext('2d')
+            cav.beginPath()
+            cav.fillStyle = 'blue'
+            cav.moveTo(10, 10)
+            cav.lineTo(50, 50)
+            cav.lineTo(10, 100)
+            cav.fill()
+            cav.beginPath()
+
+            cav.fillStyle = 'red'
+            cav.moveTo(100, 100)
+            cav.lineTo(200, 200)
+            cav.lineTo(300, 200)
+            cav.lineTo(300, 100)
+            cav.fill()
+            cav.beginPath()
+
+            cav.strokeStyle = 'pink'
+            cav.lineWidth = 20
+            cav.lineCap = 'butt'
+            cav.moveTo(500, 500)
+            cav.lineTo(500, 550)
+            cav.stroke()
+            cav.beginPath()
+
+            cav.fillStyle = 'black'
+            cav.rect(0, 400, 100, 100)
+            cav.fill()
+        }
+    </script>
+</body>
+</html>

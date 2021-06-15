@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>源码分析---数据代理</title>
+</head>
+<body>
+    <div id="test">{{name}}</div>
+    <button on:click="show">点我</button>
+    <script src="./js/mvvm.js" type="text/javascript"></script>
+    <script src="./js/compile.js" type="text/javascript"></script>
+    <script src="./js/observer.js" type="text/javascript"></script>
+    <script src="./js/watcher.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var vm = new MVVM({
+            el: '#test',
+            data: {
+                name: 'Nice'
+            },
+            methods: {
+                show: function() {
+                    console.log('操')
+                }
+            }
+        }) 
+      
+    </script>
+</body>
+</html>

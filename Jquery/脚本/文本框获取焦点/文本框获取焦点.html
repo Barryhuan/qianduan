@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>文本框获取焦点</title>
+    <script src="../jquery.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        fieldset {
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>文本框获取焦点</legend>
+            名称：<input type="text" value="点击获取焦点"><br>
+            密码：<input type="password" value="操你"><br>
+            详细信息：<textarea cols="10" rows="5">详细信息</textarea>
+        </fieldset>
+    </form>
+    <script>
+        $(function () {
+            var val
+            $(':input').focus(function () {
+                if ($(this).val() === '点击获取焦点' || '操你' || '详细信息') {
+                    val = $(this).val()
+                    $(this).val('')
+                                    
+                }
+            }).blur(function () {
+                if ($(this).val() === '') {
+                    $(this).val(val)
+                }
+            })
+        })
+    </script>
+</body>
+</html>

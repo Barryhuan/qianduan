@@ -1,0 +1,20 @@
+.loop(@n) when (@n > 0){
+    .loop(@n - 1);
+    width: @n * 100px;
+}
+.result {
+    .loop(5);
+}
+
+
+
+// 向Bootstrap那样做个栅格系统
+.loop1(5);
+.loop1(@n, @i: 1) when (@n >= @i) {
+    .con-@{i} {
+        width: ( @i * 100% / @n);
+    } 
+    .loop1(@n, (@i + 1));
+};
+
+// Less是通过when和混合进行递归实现循环

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Window对象的属性</title>
+	<style>
+		body {
+			width: 3000px;
+			height: 3000px;
+		}
+		button {
+			width: 2000px;
+		}
+	</style>
+</head>
+<body>
+    <button id="b1">点击</button>
+    <script>
+        let b1 = document.getElementById('b1')
+        b1.onclick = function () {
+            // 窗口的展示部分
+            console.log('窗口文档部分宽度：' + window.clientWidth)
+            console.log('窗口文档部分的高度：' + window.clientHeight)
+
+            // 以下数值可以设置，但是没什么用(只读属性)，而且包含文档窗口和滚动条的宽高
+            console.log('文档的高：' + window.innerHeight)
+            console.log('文档的宽：' + window.innerWidth)
+
+            // 兼容性写法
+            var x = (window.innerHeight !== undefined ? window.innerHeight : (document.body |  document.body.parentNode || document.documentElement ).clientHeight)
+            var y = (window.innerWidth !== undefined ? window.innerWidth : (document.body || document.body.parentNode || document.documentElement).clientWidth)
+
+            // 可以设置和获取窗口的宽高
+            console.log('窗口的高：' + window.outerHeight)
+            console.log('窗口的宽：' + window.outerWidth)
+
+            // 这四个属性是一样的（都是只读属性）
+            console.log('screen屏幕对象' + window.screen)
+            console.log('窗口离屏幕的left：' + window.screenLeft)
+            console.log('窗口离屏幕的Top：' + window.screenTop)
+            console.log('窗口离屏幕的X：' + window.screenX)
+            console.log('窗口离屏幕的Y：' + window.screenY)
+            console.log("文档的宽：" + document.documentElement.clientWidth)
+            console.log('文档的高：' + document.documentElement.clientHeight)
+            // ----------------------------------------------------------------
+
+            // 只读属性
+            // 一般这个属性都为0（也就是滚动的距离） 而且window.scrollX和window.ScrollY 同 window.pageXOffset和window.pageYOffset是相等的
+            console.log(window.scrollX === window.pageXOffset) // true
+            console.log(window.scrollY === window.pageYOffset) // true
+            console.log('当前文档显示区相对于窗口文档区的X位置：' + window.pageXOffset) // 滚动的X距离
+            console.log('当前文档显示区相对于窗口文档区的Y位置：' + window.pageYOffset) // 滚动的Y距离
+            
+            // 兼容性写法
+            var x = (window.pageXOffset !== undefined ? window.pageXOffset : (document.documentElement || document.body.parentNode || docuemnt.body).scrollX)
+            var y = (window.pageYOffset !== undefined ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollY) 
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>canvas的基本使用</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #test {
+            background-color: red;
+            margin: auto;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0; 
+        }
+    </style>
+</head>
+<body>
+    <canvas id="test" width ="800" height="800"/>
+    <script>
+        let canvas = document.querySelector('#test')
+        // 判断是否有画笔
+        if (canvas.getContext) {
+        // 获取画笔
+            var cav = canvas.getContext('2d')
+            // 填充的样式
+            cav.fillStyle = 'pink'
+            // 框的样式
+            cav.strokeStyle = 'blue'
+            // 线的宽度
+            cav.lineWidth = 2
+            // 框的形式
+            // cav.lineJoin = 'bevel' // 斜角
+            cav.lineJoin = 'round' // 圆角
+            // cav.lineJoin = 'miter' // 默认直角
+            // 绘制方框的矩形
+            cav.strokeRect(100.5, 100.5, 100, 100)
+            // 绘制填充的矩形
+            cav.fillRect(0, 0, 100, 100)
+            // 清除矩形范围，会透明
+            cav.clearRect(100, 100, 50, 50)
+        }
+    </script>
+</body>
+</html>

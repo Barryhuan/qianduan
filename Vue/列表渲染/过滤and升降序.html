@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>实例</title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="scearchName"><br>
+			<ul>
+				<!-- filterPerson是一个计算属性 -->
+				<li v-for="(value, index) in filterPerson" :key="index">
+					{{index}} --- {{value.name}} --- {{value.age}}
+				</li>
+			</ul>
+			<button @click="setOrderType(1)">年龄升序</button>
+			<button @click="setOrderType(2)">年龄降序</button>
+			<button @click="setOrderType(0)">原本顺序</button>
+		</div>
+		<script>
+			var vue = new Vue({
+				el: '#app',
+				data: {
+					// 将输入的名字断设置为空
+					scearchName: '',
+					// 0代表原本顺序, 1代表升序, 2代表降序
+					orderType: 0, 
+					
+					person: [
+						{ name: 'Tom', age: 30},
+						{ name: 'Mark', age: 20},
+						{ name: 'Tory', age: 15},
+						{ name: 'Mey', age: 18}
+					]
+				},
+				methods: {
+					setOrderType(value){
+						this.orderType = value
+					}
+				},
+				computed: {
+					// 返回的结果是一个数组对象
+					filterPerson () {
+						// 利用结构赋值来获取属性
+						// this是vue
+						const {person, scearchName, orderType} = this
+						// console.log(this)
+						// 设置存储要返回的数组的属性
+						let fPerson;
+						// 利用数组对象的filter方法返回结果,返回的是关于名字筛选的结果
+						fPerson = person.filter(value => value.name.indexOf(scearchName) !== -1);
+						console.log(fPerson)
+						// 判断顺序是否为原本顺序,不是则进入
+						if (orderType !== 0) {
+							// 利用数组的sort方法:排序方法
+							fPerson.sort(function (p1, p2) {
+								if (orderType !== 2) {
+									return p2.age - p1.age
+								} else {
+									return p1.age - p2.age
+								}
+							})
+						}
+						return fPerson;
+					}
+				}
+			})
+			// console.log(vue.$data)
+		</script>
+	</body>
+</html>

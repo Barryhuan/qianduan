@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Window对象的方法</title>
+</head>
+
+<body>
+    <button id="b1">点击</button>
+    <script>
+        let b1 = document.getElementById('b1')
+        b1.onclick = function () {
+            // chrome浏览器不支持
+            // 像素
+            window.resizeBy(-100, 100)
+            // 指定大小
+            window.resizeTo(100, 100)   
+        }
+    </script>
+</body>
+
+</html>

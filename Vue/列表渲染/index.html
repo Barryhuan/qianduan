@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+	<div id="app">
+		<div>循环数组
+			<ul>
+				<li v-for="(value, index) in arrays" :key="index">索引值：{{index}} --- 值：{{value}}
+					<button @click="deletep(index)">删除</button>
+					<button @click="updata(index, '我是老王')">更新</button>
+				</li>
+			</ul>
+		</div>
+		<div>循环对象
+			<ul>
+				<li v-for="(value, name, index) in obj" :key="index">索引值：{{index}} --- 属性名：{{name}} --- 属性值：{{value}}</li>
+			</ul>
+		</div>
+		<div>循环数组对象
+			<ul>
+				<li v-for="(value, index) in arraysobj">
+				<p>索引：{{index}} --- 数组中的对象（属性+值）：{{value.name}}---{{value.age}}---{{value.sex}}</p>
+				<p v-for="(value1, name, index) in value">对象：索引 = {{index}} --- 属性名 = {{name}} --- 属性值 = {{value1}}</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+    <script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				arrays: [
+					'我是数组1',
+					'我是数组2',
+					'我是数组3'
+				],
+				obj: {
+					name: 'Barry',
+					age: 20,
+					sex: '男'
+				},
+				arraysobj: [
+					{name: '我是对象1', age: 20, sex: '男'},
+					{name: '我是对象2', age: 18, sex: '女'},
+					{name: '我是对象3', age: 30, sex: '中性'}
+				]
+			},
+			methods: {
+				deletep(index) {
+					this.arrays.splice(index, 1);
+				},
+				updata(index, newP){
+					this.arrays.splice(index, 1, newP)
+				}
+			}
+		})
+    </script>
+	</body>
+</html>

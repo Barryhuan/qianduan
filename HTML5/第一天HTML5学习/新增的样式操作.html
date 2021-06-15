@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .a {
+            background-color: red;
+        }
+
+        .b {
+            background-color: green;
+        }
+
+        .c {
+            background-color: blue;
+        }
+
+        .d {
+            background-color: pink;
+        }
+
+        .e {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <ul id="u">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <button id="b1">切换样式</button>
+    <button id="b2">添加样式</button>
+    <button id="b3">移除样式</button>      
+    <button id="b4">获取样式</button>
+    <script>
+        // 切换样式，如果没有则添加，如果有则移除
+        document.querySelector('#b1').onclick = function () {
+            var li1 = document.querySelector('#u').children[0]
+            li1.classList.toggle('e')
+        }
+        // 添加样式
+        document.querySelector('#b2').onclick = function () {
+            var li2 = document.querySelector('#u').children[1]
+            li2.classList.add('a')
+        }
+        // 移除样式
+        document.querySelector('#b3').onclick = function () {
+            var li2 = document.querySelector('#u').children[1]
+            li2.classList.remove('a')
+        }
+
+        // 获取想要的样式，如果有则返回true，没有则返回false
+        document.querySelector('#b4').onclick = function () {
+            var li2 = document.querySelector('#u').children[1] 
+            console.log(li2.classList.contains('a'))
+        }
+    </script>
+</body>
+</html>

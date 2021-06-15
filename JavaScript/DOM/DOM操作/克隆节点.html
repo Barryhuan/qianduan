@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>克隆节点</title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#father {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+			.son {
+				width: 50px;
+				height: 50px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="father">
+			<div>我的第一个</div>
+			<div>我的第二个</div>
+			<div>我的第三个</div>
+		</div>
+		<script>
+			// 获取父节点
+			var father = document.getElementById('father')
+			// 获取第一个子节点
+			var firstSon = father.firstElementChild
+			// 克隆第一个子节点
+			var son = firstSon.cloneNode(true)
+			// 将克隆的节点添加到父节点下
+			father.appendChild(son)
+		</script>
+	</body>
+</html>

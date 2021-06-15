@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>删除节点</title>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script>
+        $(function () {
+            // 1.删除节点remove有参数，可以删除指定的节点
+            $('#d1 div').remove('.d1')
+            // 2.detach（分离）,删除节点但是保存
+            $('#d2').detach()
+            // 3.empty,删除内容，保留结构
+            $('#d3').empty()
+            $('ul li').remove('ul li[title=wc]')
+        })
+    </script>
+</head>
+<body>
+    <div id="d1">
+        <div class="d1">wc</div>
+        <div class="d2">mmp</div>
+    </div>
+    <div id="d2">我还是操</div>
+    <div id="d3">我依旧还是想操</div>
+    <ul>
+        <li title="wc">我</li>
+        <li>是</li>
+        <li>你</li>
+        <li>爸</li>
+        <li>爸</li>
+    </ul>
+</body>
+</html>

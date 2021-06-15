@@ -1,0 +1,14 @@
+@color: red;
+@var: {
+    color: @color;
+};
+
+.one {
+    @color: blue;
+    @var();
+}
+
+// 输出结果
+// color: red
+
+// 定义声明变量的地方有优先级，和其他的不一样

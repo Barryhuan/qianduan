@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>创建节点</title>
+	</head>
+	<body>
+		<script>
+			// 创建一个元素节点
+			var div = document.createElement('div')
+			// 添加到body上
+			document.body.appendChild(div)
+			
+			// 创造一个属性节点
+			var atr = document.createAttribute('id')
+			
+			// 第一种设置属性节点的方法(不推荐，有点麻烦)
+			// 设置属性节点的值
+			atr.nodeValue = 'father'
+			// 添加到指定的节点上
+			div.setAttributeNode(atr)
+			
+			// 第二种设置属性节点的方法(推荐)
+			// 修改元素节点上的属性的值
+			div.setAttribute('id','fatherElement')
+			
+			// 创建一个文本节点
+			var text = document.createTextNode('我是div')
+			
+			// 添加到div上
+			div.appendChild(text)
+			
+			// 创建一个注释节点
+			var comment = document.createComment('我是注释节点')
+			div.appendChild(comment)
+			
+			// 创建一个字节点
+			var son = document.createElement('p')
+			// 把字节点添加到div中
+			div.appendChild(son)
+			
+			// 创建一个字文本节点
+			var sonText = document.createTextNode('我是子节点的文本')
+			son.appendChild(sonText)
+		</script>
+	</body>
+</html>

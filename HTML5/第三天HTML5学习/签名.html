@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>签名</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: gray;
+        }
+
+        #canvas {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <button id="green">绿色</button>
+    <button id="blue">蓝色</button>
+    <button id="red">红色</button>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <script>
+        let canvas = document.getElementById('canvas')
+        let b1 = document.getElementById('green')
+        let b2 = document.getElementById('blue')
+        let b3 = document.getElementById('red')
+        let color;
+        b1.onclick = function () {
+            color = 'green'
+        }
+        b2.onclick = function () {
+            color = 'blue'
+        }
+        b3.onclick = function () {
+            color = 'red'
+        }
+        // 判断是否有这个canvas接口
+        if (canvas.getContext) {
+            // 获取画笔
+            var cav = canvas.getContext('2d')
+            // 当鼠标点下时，设置画笔开始位置
+            canvas.onmousedown = function (e) {
+                var event = e || window.event
+                // 设置捕获事件
+                if (canvas.setCapture) {
+                    canvas.setCapture()
+                }
+                // 清空路径容器
+                cav.beginPath()
+                // 在文档开始的位置设置
+                cav.moveTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop)
+                // 设置点击移动时描写路径
+                document.onmousemove = function (e) {
+                    var event = e || window.event
+                    // 把样式压入样式栈里
+                    cav.save()
+                    // 把样式添加到样式容器里
+                    cav.strokeStyle = color
+                    // 设置移动的路径
+                    cav.lineTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop)
+                    // 连接路径
+                    cav.stroke()
+                }
+                // 当鼠标松开时
+                document.onmouseup = function () {
+                    // 将移动和松开事件清空
+                    document.onmousemove = document.onmouseup = null
+                    // 释放捕获
+                    if (document.releaseCapture) {
+                        document.releaseCapture()
+                    }
+                }
+                // 将样式容器从样式栈里探出给路径容器
+                cav.restore()
+                // 阻止事件冒泡和默认行为
+                return false
+            }
+        }
+    </script>
+</body>
+</html>

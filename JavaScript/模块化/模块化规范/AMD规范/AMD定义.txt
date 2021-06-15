@@ -1,0 +1,39 @@
+AMD是专门用于客户端的规范，模块的加载是异步的
+暴露接口：
+没有依赖的
+define(function () {
+    return 
+})
+有依赖的
+define(['module1', 'module2'],function (m1, m   2) {
+    return 
+})
+
+引入模块：
+(function () {
+    require.config({
+        // 基本路径
+        baseUrl : 'client/',
+        // 模块路径和类库路径
+        paths: {
+            // 模块路径
+            'module1' : 'modules/module1',
+            'module2' : 'modules/module2',
+            // 类库路径
+            'jquery' : 'libs/jquery',
+            'angular' : 'libs/angular'
+        }，
+        // 给未声明的类库设置
+        shim: {
+            angular : {
+                exports: 'angular'
+            }
+        }
+    })
+
+    require(['module1', 'module2'], function (m1,m2) {
+
+    })
+})()
+
+

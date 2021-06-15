@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件冒泡</title>
+    <style>
+        #s1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: relative;
+            margin: 50px auto;
+        }
+        #s2 {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="s1">
+        <p id="s2">click me!!!</p>
+    </div>
+    <script>
+        var s1 = document.querySelector("#s1")
+        var s2 = document.querySelector("#s2")
+        s1.addEventListener("click", function (event) {
+            console.log(event.CAPTURING_PHASE)
+            alert("s1正在触发事件冒泡！！！");
+        }, false)
+        s2.addEventListener("click", function () {
+            alert("s2正在触发事件冒泡！！！")
+        }, false)
+        // 事件捕获是从目标对象一直到根对象
+    </script>
+</body>
+</html>

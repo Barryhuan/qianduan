@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>盒模型应用</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#box {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				margin: 200px auto;
+				/* 这个border-box值会将盒模型固定死， margin不会影响，要是padding和border， 内容会相应的减少高宽*/
+				box-sizing: border-box;
+				
+				padding-left: 10px;
+				border: 5px solid #000;
+				/* 这个content-box 这个属性感觉用了跟没用一样*/
+				/* box-sizing: content-box; */
+			}
+			
+			/* border-box主要应用在当给一个块级元素添加鼠标悬浮添加什么会影响大小的样式时， 会影响其他元素， 所有这个元素比较有用*/
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

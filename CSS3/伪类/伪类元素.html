@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>伪类选择器</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			#box {
+				height: 15px;
+				width: 250px;
+				margin: 50px auto;
+				position: relative;
+			}
+			
+			#box1 {
+				float: left;
+				width: 200px;
+				height: 150px;
+				background-color: red;
+			}
+			#box1::before {
+				content: '';
+				width: 20px;
+				height: 20px;
+				background-color: white;
+				border-radius: 10px;
+				position: absolute;
+				left: 189px;
+				top: -10px;
+			}
+			#box2 {
+				width: 50px;
+				height: 150px;
+				background-color: blue;
+				float: left;
+			}
+			#box2::after {
+				content: '';
+				/* display: block; */
+				width: 20px;
+				height: 20px;
+				background-color: white;
+				border-radius: 10px;
+				position: absolute;
+				left: 189px;
+				top: 140px;
+			}
+		</style>	
+	</head>
+	<body>
+		<div id="box">
+			<div id="box1"></div>
+			<div id="box2"></div>
+		</div>
+	</body>
+</html>

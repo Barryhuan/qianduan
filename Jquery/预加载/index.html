@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>预加载</title>
+    <script src="../DOM操作/js/jquery.js"></script>
+</head>
+<body>
+    <script>
+        window.onload = function () {} // 一般的js文件都要预先声明，等待页面加载完后再执行
+        $(window).load = function () {} // 和上面的一样，不过是jq版的
+        $(document).ready(function () {}) // jq的全面的加载方式
+        $().ready(function () {}) //jq的简便的加载方式之一
+        $(function () {}) // jq最简便的加载方法
+    </script>
+</body>
+</html>

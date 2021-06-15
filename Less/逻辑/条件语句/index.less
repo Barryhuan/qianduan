@@ -1,0 +1,14 @@
+#one(@width) when (@width > 100px) {
+    width: 100px;
+}
+
+#two {
+    #one(200px);
+}
+
+// 当@width的值 > 100px时，符合条件：
+// width: 100px;
+
+// 当@width的值 < 100px时，则不符合条件
+// 没有编译
+

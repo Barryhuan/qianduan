@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>创造节点</title>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script>
+        $(function () {
+            // .d2的第一个父节点
+            var a = $('.d2').parent()
+            console.log(a)
+            // .d2的所有父元素，一直到html
+            var b = $('.d2').parents()
+            console.log(b)
+            // closest必须要指定父元素节点才有用
+            var c = $('.d2').closest("body")
+            console.log(c)
+        })
+    </script>
+</head>
+<body>
+    <div id="d1">
+        <div class="d1">
+            <div class="d2"></div>
+        </div>
+    </div>
+</body>
+</html>

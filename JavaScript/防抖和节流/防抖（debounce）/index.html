@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+		/>
+		<title>防抖（debounce）</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			div {
+				height: 40px;
+				line-height: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			防抖（debounce）：防抖是指当持续触发事件时，一段时间没有触发时，才会执行处理函数，如果当设置的时间到来时再次触发事件，就会再次延时设定的时间后才会执行处理函数
+		</p>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<div class="box">123123</div>
+		<script type="text/javascript">
+			function debounce(fn, wait) {
+				let timeout = null
+				return () => {
+					if (timeout !== null) {
+						clearTimeout(timeout)
+					}
+					timeout = setTimeout(fn, wait)
+				}
+			}
+
+			function handle() {
+				console.log(Math.random())
+			}
+
+			document.addEventListener('scroll', debounce(handle, 1000))
+		</script>
+	</body>
+</html>

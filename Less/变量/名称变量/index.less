@@ -1,0 +1,11 @@
+@and: "I am and";
+@a: "and";
+@color: pink;
+#one {
+    content: @@a;
+    color: @color;
+}
+
+// 这个@and是任意命名的，但是在引用的时候要相同，如：@a：'and' 不然会报错
+
+// @and会替代@a，要是顺序反了就会报错

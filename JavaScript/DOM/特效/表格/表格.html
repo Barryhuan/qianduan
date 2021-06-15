@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>表格</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div id="d1"></div>
+        <script>
+            // 表体数据
+            var datas = [
+                {name: '老1', age: 20, sex : '男'},
+                {name: '老2', age: 21, sex : '女'},
+                {name: '老3', age: 22, sex : '男'},
+                {name: '老4', age: 23, sex : '女'},
+                {name: '老5', age: 24, sex : '男'},
+                {name: '老6', age: 25, sex : '女'},
+                {name: '老7', age: 26, sex : '男'}
+            ]
+            // 表头数据
+            var theadname = ['姓名', '年龄', '性别', '操作']
+            // 获取盒子id
+            var div = document.getElementById('d1')
+            // 创建表格
+            var table = document.createElement('table')
+            // 把表格添加到盒子里
+            div.appendChild(table)
+            // 为表格添加属性
+            table.border = '1'
+            table.width = '300px'
+            table.height = '400px'
+            table.style.borderCollapse = 'collapse'
+            table.style.background = '#999'
+            table.style.textAlign = 'center'
+            // 创建表头
+            var thead = document.createElement('thead')
+            // 为表格添加表头
+            table.appendChild(thead)
+            // 创造表头行
+            var tr = document.createElement('tr')
+            // 为表头添加表头行
+            thead .appendChild(tr)
+            // 遍历数组，把表头行数据添加到里面的th里
+            for (var i = 0; i < theadname.length; i++) {
+                // 创造th
+                var th = document.createElement('th')
+                tr.appendChild(th)
+                // 为th添加内容
+                th.innerText = theadname[i]
+            }
+            // 创造表体
+            var tbody = document.createElement('tbody')
+            // 为表格添加表体
+            table.appendChild(tbody)
+            // 遍历数组，把行数据添加到里面的td里
+            for (var i = 0; i < datas.length; i++) {
+                var data = datas[i]
+                // 以数据长度每遍历一次创建行
+                tr = document.createElement('tr')
+                tbody.appendChild(tr)
+                // 遍历对象里的每个属性
+                for (var key in data) {
+                    // 以数据长度每遍历一次创建td
+                    var td = document.createElement('td')
+                    tr.appendChild(td)
+                    td.innerText = data[key]
+                }
+                // 向末尾添加一列
+                var td = document.createElement('td')
+                tr.appendChild(td)
+                // 在列中创建a标签
+                var link = document.createElement('a')
+                td.appendChild(link)
+                // 设置超链接的href属性
+                link.href = 'javascript:void(0)'
+                // 设置超链接内容
+                link.innerText = '删除'
+                // 设置点击事件
+                link.onclick = clicklink
+            }
+            function clicklink() {
+                // 获取当前行对象
+                var tr = this.parentNode.parentNode
+                // 在父节点里删除行
+                tbody.removeChild(tr)
+            }
+        </script>
+    </body>
+</html>

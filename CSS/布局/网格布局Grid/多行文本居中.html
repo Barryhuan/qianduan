@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>居中方式</title>
+    <meta charset="UTF-8">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            background: yellow;
+        }
+        
+        #father {
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            display: table;
+            background: red;
+        }
+        #father div {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+    </style>
+  </head>
+  <body>
+      <div id="father">
+        <div>
+            <p>aaaaaaaaaaaaaaaaaaaaaaaaa</p>
+            <p>aaaaaaaaaaaaaaaaaaaaaaaaa</p>
+            <p>aaaaaaaaaaaaaaaaaaaaaaaaa</p>
+            <p>aaaaaaaaaaaaaaaaaaaaaaaaa</p>
+            <p>aaaaaaaaaaaaaaaaaaaaaaaaa</p>
+            <p>aaaaaaaaaaaaaaaaaaaaaaaaa</p>
+            <p>aaaaaaaaaaaaaaaaaaaaaaaaa</p>    
+        </div>
+      </div>
+  </body>
+</html>

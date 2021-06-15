@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Ajax属性</title>
+	</head>
+	<body>
+		<script>
+			var ajax = new XMLHttpRequest()
+			// 属性
+
+			// 当前状态码（只读属性）
+			// 0 表示XMLHttpRequest实例已经创建，当open方法没有调用
+			// 1 表示open方法已经调用，但是send方法没有调用，但是可以通过setRequestHeader设置请求头
+			// 2 表示send方法已经调用，HTTP 请求已发送到 Web 服务器，未接收到响应
+			// 3 所有响应头部都已经接收到。响应体开始接收但未完成
+			// 4 表示完全接受数据，请求已经完成或者失败
+			ajax.readyState
+
+			// 服务器返回的状态码（只读属性）
+			// 200 正常访问
+			// 301 网站永久移动
+			// 302 网站暂时移动
+			// 304 未修改
+			// 307 暂时重定向
+			// 401 未授权
+			// 403 无权访问
+			// 404 网页不存在
+			// 500 服务器出现错误
+			ajax.status
+
+			// 状态码的提示信息（只读属性）默认ok
+			ajax.statusText
+
+			// 服务器响应回的数据体（只读属性）
+			ajax.response
+
+			// 服务器响应回的数据类型（可以获取和设置）
+			// '' ：等同于text 表示服务器返回一个文本数据
+			// 'arraybuffer'：ArrayBuffer对象 表示服务器返回一个二进制数组
+			// 'blob' ：Blob对象 表示服务器返回一个二进制对象
+			// 'document'： Document对象，表示服务器返回一个文档对象
+			// 'json'： JSON对象
+			// 'text'： 字符串
+			// 必须在open方法后面，send方法前面
+			ajax.responseType
+
+			// 服务器响应返回的文本数据
+			ajax.responseText
+
+			// 服务器响应返回的document数据
+			// 使用前需要使用ajax.responseType = 'document'，服务器返回的信息头Content-Type才能为 text/xml 或者是application/xml
+			// 如何服务器返回的数据解析错误或者是请求错误，则可以调用ajax.overrideMimeType方法，将原生的数据返回给浏览器
+			ajax.responseXML
+
+			// 服务器响应返回的URL数据
+			ajax.responseURL
+
+			// 中断请求触发的监听函数
+			ajax.onabort
+
+			// 根据readyState当前状态码改变的触发的监听函数，abort方法也会触发这个函数
+			ajax.onreadystatechange
+
+			// 请求开始触发的监听函数
+			ajax.onloadstart
+
+			// 请求成功触发的监听函数
+			ajax.onload
+
+			// 请求结束触发的监听函数（成功和失败都会触发）
+			ajax.onloadend
+
+			// 请求失败触发的监听函数
+			ajax.onerror
+
+			// 设置请求超时时间
+			ajax.timeout
+
+			// 请求超时触发的监听函数
+			ajax.ontimeout
+
+			// 正在发送和加载数据触发的监听函数
+			// event 有 三个属性
+			// 1. loaded 返回已经传输的数据量
+			// 2. total 返回数据总量
+			// 3. lengthcomputable 返回一个布尔值，表示加载的进度是否可以计算
+			ajax.onprogress
+
+			// 表示跨域请求时，是否可以发送浏览器的cookie和http头信息给服务器
+			// 设置为true and false
+			ajax.withCredentials
+
+			// 发送请求和文件，返回一个进度对象，来获取上传的进度的一个属函数
+			// 进度对象的属性有
+			// onloadstart
+			// onload
+			// onloadend
+			// onabort
+			// onprogress
+			// onerror
+			// ontimeout
+			ajax.upload
+
+			// 兼容性写法
+
+			var xhr = null
+			if (window.XMLHttpRequest) {
+				xhr = new XMLHttpRequest()
+			} else {
+				xhr = new ActiveXObject('Microsoft.XMLHTPP')
+			}
+		</script>
+	</body>
+</html>

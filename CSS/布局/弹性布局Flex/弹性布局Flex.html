@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>弹性布局Flex</title>
+		<meta charset="UTF-8" />
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			#father {
+				width: 500px;
+				height: 600px;
+				margin: 100px auto;
+				background: yellow;
+				text-align: center;
+				display: flex;
+				/* 主轴方向 */
+				/* flex-direction: column-reverse; */ /* 垂直反方向 */
+				/* flex-direction: column; /* 垂直方向 */
+				/* flex-direction: row-reverse; */ /* 水平反方向 */
+				/* flex-direction: row;  /* 水平方向 */
+				/* 换行 */
+				/* flex-wrap: wrap-reverse; */
+				/* flex-wrap: wrap; */
+				/* flex-wrap: nowrap; */
+				/* 简写 主轴方向和换行的简写*/
+				flex-flow: row wrap;
+				/* 主轴对齐 */
+				/* 				justify-content: flex-start;
+				justify-content: flex-end;
+				justify-content: center;
+				justify-content: space-between;
+				justify-content: space-around; */
+				/* 交叉轴对齐 */
+				/* 				align-items: flex-start;
+				align-items: flex-end;
+				align-items: center;
+				align-items: baseline;
+				align-items: stretch; */
+				/* 多行对齐*/
+				align-content: flex-start;
+				align-content: flex-end;
+				align-content: center;
+				/* align-content: space-between; */
+				/* align-content: space-around; */
+				/* align-content: stretch; */
+			}
+
+			#father div {
+				width: 80px;
+				height: 70px;
+				line-height: 70px;
+				background: red;
+			}
+			#father .son1 {
+				order: 5;
+			}
+			#father .son2 {
+				order: 4;
+			}
+			#father .son11 {
+				flex-grow: 1;
+			}
+			#father .son3 {
+				flex-shrink: 1;
+			}
+			#father .son4 {
+				flex-grow: 2;
+			}
+			#father .son6 {
+				flex-basis: 130px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="father">
+			<div class="son1">1</div>
+			<div class="son2">2</div>
+			<div class="son3">3</div>
+			<div class="son4">4</div>
+			<div class="son5">5</div>
+			<div class="son6">6</div>
+			<div class="son7">7</div>
+			<div class="son8">8</div>
+			<div class="son9">9</div>
+			<div class="son10">10</div>
+			<div class="son11">11</div>
+			<div class="son12">12</div>
+		</div>
+	</body>
+</html>

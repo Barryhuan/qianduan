@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>完整轮播图</title>
+        <meta charset="UTF-8">
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            #box {
+                width: 490px;
+                margin: 50px auto;
+                padding: 10px;
+                border: 1px solid #000;
+            }
+
+            #box .inner {
+                width: 490px;
+                height: 276px;
+                overflow: hidden;
+                position: relative;
+            }
+
+            #box .inner ul {
+                width: 1000%;
+                position: absolute;
+                top: 0;
+            }
+
+            #box .inner ul li{
+                float: left;
+            }
+
+            #box .inner ol {
+                width: 200px;
+                height: 20px;
+                position: absolute;
+                top: 240px;
+                left: 160px;
+            }
+
+            #box .inner ol li {
+                float: left;
+                width: 20px;
+                line-height: 20px;
+                margin: 0 5px;
+                background-color: yellow;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            #box .inner ol .curss {
+                background-color: red;
+            }
+
+            #arr {
+                width: 490px;
+                height: 50px;
+                position: absolute;
+                top: 113px;
+                display: none;
+            }
+
+            #left {
+                /* display: none; */
+                float: left;
+                width: 48px;
+                height: 48px;
+                margin-left: 5px;
+                background: url('img/left.png') no-repeat;
+                cursor: pointer;
+            }
+
+            #right {
+                /* display: block; */
+                float: right;
+                width: 48px;
+                height: 48px;
+                margin-right: 5px;
+                background: url('img/right.png') no-repeat;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <div class="inner">
+                <ul style="left: 0">
+                    <li><img src="img/1.jpg"></li>
+                    <li><img src="img/2.png"></li>
+                    <li><img src="img/3.png"></li>
+                    <li><img src="img/4.jpg"></li>
+                    <li><img src="img/5.png"></li>
+                    <li><img src="img/6.png"></li>
+                </ul>
+                <ol></ol>
+                <div id="arr"><a id="left"></a><a id="right"></a></div>
+            </div>
+        </div>
+        <script>
+            // 声明定时器timer的变量
+            var timer = null
+
+            // 获取box盒子的id
+            var box = document.getElementById('box')
+
+            // 获取arr的id
+            var arr = document.getElementById('arr')
+
+            // 获取left的id
+            var left = document.getElementById('left')
+
+            // 获取right的id
+            var right = document.getElementById('right')
+
+            // 获取inner
+            var inner = box.children[0]
+
+            // 获取ul
+            var ul = inner.children[0]
+
+            // 获取ul下的li集合
+            var lis = ul.children
+
+            // 获取ol
+            var ol = inner.children[1]
+
+            // 获取图片的宽度
+            var imgWidth = inner.offsetWidth
+
+            // 动态创建ol的li元素平添加到ul里
+            for (var i = 0; i < lis.length; i++) {
+                var li = document.createElement('li')
+                li.innerText = i+1
+                ol.appendChild(li)
+            }
+
+            // 为ol的第一个子元素添加curss属性
+            ol.children[0].className = 'curss'
+
+            // 克隆ul的第一张的图片并放到后面
+            var firstnode = ul.children[0].cloneNode(true)
+            ul.appendChild(firstnode)
+
+            // 获取ol的子元素集合
+            var ollist = ol.children
+
+            // 遍历所有ol下的li元素，并添加鼠标悬浮事件
+            for (var i = 0; i < ollist.length; i++) {
+                ollist[i].index = i
+                ollist[i].onmouseover = lb
+            }
+
+            // 将所有的li元素属性清除并为当前li添加属性
+            function lb () {
+                for (var j = 0; j < ollist.length; j++) {
+                    ollist[j].className = ''
+                }
+                // 给当前的标签添加样式
+                this.className = 'curss'
+
+                // 获取目标长度 索引值 * 图片宽度
+                var target = -(this.index * imgWidth)
+
+                // 传入要移动的对象和需要移动的距离
+                animate(ul, target)
+
+                // 获取当前索引值，让焦点同步
+                pic = this.index
+                squre = this.index
+
+                // if (pic === lis.length - 2) {
+                //     right.style.display = 'none'
+                //     left.style.display = 'block'
+                // } else if (pic === lis.length - 1) {
+                //     left.style.display = 'none'
+                //     right.style.display = 'block'
+                // }else if (pic === 0) {
+                //     left.style.display = 'none'
+                //     right.style.display = 'block'
+                // } else {
+                //     right.style.display = 'block'
+                //     left.style.display = 'block'
+                // }
+            }
+
+            // 当鼠标移动到inner盒子内，显示left和right，并停止定时器
+            inner.onmouseover = function () {
+                arr.style.display = 'block'
+                clearInterval(timer)
+            }
+            // 当鼠标离开时隐藏left和right，开始定时器
+            inner.onmouseout = function () {
+                arr.style.display = 'none'
+                timer = setInterval(right.onclick, 1000)
+            }
+            // 声明焦点和标签的索引值
+            var pic = 0
+            var squre = 0
+            // 点击右焦点时
+            right.onclick = function () {
+                // 判断是否为最后一张图时(也就是无缝的第一张图时)
+
+                if (pic === lis.length - 1) {        
+                    // 将ul开始的位置和索引设为0 
+                    // 在这里从最后一张立马切换到第一张          
+                    ul.style.left = 0 + 'px'
+                    pic = 0
+                    // 在这里pic直接为0
+                }
+                // 自增并添加动画函数
+                // 这里从第一张变为第二张
+                pic ++
+                
+                // if (pic === lis.length - 2) {
+                //     right.style.display = 'none'
+                //     left.style.display = 'block'
+                // } else if (pic === lis.length - 1) {
+                //     left.style.display = 'none'
+                //     right.style.display = 'block'
+                // }else {
+                //     right.style.display = 'block'
+                //     left.style.display = 'block'
+                // }
+
+                // if (pic === lis.length - 2) { // 当索引等于倒数第二个时
+                //     right.style.display = 'none'
+                //     left.style.display = 'block'
+                // } else {
+                //     right.style.display = 'block'
+                //     left.style.display = 'block'
+                // }
+
+                // // 不能同时存在
+                // if (pic === lis.length - 1) { // 当索引等于倒数第一个时
+                //     left.style.display = 'none'
+                //     right.style.display = 'block'
+                // }else {
+                //     right.style.display = 'block'
+                //     left.style.display = 'block'
+                // }
+
+                var target = -(pic * imgWidth)
+                animate(ul, target)
+
+                // 所以当点击焦点时也会改变标签
+                // 当标签是最后一个时,则将索引值变为1
+                if (squre < ollist.length -1) {
+                    // 当squre是4时，已经在这里变成5了
+                    squre ++
+                } else {
+                    squre = 0
+                }
+                // 排他
+                for (var i = 0; i < ollist.length; i++) {
+                    ollist[i].className = ''
+                }
+                // 为当前标签添加属性
+                ollist[squre].className = 'curss'
+            }
+            // 左焦点则与右焦点相反
+            left.onclick = function () {
+                // 当索引为第一个时，则跳到最后
+                if (pic === 0) { 
+                    // 设置最后的长度                  
+                    ul.style.left = -(lis.length -1) * imgWidth + 'px'
+                    // // 将索引设为最后一个
+                    pic = lis.length -1
+                    
+                }
+                // 自减并添加动画函数
+                pic --
+
+                // if (pic === 0) {
+                //     left.style.display = 'none'
+                //     right.style.display = 'block'
+                // } else {
+                //     left.style.display = 'block'
+                //     right.style.display = 'block'
+                // }
+
+                var target = -(pic * imgWidth)
+                animate(ul, target)
+
+                if (squre > 0) {
+                    squre --
+                } else {
+                    squre = ollist.length -1
+                }
+
+                for (var i = 0; i < ollist.length; i++) {
+                    ollist[i].className = ''
+                }
+
+                ollist[squre].className = 'curss'
+            }
+
+            // 启动定时器以右焦点事件为要做的事情
+            timer = setInterval(right.onclick, 1000)
+
+            function animate(obj, target) {
+                clearInterval(obj.timer)
+                obj.timer = setInterval(function () {
+                    var leader  = obj.offsetLeft
+                    var speed = target > leader  ? 490 : -490
+                    if (Math.abs(target - leader ) >= Math.abs(speed)) {
+                        leader  += speed
+                        obj.style.left = leader + 'px'
+                    } else {
+                        obj.style.left = target + 'px'
+                        clearInterval(obj.timer)
+                    }
+                }, 1)
+            }
+        </script>
+    </body>
+</html>

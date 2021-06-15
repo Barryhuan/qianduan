@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>监听事件</title>
+        <meta charset="UTF-8">
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            #box {
+                width: 200px;
+                height: 200px;
+                margin: 100px auto;
+                background-color: red;
+            }
+
+            #inner {
+                width: 100px;
+                height: 100px;
+                background-color: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <div id="inner"></div>
+        </div>
+        <script>
+            var box = document.getElementById('box')
+            var inner = document.getElementById('inner')
+            var arr = [box, inner, document.body, document.documentElement, document, window]
+            for (var i = 0; i < arr.length; i++) {
+                  
+                    arr[i].addEventListener('click', function(event){
+                        var event = event;
+                        console.log(this)
+                        console.log(event.eventPhase)
+                    }, true)
+            }
+
+            // 当捕获为false的时候，就是使用冒泡，按照正常的冒泡顺序从下往上
+            // 1. <div id="inner"></div>
+            // 2. <div id="box"><div id="inner"></div></div>
+            // 3.body
+            // 4.html
+            // 5.document
+            // 6.window
+
+            // 当捕获为true的时候，按从上往下
+            // 1. window
+            // 2.document
+            // 3.html
+            // 4.body
+            // 5. <div id="box"><div id="inner"></div></div> 
+            // 6.<div id="inner"></div>
+
+            // 使用eventPhase属性获取的是事件阶段，表示冒泡或捕获的过程
+            // 拥有三个阶段，第一阶段：捕获阶段 第二阶段：目标阶段 第三阶段：冒泡阶段
+            // 第一种是：从阶段一 到 阶段二，这是属于捕获的，就是addEventListener的第三个参数为true的时候
+            // 第二种是：从阶段三 到 阶段二，这是属于冒泡的，就是addEventListener的第三个参数为false的时候
+
+            // 事件监听兼容性的写法
+            function addListener(obj, eventName, fn) {
+                if (obj.addEventListener) {
+                    obj.addEventListener(eventName, fn, false)
+                } else if(obj.attachEvent) {
+                    obj.attachEvent('on' + eventName, fn)
+                } else {
+                    obj['on' + eventName] = fn
+                }
+            }
+            // 事件移除兼容性的写法
+            function removeListener(obj, eventName, fn) {
+                if (obj.removeEventListener) {
+                    obj.removeEventListener(event, fn, false)
+                } else if (obj.detachEvent) {
+                    obj.detachEvent('on' + event, fn)
+                } else {
+                    obj['on' + eventName] = fn
+                }
+            } 
+        </script>
+    </body>
+</html>

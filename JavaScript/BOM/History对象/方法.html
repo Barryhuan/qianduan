@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Histroy对象的方法</title>
+</head>
+
+<body>
+    <a href="https://www.baidu.com">百度</a>
+    <button id="b1">点击</button>
+    <script>
+        let b1 = document.getElementById('b1')
+        b1.onclick = function () {
+            // 创建一个后悔按键
+            // window.history.back() 
+
+            // 访问其他网站或者浏览历史记录里的内容
+            history.go(1)// 0是定位到自身
+
+            // 创建一个前进按钮
+            // history.forward()
+        }
+    </script>
+</body>
+
+</html>

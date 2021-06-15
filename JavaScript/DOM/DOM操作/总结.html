@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DOM操作</title>
+</head>
+<body>
+	<div id="d1">
+		<p class="p1">p1</p>
+	</div>
+	<script>
+		var d1 = document.getElementById('d1')
+		// 创建节点
+		// 创造元素节点
+		document.createElement()
+		// 创建属性节点
+		document.createAttribute()
+		// 创建文本节点
+		document.createTextNode()
+		// 创建注释节点
+		document.createComment()
+		
+		// 插入节点
+		d1.append()
+		d1.prepend()
+		d1.after()
+		d1.before()
+		d1.insertBefore()
+		d1.insertAdjacentElement()
+		d1.insertAdjacentHTML()
+		d1.insertAdjacentText()
+		
+		// 替换节点
+		d1.replaceWith()
+		d1.replaceChild()
+
+		// 克隆节点
+		d1.cloneNode()
+
+		// 判断节点
+		d1.contains()
+		d1.haschildNodes()
+
+		// 返回节点数量
+		d1.childElementCount
+
+		// 属性节点操做
+		// 更替属性节点
+		d1.toggleAttribute()
+
+		// 获取属性节点
+		d1.getAttribute()
+		d1.getAttributeNames()
+		d1.getAttributeNode()
+		d1.classList
+		d1.className
+		d1.attributes
+
+		// 设置属性节点
+		d1.setAttribute()
+		d1.setAttributeNode()
+
+		// 移除属性节点
+		d1.removeAttribute()
+		d1.removeAttributeNode()
+
+		// 判断属性节点
+		d1.hasAttribute()
+		d1.hasAttributes()
+
+		// 删除节点
+		d1.remove()
+		d1.removeChild()
+		
+		// 获取父节点
+		d1.parentNode
+		d1.parentElement
+
+		// 获取子节点
+		d1.childNodes
+		d1.children
+
+		// 获取第一个子节点
+		d1.firstChild
+		d1.firstElementChild
+
+		// 获取最后一个子节点
+		d1.lastChild
+		d1.lastElementChild
+
+		// 获取下一个子节点
+		d1.nextSibling
+		d1.nextElementSibling
+
+		// 获取上一个节点
+		d1.previousSibling
+		d1.previousElementSibling
+		
+		
+	</script>
+</body>
+</html>

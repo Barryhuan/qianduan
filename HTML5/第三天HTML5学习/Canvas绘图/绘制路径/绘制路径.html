@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>绘制路径</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			body {
+				background-color: gray;
+			}
+			#canvas {
+				position: absolute;
+				margin: auto;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				background-color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+		<script>
+			var canvas = document.getElementById('canvas')
+			if (canvas.getContext) {
+				var can = canvas.getContext('2d')
+				can.strokeStyle = 'red'
+				can.moveTo(10, 10)
+				can.lineTo(100, 100)
+				can.lineTo(200, 50)
+				can.closePath()
+				can.stroke()
+				
+				can.beginPath()
+				can.fillStyle = 'yellow'
+				can.moveTo(300, 300)
+				can.lineTo(320, 250)
+				can.lineTo(400, 400)
+				can.fill()
+				
+				can.beginPath()
+				can.strokeStyle = 'green'
+				can.lineWidth = 30
+				can.lineCap = 'butt'
+				// can.lineCap = 'round'
+				// can.lineCap = 'square'
+				can.moveTo(300, 50)
+				can.lineTo(400, 50)
+				can.stroke()
+				
+				can.save()
+				can.strokeStyle = 'black'
+				can.save()
+				can.strokeStyle = 'blue'
+				can.save()
+				can.strokeStyle = 'red'
+				can.save()
+				can.strokeStyle = 'magenta'
+				can.beginPath()
+				can.restore()
+				// can.restore()
+				// can.restore()
+				// can.restore()
+				can.moveTo(10, 70)
+				can.lineTo(30, 90)
+				can.lineTo(20, 100)
+				can.closePath()
+				can.stroke()
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>表格变色</title>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            $('tbody tr:even').addClass('even')
+            $('tbody tr:odd').addClass('odd')
+            var i = 0
+            $('tbody tr').click(function () {
+               var haschecked  = $(this).hasClass('select')
+
+               $(this)[haschecked ?'removeClass': 'addClass' ]('select')
+               .find(':checkbox').attr('checked', !haschecked)
+
+               $(this).has(':checked').addClass('select')
+            }) 
+        })
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        table {
+            width: 400px;
+            border-collapse: collapse;
+            margin: 20px 0 0 20px;
+        }
+
+        thead tr {
+            height: 50px;
+            text-align: left;
+        }
+
+        tbody tr {
+            height: 30px;
+            cursor: pointer;
+        }
+
+        td {
+            width: 100px;
+        }
+        .even {
+            background: rgb(255, 243, 143);
+        }
+        .odd {
+            background: rgb(255, 255, 238);
+        }
+        .select {
+            background: rgb(255, 101, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>暂住地</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="row_01">
+                <td><input type="checkbox"></td>
+                <td>老王</td>
+                <td>男</td>
+                <td>广东惠州</td>
+            </tr>
+            <tr id="row_02">
+                <td><input type="checkbox"></td>
+                <td>老王</td>
+                <td>男</td>
+                <td>广东惠州</td>
+            </tr>
+            <tr id="row_03">
+                <td><input type="checkbox"></td>
+                <td>老王</td>
+                <td>男</td>
+                <td>广东惠州</td>
+            </tr>
+            <tr id="row_04">
+                <td><input type="checkbox"></td>
+                <td>老王</td>
+                <td>男</td>
+                <td>广东惠州</td>
+            </tr>
+            <tr id="row_05">
+                <td><input type="checkbox"></td>
+                <td>老王</td>
+                <td>男</td>
+                <td>广东惠州</td>
+            </tr>
+            <tr id="row_06">
+                <td><input type="checkbox"></td>
+                <td>老王</td>
+                <td>男</td>
+                <td>广东惠州</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

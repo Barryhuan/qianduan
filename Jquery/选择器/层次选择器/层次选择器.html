@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>层次选择器</title>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script>
+        $(function () {
+            // 层次选择器
+            // 后代选择器
+            $('#d1').css({'background' : 'blue', 'width' : 200, 'height' : 200})
+            $('#d1 .d1').css({'background' : 'red', 'width' : 100, 'height' : 100})
+            // 子元素选择器
+            $('ul>li').css({'background' : 'green', 'width' : 100, 'height' : 100, 'text-align' : 'center'})
+            // 紧邻兄弟选择器
+            $('#d1 + #d2').css({'background' : 'black', 'width' : 100, 'height' : 100})
+            // 后面的所有兄弟选择器
+            $('#d3 ~ div').css({'background' : 'pink', 'width' : 100, 'height' : 100})
+            // #d3~div指定的是div，而下面的nextAll指的是后面的
+            // 拥有相同功能的方法
+            $('#d3').nextAll('div').css({'background' : 'pink', 'width' : 100, 'height' : 100})
+            console.log($('#d3').nextAll())
+            // nextAll可以传递参数''，可以指定类型
+        }) 
+    </script>
+</head>
+<body>
+    <div id="d1">
+        <div class="d1"></div>
+    </div>
+    <div id="d2"></div>
+    <div id="d3"></div>
+    <div id="d4"></div>
+    <div></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</body>
+</html>

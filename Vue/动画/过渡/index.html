@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过渡</title>
+		<script src="../../js/vue.js"></script>
+		<link rel="stylesheet" href="../css/animate.css" type="text/css">
+		<style>
+				/* .fade-enter-active, .fade-leave-active {
+				  transition: all .5s ease;
+				} */
+				/* .fade-enter, .fade-leave-to {
+				  opacity: 0;
+				} */
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<button v-on:click="show = !show">
+				点击
+			</button>
+			<!-- enter-active-class="animated bounceIn" leave-active-class="animated bounceOut"  -->
+			<transition enter-active-class="animated bounceIn" leave-active-class="animated bounceOut">
+				<h3 v-if="show">我是一个H3</h3>
+			</transition>
+		</div>
+		<script>
+			new Vue({
+			  el: '#app',
+			  data: {
+				show: false
+			  }
+			})
+		</script>
+	</body>
+</html>

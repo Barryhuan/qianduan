@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>表格展开和缩进</title>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            $('tr.parent').click(function () {
+                $(this).toggleClass('select').
+                siblings('.children_' + this.id).toggle()
+            })
+        })
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        table {
+            border-collapse:collapse;
+            width: 300px;
+            margin: 20px 0 0 20px;
+        }
+        thead tr {
+            border: none;
+            
+        }
+        th {
+            text-align: left;
+            width: 100px;
+            border-bottom: 1px solid #000;
+        }
+        td {
+            width: 100px;
+            height: 30px;
+        }
+
+        .parent {
+            background: rgb(255, 243, 143);
+            cursor: pointer;
+            
+            color: black;
+        }
+        .select {
+            background: rgb(255, 101, 0);
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>暂住地</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="parent select" id="row_01">
+                    <td colspan="3">前台设计组</td>
+                </tr>
+                <tr class="children_row_01" style="display: none">
+                    <td>张三</td>
+                    <td>男</td>
+                    <td>浙江宁波</td>
+                </tr>
+                <tr class="children_row_01" style="display: none">
+                    <td>李四</td>
+                    <td>女</td>
+                    <td>浙江杭州</td>
+                </tr>
+                <tr class="parent select" id="row_02">
+                    <td colspan="3">前台开发组</td>
+                </tr>
+                <tr class="children_row_02" style="display: none">
+                    <td>张三</td>
+                    <td>男</td>
+                    <td>浙江宁波</td>
+                </tr>
+                <tr class="children_row_02" style="display: none">
+                    <td>李四</td>
+                    <td>女</td>
+                    <td>浙江杭州</td>
+                </tr>
+                <tr class="parent select" id="row_03">
+                    <td colspan="3">后台开发组</td>
+                </tr>
+                <tr class="children_row_03" style="display: none">
+                    <td>张三</td>
+                    <td>男</td>
+                    <td>浙江宁波</td>
+                </tr>
+                <tr class="children_row_03" style="display: none">
+                    <td>李四</td>
+                    <td>女</td>
+                    <td>浙江杭州</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

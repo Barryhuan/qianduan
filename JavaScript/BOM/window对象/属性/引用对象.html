@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Window对象的属性</title>
+</head>
+<body>
+    <button id="b1">点击</button>
+    <script>
+        let b1 = document.getElementById('b1')
+        b1.onclick = function () {
+            // 关于window的引用
+            // window和self都是对自身的引用
+            console.log(window.window, window.self)
+            // 返回父窗口和最顶层的先辈窗口
+            // top属性会返回最顶层的窗口对象
+            console.log(window.top, window.parent)
+
+            // 返回创建窗口的引用
+            console.log(window.opener)
+            // 调用其他对象
+            // 对屏幕对象的调用
+            console.log(window.screen)
+
+            // 对浏览历史对象的调用
+            console.log(window.history)
+
+            // 对地址对象的调用
+            console.log(window.location)
+
+            // 对文档对象的调用
+            console.log(window.document)
+
+            // 对浏览器对象的调用
+            console.log(window.navigator)
+        }
+    </script>
+</body>
+</html>

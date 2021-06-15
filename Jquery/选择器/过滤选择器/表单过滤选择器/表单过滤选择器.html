@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>表单过滤选择器</title>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script>
+        $(function () {
+            // 表单过滤选择器
+            $(':enabled').val('我是enable')
+            $(':disabled').val('我是disabled')
+            console.log($(':selected').length)
+            console.log($(':checked').length)
+        })
+    </script>
+</head>
+
+<body>
+    <from>
+        <input type="text" placeholder="可用的">
+        <input type="text" placeholder="不可用的" disabled><br>
+
+
+        <input type="radio" checked="checked">radio1
+        <input type="radio" checked="checked">radio2
+        <input type="radio">radio3
+        <input type="radio">radio4
+        <input type="radio">radio5<br>
+
+        <input type="checkbox" checked="checked">我
+        <input type="checkbox" checked="checked">是
+        <input type="checkbox" checked="checked">你
+        <input type="checkbox">爸
+        <input type="checkbox">爸<br>
+        <select>
+            <option>我</option>
+            <option>是</option>
+            <option>你</option>
+            <option>爸</option>
+        </select><br>
+    </from>
+</body>
+
+</html>

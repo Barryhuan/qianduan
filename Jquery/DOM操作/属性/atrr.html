@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>属性操作</title>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script>
+        $(function () {
+            // 1. attr的第一个作用是(获取属性的值)
+            $("#id").attr("class") // 我是类名
+            $("#id").attr("title") // 我是标题
+            $("#id").attr("data-type") // 我是自定义属性
+            // attr一次只能获取一个属性的值，不能同时获取多个属性的值
+            
+            // 2. attr的第二个作用是为(属性赋值)
+            $("#id").attr("class", "blue") // blue
+            $("#id").attr("title", "我是被赋值的标题") // 我是被赋值的标题
+            $("#id").attr("data-type", "我是重新被赋值的自定义属性") // 我是重新被赋值的自定义属性
+            
+            // 3. attr的第三个作用是为(多个属性同时赋值)
+            $("#id").attr({class : "green", title : "我是被同时赋值的标题", "data-type" : "我是被同时赋值的自定义属性"}) // green  我是被同时赋值的标题 我是被同时赋值的自定义属性
+            // 当为设置data-type时，不能直接设置data-type，要加上" "号才能添加
+
+            // 移除属性
+            // 1. 移除单个属性
+            $("#id").removeAttr("class") // class没有了
+            $("#id").removeAttr("title") // title没了
+            $("#id").removeAttr("data-type") // data-type没了
+            // 2. 移除多个属性
+             $("#id").removeAttr("class title data-type")
+             $("#id").removeAttr(["class","title","data-type"]) // 不能通过传入数组的形式进行删除
+            // 3. 移除所有的属性
+            // $("#id").removeAttr() // 无法移除属性，无效
+
+            // 类似的方法prop(),removeprop()
+
+            // 主要的区别是：
+            // prop()主要是用来处理HTML元素自身所带有的属性，：check，disable，selected等添加属性名称该属性就会生效应该使用prop()，checkbox返回值有true和false2个值
+            // 如：href，class，id， title，checkbox，selected
+            // attr()主要是用来处理HTML元素中自定义的属性，返回值是属性值和undefined
+            // 如：data-type，还有本身元素所不固有的属性
+
+
+
+            //**********************************************************************************************************************************************
+            // 最简单的用法就是：
+            // 1.自身所带有的固定属性用prop，还有需要true和false这2个值的，如checkbox
+            // 2.自身所不具备的属性和自定义属性用attr
+            //**********************************************************************************************************************************************
+
+
+            // 示例
+            // 1.prop方法
+            $("#a1").prop("title") // 老王
+            $("#a1").prop("checked") // true
+            $("#a1").prop("data-type") // undefined：无法获取到自定义的属性
+            $("#a1").prop("action") // undefined：无法获取到自身所不带有的属性
+            $("#form").prop("action") // file:///F:/%E5%89%8D%E7%AB%AF/%E7%BB%83%E4%B9%A0/Jquery/DOM%E6%93%8D%E4%BD%9C/%E5%B1%9E%E6%80%A7/666
+            $("#form").prop("style") // CSSStyleDeclaration {alignContent: "", alignItems: "", alignSelf: "", alignmentBaseline: "", all: "", …} // css属性集合
+
+            // 2.attr方法
+            // attr方法比较全能一点，但是在表单或者是需要true和false的属性中不大好用
+            // attr只是能获取到属性的值的内容
+            console.log($("#a1").attr("title")) // 老王
+            console.log($("#a1").attr("checked")) // checked
+            console.log($("#a1").attr("data-type"))  // 我是自定义的属性哦
+            console.log($("#a1").attr("action")) // 我不是自定所带有的属性哦
+            console.log($("#form").attr("action")) // 666
+            console.log($("#a2").attr("style")) // background-color: red; width: 100px;
+        })
+    </script>
+</head> 
+<body>
+    <div id="id" class="我是类名" title="我是标题" data-type="我是自定义属性"></div>
+    <form id="form" action="666">
+        <input title="老王" type="checkbox" id="a1" checked="checked" data-type="我是自定义的属性哦" action="我不是自定所带有的属性哦" style="background-color: red; width: 100px;">老王<br>
+        <input title="老许" type="checkbox" id="a2" style="background-color: red; width: 100px;">老许<br>
+    </form>
+</body>
+</html>

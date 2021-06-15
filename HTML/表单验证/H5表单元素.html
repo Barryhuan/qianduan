@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单元素</title>
+</head>
+<body>
+    <form action="#" target="post"  name="form" id="form">
+        文本框：<input type="text" name="barry" id="barry" autofocus autocomplete="on" placeholder="请输入姓名"><br/>
+        密码框：<input type="password" name="password" id="password" required><br/>
+        手机框：<input type="tel"  name="phone" id="phone"><br/>
+        邮箱框：<input type="email" id="email" name="email"><br/>
+        浏览框：<input type="url" name="url" id="url"><br/>
+        数字框：<input type="number" name="number" id="number" min="0" max="10" value="" required><br/>
+        <p id="ppp"></p>
+        日期框：<input type="date" name="date" id="date"><br/>
+        时间框：<input type="time" name="time" id="time"><br/>
+        月份框：<input type="month" name="month" id="month"><br/>
+        周框：<input type="week" name="week" id="week">
+        UTC时间框：<input type="datetime" name="datetime" id="datetime"><br/>
+        本地时间框：<input type="datetime-local" name="datetiem-local" id="datetime-local"><br/>
+        搜索框：<input type="search" name="search" id="search"><br/>
+        颜色框：<input type="color" name="color" id="color"><br/>
+        范围框：<input type="range" name="range" id="range"><br/>
+        文本范围框：<br/>
+        <fieldset>
+            <legend></legend>
+            姓名：<input type="text">
+            密码：<input type="password">
+        </fieldset>
+        <br/>
+        <textarea name="textarea" id="textarea" cols="30" rows="10">
+            我滴个老天啊，老天啊
+        </textarea>
+        <br/>
+        复选框：<label><input name="Fruit" type="radio">苹果 </label> 
+                <label><input name="Fruit" type="radio">桃子 </label> 
+                <label><input name="Fruit" type="radio">香蕉 </label> 
+                <label><input name="Fruit" type="radio">梨 </label> 
+                <label><input name="Fruit" type="radio">其它 </label> <br/>
+        单选框：<input type="checkbox" name="boll" id="boll" checked>球
+                <input type="checkbox" name="swim" id="swim">游泳<br/>
+        文件框：<input type="file" name="file" id="file"><br>
+        控件框：<input type="button" value="button"><br>
+        重置框：<input type="reset" value="重置"><br/>
+        提交框：<input type="submit" value="提交"><br/>
+        图像框：<input type="image" src="" alt="图像框" id="img" name="img"><br/>
+        隐藏框：<input type="hidden" name="hidden"><br/>
+        选项框：<select name="select" id="select" size="5" multiple>
+                    <option value="北京">北京</option>
+                    <option value="上海">上海</option>
+                    <option value="北京">北京</option>
+                    <option value="上海">上海</option>
+                    <option value="北京">北京</option>
+        </select><br/>
+        datalist框：<br/>
+        <input type="text" name="text" id="text" list="datalist">
+        <datalist id="datalist">
+            <option value="北京" ></option>
+            <option value="北京" ></option>
+            <option value="北京" ></option>
+        </datalist><br/>
+        <button id="button" class="button">提交</button>
+    </form>
+    <script type="text/javascript">
+        // 表单事件
+        var barry = document.querySelector('#barry')
+        var bb = document.getElementsBy
+        var b1 = document.querySelectorAll('input')[0]
+        console.log(b1)
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+        // 获取焦点事件onfocus
+        // barry.onfocus = function () {
+        //     console.log(this.value)
+        // }
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+        // 失去焦点事件onblur
+        // barry.onblur = function () {
+        //     console.log(this.value)
+        // }
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+        // 框内内容改变事件（只要变化就会触发） oninput (适用于input，select，textarea元素)
+        barry.oninput = function (event) {
+            // event.data 输出当前的字符串（单个字符）
+            console.log(event.data)
+            // event.isComposing 判断区域是否使用了中文拼音编辑器
+            console.log(event.isComposing)
+        }
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+        // 只有框内的值发生变化时事件触发且失去焦点时触发 onchange (适用于input，select，textarea元素)
+        // barry.onchange = function () {
+        //     console.log(this.value)
+        // }
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+        // 当文本被选中时触发 onselect  （适用于input和textarea）
+        // selectionStart 表示文字选中开始的位置索引（从左到右） 
+        // selectionEnd 表示文字选中结束的位置索引（从左到右）
+        // selectionDirection 表示文本选中的方向 从左到右选中的是forward表示正方向，从右到左的是backward表示反方向，要是没有选中的话则表示forward
+        // var content = ''
+        // barry.onselect = function () {
+        //     if (this.selectionStart != undefined) {
+        //         content = this.value.substr(this.selectionStart, this.selectionEnd - this.selectionStart)
+        //     }
+        //     console.log(this.selectionStart, this.selectionEnd)
+        //     alert(content)
+        // }
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+        // 检查表单提交前哪些特定条件符不符提交要求，不符合则不准提交
+        // 一个可提交元素在检查有效性时，不符合对它的约束条件，则会触发 invalid 事件
+        // var number = document.querySelector('#number')
+        // var ppp = document.querySelector('#ppp')
+        // number.addEventListener('invalid', check, false)
+        // function check(e) {
+        //     ppp.textContent += e.target.value
+        // }
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+        // form专属的3种事件
+        // 1.onreset 当点击重置默认按钮时触发
+        // var form = document.querySelector('#form')
+        // form.onreset = function () {
+        //     alert('onreset事件被触发了')
+        // }
+        // // 2.onsubmit 当点击提交按钮时触发，在提交服务器前先检查一遍，返回true才能提交到服务器上
+        // form.onsubmit = function () {
+        //     return true
+        // }
+        // // 3.submit 专门为其他除了submit按钮的元素设置的事件
+        // document.querySelector('#button').onclick = function () {
+        //     form.submit()
+        // }
+        // barry.onmouseenter = function (e) {
+        //     console.log(e.target.autocomplete)
+        // }
+    </script>
+</body>
+</html>

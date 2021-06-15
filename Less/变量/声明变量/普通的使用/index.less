@@ -1,0 +1,14 @@
+@varbar: {
+    background-color: red;
+};
+
+#one {
+    @varbar();
+}
+
+// 输出结果
+#one {
+  background-color: red;
+}
+
+// 语法：@变量名: {属性名:值;};

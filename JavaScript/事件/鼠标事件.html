@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            margin: 10px auto;
+            background-color: #000;
+            color: #FFF;
+        }
+    </style>
+</head>
+<body>
+    <div id="click">鼠标点击事件</div>
+    <div id="dblclick">鼠标双击事件</div>
+    <div id="mouseover">鼠标悬浮事件</div>
+    <div id="mouseout">鼠标离开事件</div>
+    <div id="mouseenter">鼠标进入事件</div>
+    <div id="mouseleave">鼠标移出事件</div>
+    <div id="mousemove">鼠标移动事件</div>
+    <div id="mouseup">鼠标松开事件</div>
+    <div id="mousedown">鼠标落下事件</div>
+    <div id="mousewheel">鼠标滚动事件</div>
+    <script type="text/javascript">
+        var d1 = document.querySelector('#click')
+        var d2 = document.querySelector('#dblclick')
+        var d3 = document.querySelector('#mouseover')
+        var d4 = document.querySelector('#mouseout')
+        var d5 = document.querySelector('#mouseenter')
+        var d6 = document.querySelector('#mouseleave')
+        var d7 = document.querySelector('#mousemove')
+        var d8 = document.querySelector('#mouseup')
+        var d9 = document.querySelector('#mousedown')
+        var d10 = document.querySelector('#mousewheel')
+        var body = document.body
+        // 右点击菜单事件
+        // body.onmousemove = function (event) {
+           
+        // }
+        d10.onclick = function (event) {
+            console.log('event.X：' + event.x, 'event.Y：' + event.y)
+            console.log('event.clientX：' +  event.clientX, 'event.clientY：' + event.clientY)
+            console.log('event.pageX：' + event.pageX, 'event.pageY：' +event.pageY)
+            console.log('event.layerX：' + event.layerX, 'event.layerY：' +event.layerY)
+            console.log('event.screenX：' + event.screenX, 'event.screenY：' + event.screenY)
+            console.log('event.offsetX：' + event.offsetX, 'event.offsetY：' +event.offsetY)
+            console.log('event.movementX：' + event.movementX, 'event.movementY：' +event.movementY)
+        }
+        
+    </script>
+</body>
+</html>

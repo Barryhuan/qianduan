@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘事件</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="post" target="_blank" id="form">
+        文本：<input type="text" name="txt1" id="txt1" size="20" maxlength="100" minlength="0" placeholder="请输入按键！">
+    </form>
+
+    <!-- <div id="a">
+        <div id="b">
+          <div id="c">
+            <div id="d"></div>
+          </div>
+        </div>
+    </div>  -->
+
+    <!-- <script>
+        document.getElementById('a').addEventListener('click', function(e) {
+          console.log('target:' + e.target.id + '&currentTarget:' + e.currentTarget.id);
+        });    
+        document.getElementById('b').addEventListener('click', function(e) {
+          console.log('target:' + e.target.id + '&currentTarget:' + e.currentTarget.id);
+        });    
+        document.getElementById('c').addEventListener('click', function(e) {
+          console.log('target:' + e.target.id + '&currentTarget:' + e.currentTarget.id);
+        });    
+        document.getElementById('d').addEventListener('click', function(e) {
+          console.log('target:' + e.target.id + '&currentTarget:' + e.currentTarget.id);
+        });
+        
+    </script> -->
+
+    <script type="text/javascript">
+        var input = document.querySelector('#txt1')
+        // 键盘按下事件(包括系统键盘)
+        // input.onkeydown = function () {
+        //     console.log('按下')
+        // }
+        // // 键盘松开事件(包括系统键盘)
+        // input.onkeyup = function () {
+        //     console.log('松开')
+        // }
+        // 键盘按下松开事件（不包括系统键盘）
+        input.onkeypress = function (event) {
+            console.log(event)
+        }
+        // 事件对象
+        // keyboardEvent键盘的事件对象
+
+ // keyboardEvent        altKey: false alt按键是否激活过
+        // bubbles: true 判断是否是事件冒泡
+        // cancelBubble: false  获取或设置一个布尔值,表明当前事件是否要取消冒泡,false则可以事件冒泡，true则阻止事件冒泡
+        // cancelable: true   是否拥有能用event.preventDefault()取消默认动作的能力
+ // keyboardEvent        charCode: 113  按键的Unicode值
+ // keyboardEvent        code: "KeyQ" 按键的代码值
+        // composed: true  表示事件是否可以穿过 Shadow DOM 和常规 DOM 之间的隔阂进行冒泡
+ // keyboardEvent        ctrlKey: false ctrl按键是否激活过
+        // currentTarget: null   是否有利用addEventListener监听事件绑定过元素
+        // defaultPrevented: false  判断是否用过preventDefautl方法
+        // detail: 0  对 click 或者 dblclick 事件, Event.detail是当前点击数量。对 mousedown 或者 mouseup 事件, Event.detail是1加上当前点击数。
+        // eventPhase: 0   返回当前事件的阶段，1是捕获阶段，2是事件派发阶段 3是事件冒泡阶段
+ // keyboardEvent      // isComposing: false  有没有激活中文拼音编辑器
+        // isTrusted: true  判断这个事件是人为产生的为true，false代表是通过脚本创造的
+ // keyboardEvent       key: "q" 
+ // keyboardEvent       keyCode: 113
+ // keyboardEvent       location: 0  判断这个按钮在键盘上的位置
+ // keyboardEvent       // metaKey: false metaKey按键是否激活过
+        // path: (5) [input#txt1, body, html, document, Window]
+ // keyboardEvent        repeat: false  判断按键是否一直被按住
+ // Event        returnValue: true 判断默认事件是否可以被阻止，当为true时，默认事件可以进行，当为false，就可以阻止默认事件
+ // keyboardEvent        shiftKey: false   shiftKey按键是否激活过
+        // sourceCapabilities: InputDeviceCapabilities {firesTouchEvents: false}
+        // srcElement: input#txt1  target的旧名，对老版的浏览器有效
+        // target: input#txt1  触发事件的对象
+        // timeStamp: 1369.409999999334 事件进行的时间
+        // type: "keypress"
+        // view: Window {parent: Window, opener: null, top: Window, length: 0, frames: Window, …}
+ // keyboardEvent       // which: 113
+    </script>
+</body>
+</html>

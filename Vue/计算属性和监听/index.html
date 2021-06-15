@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>计算属性和监听</title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			姓：<input type="text" placeholder="FirstName" v-model="FirstName"/><br>
+			名：<input type="text" placeholder="LastName" v-model="LastName"/><br>
+			计算属性：（单向）<input type="text" v-model="FullName1"><br>
+			监听属性：（单向）<input type="text" v-model="FullName2"><br>
+			计算高级：（双向）<input type="text" v-model="FullName3"><br>
+		</div>
+		<script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+					FirstName: 'A',
+					LastName: 'B',
+					FullName2: 'A B'					
+				},
+				// 计算属性
+				// 计算属性缓存计算结果,多次调用是从缓存里读取结果,结果还是一样的
+				computed: {
+					FullName1 () {
+						return this.FirstName + ' ' + this.LastName;
+					},
+					FullName3: {
+						// get()是回调函数,当需要读取的时候调用,计算相关的属性后返回
+						get() {
+							return this.FirstName + ' ' + this.LastName;
+						},
+						// set(value)是回调函数,监视相关属性变化，当值发生变化时回调，更新相关的数据属性
+						set(value) {
+							console.log(value)
+							const names = value.split(' ');
+							console.log(names)
+							this.FirstName = names[0]
+							this.LastName = names[1]
+						}
+					}
+				},
+				// 监听属性
+				// 当监听属性值发送变化时则调用
+				// 计算属性 > 监听属性
+				watch: {
+					FirstName (value) {
+						 this.FullName2 = value + ' ' + this.LastName;
+					},
+					LastName (value) {
+						this.FullName2 = this.FirstName + ' ' + value;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

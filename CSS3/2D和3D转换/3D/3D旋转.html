@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>3D缩放</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			div {
+				width: 300px;
+				height: 300px;
+				background: linear-gradient(to right, blue, red);
+				margin: 100px auto;
+				transition: transform 2s;
+				/* border-radius: 150px; */
+			}
+			
+			div:active {
+				/* rotate3d的参数：x，y，z，角度 */
+				transform: rotate3d(1, 0, 1, 180deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>下拉框左右选择</title>
+    <script src="../jquery.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #left {
+            float: left;
+            width: 200px;
+            height: 304px;
+            border: 1px solid #000;
+            margin: 30px 20px 0 40px;
+        }
+
+        #left .left_select {
+            width: 200px;
+            height: 200px;
+        }
+
+        #left div{
+            height: 50px;
+            background-color: #999;
+            cursor: pointer;
+            line-height: 50px;
+            text-align: center;
+            margin: 1px;
+        }
+        #right {
+            float: left;
+            width: 200px;
+            height: 304px;
+            border: 1px solid #000;
+            margin: 30px 0 0 0;
+        }
+
+        #right .right_select {
+            width: 200px;
+            height: 200px;
+        }
+
+        #right div{
+            height: 50px;
+            background-color: #999;
+            cursor: pointer;
+            line-height: 50px;
+            text-align: center;
+            margin: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div id="left">
+        <select class="left_select" size="9">
+            <option>选项1</option>
+            <option>选项2</option>
+            <option>选项3</option>
+            <option>选项4</option>
+            <option>选项5</option>
+            <option>选项6</option>
+            <option>选项7</option>
+            <option>选项8</option>
+            <option>选项9</option>
+        </select>
+        <div class="left_g">选中添加到右边>></div>
+        <div class="left_all">全部添加到右边>></div>
+    </div>
+    <div id="right">
+        <select class="right_select" size="9">
+        </select>
+        <div class="right_g">选中添加到左边>></div>
+        <div class="right_all">全部添加到左边>></div>
+    </div>
+    <script>
+        $(function () {
+            $('.left_g').click(function () {
+                $('.left_select option:selected').appendTo('.right_select')
+            })
+            $('.left_all').click(function () {
+                $('.left_select option').appendTo('.right_select')
+            })
+            $('.left_select').dblclick(function () {
+                $('option:selected').appendTo('.right_select')
+            })
+
+
+            $('.right_g').click(function () {
+                $('.right_select option:selected').appendTo('.left_select')
+            })
+            $('.right_all').click(function () {
+                $('.right_select option').appendTo('.left_select')
+            })
+
+            $('.right_select').dblclick(function () {
+                $('option:selected').appendTo('.left_select')
+            })
+        })
+    </script>
+</body>
+</html>

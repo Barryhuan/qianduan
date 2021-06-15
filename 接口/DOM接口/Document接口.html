@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+		/>
+		<title>Document接口</title>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript">
+			// Document接口常用属性
+
+			// --------------------------------------------
+
+			// 返回文档中的所有的元素
+			console.log(document.all);
+
+			// 返回文档中所有超链接的标签
+			console.log(document.links);
+
+			// 返回文档中所有的script标签
+			console.log(document.scripts);
+
+			// 返回文档中所有的图片标签
+			console.log(document.images);
+
+			// 返回文档中所有的表单标签
+			console.log(document.forms);
+
+			// 返回文档引用的样式表集合
+			console.log(document.styleSheets);
+
+			// 返回根元素<html>
+			console.log(document.documentElement);
+
+			// 返回head元素<head>
+			console.log(document.head);
+
+			// 返回body元素<body>
+			console.log(document.body);
+
+			// 返回title元素<body>
+			console.log(document.title);
+
+			// 以字符串的类型，返回当前文档的路径(只读)
+			console.log(document.documentURI);
+
+			// 以字符串形式返回文档的地址栏链接（只读）
+			console.log(document.URL);
+
+			// 获取文档中绝对路径
+			console.log(document.baseURI);
+
+			// 获取或设置当前文档的域名
+			console.log(document.domain);
+
+			// 返回当前文档的URI
+			console.log(document.location);
+
+			// 获取和设置cookie
+			console.log(document.cookie);
+
+			// 获取全部子元素
+			console.log(document.children);
+
+			// 获取第一个子元素
+			console.log(document.firstElementChild);
+
+			// 获取第一个子元素节点
+			console.log(document.firstChild);
+
+			// 获取最后一个子元素
+			console.log(document.lastElementChild);
+
+			// 获取最后一个子元素节点
+			console.log(document.lastChild);
+
+			// 获取文档最后的修改时间
+			console.log(document.lastModified);
+
+			// --------------------------------------------
+
+			// document常用方法
+
+			// 创建元素节点
+			console.log(document.createElement());
+
+			// 创建属性节点
+			console.log(document.createAttribute());
+
+			// 创建文本节点
+			console.log(document.createTextNode());
+
+			// 创建注释节点
+			console.log(document.createComment());
+
+			// 获取id元素
+			console.log(document.getElementById());
+
+			// 获取类元素
+			console.log(document.getElementsByClassName());
+
+			// 获取名称元素
+			console.log(document.getElementsByName());
+
+			// 获取标签元素
+			console.log(document.getElementsByTagName());
+
+			// 获取一个元素
+			console.log(document.querySelector());
+
+			// 获取全部元素
+			console.log(document.querySelectorAll());
+		</script>
+	</body>
+</html>

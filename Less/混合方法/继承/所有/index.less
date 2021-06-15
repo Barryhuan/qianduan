@@ -1,0 +1,21 @@
+.a.b.test,
+.test.c {
+   color: red;
+}
+.test {
+    &:hover {
+        color: blue;
+    }
+}
+// .class:extend(.test all){}
+
+// .aaa:extend(.a) {}
+
+.ttt:extend(.b all) {}
+
+// .ccc:extend(.c all) {}
+
+// all这个值代表要继承所要继承的样式的一切
+// 要是只有单独的子类，则不会继承，但是加上all的话就会让继承者也继承他的父类
+// 例如：.a.b.test 结果为：.a.b.class
+// 继承其实只是个并集选择器，将继承者替代到原来的位置，继承他的一切

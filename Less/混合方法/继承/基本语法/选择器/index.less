@@ -1,0 +1,32 @@
+.juzhong {
+    color: red;
+    .son {
+        padding: 10px;
+    } 
+}
+
+.center {
+    color: purple;
+    .mmp {
+        margin: 50px;
+    }
+}
+
+#one:extend(.juzhong .son, .center .mmp) {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}
+
+// #one:extend(.juzhong .son, .center .mmp) 可以实现对#one对.son和.mmp的继承
+// 另一种写法：#one:extend(.juzhong .son):extend(.center .mmp),这2种写法是一样的
+// 实现了对子类的继承
+
+.bucket {
+  .qq & { 
+    color: blue;
+  }
+}
+.some-class:extend(.qq .bucket) {} 
+
+// 要是子类和父类位置互调，则不按直接使用子类来算

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>2D转换</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			div {
+				width: 300px;
+				height: 300px;
+				background: linear-gradient(to right, blue, red);
+				transition: transform 2s;
+			}
+			
+			div:active {
+				/* transform属性
+				   跟transition有个共同的特性：会恢复原样
+				   transform: translate(x, y) 给x和y方向移动的
+				   transform: translateX() 专门给X方向移动的
+				   transfrom: translateY() 专门给Y方向移动的
+				 */
+				transform: translate(200px, 300px);
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

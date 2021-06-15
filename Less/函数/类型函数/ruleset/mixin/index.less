@@ -1,0 +1,24 @@
+@a: {
+    color: red;
+};
+
+// 颜色16进制
+@color16: isruleset(#000);
+// 颜色
+@color: isruleset(black);
+// 字符串
+@string: isruleset('string');
+// 数字
+@number: isruleset(123456);
+// 像素
+@pix: isruleset(12px);
+// 百分比
+@bfb: isruleset(12%);
+// 关键字
+@keyword: isruleset(keyword);
+// 路径
+@url: isruleset('../url/index.less');
+// em
+@em: isruleset(12em);
+// 规则集
+@ruleset: isruleset(@a);

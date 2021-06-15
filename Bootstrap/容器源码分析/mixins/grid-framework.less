@@ -1,0 +1,137 @@
+// 行
+// 通过利用col的递归方式为容器的xs，sm，md，lg的（1-12）添加样式
+// 第一步
+.make-grid-columns() {
+  
+  .col(@index) { 
+    @item: ~".col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}";
+    // @item：~''''相当于字符串，@{index}等于@index，是数值
+    .col((@index + 1), @item);
+    // 这里的@item是''.col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}''
+  }
+  // 进入递归
+  // 判断@index是否符合要求：@index =< 12,如何遍历到index为13，xs，sm，md，lg已经遍历到了1~12了
+  .col(@index, @list) when (@index =< @grid-columns) { // @grid-columns = 12
+    // @list = 上一个的@item：.col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}
+    // 这里重新定义了一个@item
+    @item: ~".col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+    // ~"@{list}, @{item}"：
+      // @{list}：.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1（原来的item，当时的index值为1）
+      // @{item}：.col-xs-2, .col-sm-2, .col-md-2, .col-lg-2（新的item，传入的index值为2）
+  } 
+    // 当index为13（13 > 12）时跳出递归，为每一个硬件屏幕添加样式
+    //当index为13时，// ~"@{list}, @{item}"：
+      // ...
+      // @{list}：.col-xs-11, .col-sm-11, .col-md-11, .col-lg-11（原来的item，当时的index值为1）
+      // @{item}：.col-xs-12, .col-sm-12, .col-md-12, .col-lg-12（新的item，传入的index值为2）
+  .col(@index, @list) when (@index > @grid-columns) { /
+    @{list} {
+      position: relative;
+      // Prevent columns from collapsing when empty
+      min-height: 1px;
+      // Inner gutter via padding
+      padding-left:  ceil((@grid-gutter-width / 2));
+      padding-right: floor((@grid-gutter-width / 2));
+    }
+  }
+  .col(1); // kickstart it
+}
+
+// 第二步
+.make-grid(@class) {
+    // 2.1
+  .float-grid-columns(@class);
+  // 设置宽度
+  .loop-grid-columns(@grid-columns, @class, width);
+  // 设置列排序
+  // pull设置列往前排序
+  // col-xs-pull-0：auto
+  .loop-grid-columns(@grid-columns, @class, pull);
+  // push设置列往后排序
+  // col-xs-push-0：auto
+  .loop-grid-columns(@grid-columns, @class, push);
+  // offset设置列位移
+  // cp;-xs-offset-0: 0;
+  .loop-grid-columns(@grid-columns, @class, offset);
+}
+
+// 2.1.1
+// @class是xs,sm,md,lg
+// 优点为xs添加浮动属性，后面依次添加
+.float-grid-columns(@class) {
+  .col(@index) { // initial
+    @item: ~".col-@{class}-@{index}";
+    .col((@index + 1), @item);
+  }
+  .col(@index, @list) when (@index =< @grid-columns) { // general
+    @item: ~".col-@{class}-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+  }
+  .col(@index, @list) when (@index > @grid-columns) { // terminal
+    @{list} {
+      float: left;
+    }
+  }
+  .col(1); // kickstart it
+}
+
+
+// 2.2.1
+.loop-grid-columns(@index, @class, @type) when (@index >= 0) {
+    // 2.2.1.1
+  .calc-grid-column(@index, @class, @type);
+  // 2.2.1
+  .loop-grid-columns((@index - 1), @class, @type);
+}
+
+
+// 2.1.1.1
+// 判断属性
+// 块级作用域：index为12
+// @class为xs，sm，md，lg
+// @type为Width属性
+.calc-grid-column(@index, @class, @type) when (@type = width) and (@index > 0) {
+  .col-@{class}-@{index} {
+  //.col-@{class}-@{index} === col-xs-1~12
+    width: percentage((@index / @grid-columns));
+    // width: 12/ 12
+    // width: 11/ 12
+    // ...
+    // width: 1/ 12
+  }
+}
+// 2.1.1.2 添加eft属性
+.calc-grid-column(@index, @class, @type) when (@type = push) and (@index > 0) {
+  .col-@{class}-push-@{index} {
+  //.col-@{class}-push-@{index} === col-xs-push-1~12
+    left: percentage((@index / @grid-columns));
+    // 跟上楼一样
+  }
+}
+// 2.1.1.3 固定的属性，当col-xs-push-0时，left为auto
+.calc-grid-column(@index, @class, @type) when (@type = push) and (@index = 0) {
+  .col-@{class}-push-0 {
+    left: auto;
+  }
+}
+// 2.1.1.4 添加right属性，跟2.1.1.2一样
+.calc-grid-column(@index, @class, @type) when (@type = pull) and (@index > 0) {
+  .col-@{class}-pull-@{index} {
+    right: percentage((@index / @grid-columns));
+  }
+}
+// 2.1.1.5 固定属性，跟2.1.1.3一样
+.calc-grid-column(@index, @class, @type) when (@type = pull) and (@index = 0) {
+  .col-@{class}-pull-0 {
+    right: auto;
+  }
+}
+// 2.1.1.6 添加margin-left属性
+.calc-grid-column(@index, @class, @type) when (@type = offset) {
+  .col-@{class}-offset-@{index} {
+    margin-left: percentage((@index / @grid-columns));
+  }
+}
+
+

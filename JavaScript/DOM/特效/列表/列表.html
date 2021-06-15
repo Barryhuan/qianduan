@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>列表</title>
+    </head>
+    <body>
+        <input type="button" value='点我' id="btn">
+        <div id="d1"></div>
+        <script>
+
+            // var datas = ['西施', '王昭君', '貂蝉', '邓华蓉']
+            // var btn = document.getElementById('btn')
+            // var div = document.getElementById('d1')
+            // btn.onclick = function () {
+            //     div.innerHTML = '<ul>'
+            //     for (var i = 0; i < datas.length; i++) {
+            //         var data = datas[i]
+            //         div.innerHTML += '<li>' + data + '</li>'
+            //     }
+            //     div.innerHTML += '</ul>'
+            // }
+
+            // 优化1 
+            // var datas = ['西施', '王昭君', '貂蝉', '邓华蓉']
+            // var btn = document.getElementById('btn')
+            // var div = document.getElementById('d1')
+            // btn.onclick = function () {
+            //     var p
+            //     p = '<ul>'
+            //     for (var i = 0; i < datas.length; i++) {
+            //         var data = datas[i]
+            //         p += '<li>' + data + '</li>'
+            //     }
+            //     p += '</ul>'
+            //     div.innerHTML = p
+            // }
+
+            // 优化2 
+            // var datas = ['西施', '王昭君', '貂蝉', '邓华蓉']
+            // var arr = []
+            // var btn = document.getElementById('btn')
+            // var div = document.getElementById('d1')
+            // btn.onclick = function () {
+            //     arr.push('<ul>')
+            //     for (var i = 0; i < datas.length; i++) {
+            //         var data = datas[i]
+            //         arr.push('<li>' + data + '</li>')
+            //     }
+            //     arr.push('</ul>')
+            //     div.innerHTML = arr.join('')
+            //     console.log(arr)
+            // }
+            
+            var datas = ['西施', '王昭君', '貂蝉', '邓华蓉']
+            var btn = document.getElementById('btn')
+            btn.onclick = function () {
+                var div = document.getElementById('d1')
+                var ul = document.createElement('ul')
+                div.appendChild(ul)
+                for (var i = 0; i < datas.length; i++) {
+                    var data = datas[i]
+                    var li = document.createElement('li')
+                    ul.appendChild(li)
+                    li.innerText = data
+                    li.onmouseover = over
+                    li.onmouseout = out
+                }
+            }
+            function over() {
+                this.style.background = 'red'
+            }
+
+            function out() {
+                this.style.background = ''
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>???????</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			div {
+				width: 300px;
+				height: 300px;
+				background-color: red;
+				/* 动画的名词 */
+				animation-name: move;
+				/* 动画的时间 */
+				animation-duration: 1s;
+				/* 动画速率 */
+				animation-timing-function: ease;
+				/* 动画的延迟时间 */
+				animation-delay: 1s;
+				/* 动画所运行的次数 */
+				animation-iteration-count: infinite;
+				/* 设置动画的来回交替 */
+				animation-direction: alternate;
+				/* 设置动画的运行和暂停状态 */
+				animation-play-state: running;
+				/* 
+				forwards 保留动画结束后的状态
+				backwards 在有延迟并且拥有初始状态的情况下，初始状态会立即开始执行。
+				both 两者的结合
+				*/
+			   animation-fill-mode: both;
+			   
+			}
+				
+			@keyframes move{
+			    from{
+					transform: translate(100px, 0) rotate(40deg);
+				}
+				to{
+					transform: translate(200px, 300px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

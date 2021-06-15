@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>表单选择器</title>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script>
+        $(function () {
+            $(':input').css('background', 'red')
+            $(':checkbox').attr('checked', false)
+            $(':submit').css({'height' : 100})
+            // submit和button是一起的
+            // 可以利用val来改变checkbox和radio,select的值
+            $('select').val(['我', '你'])
+            $(':radio').val(['女'])
+            $(':checkbox').val(['rap'])
+            console.dir($(':checked'))
+            //$(':checked')包括了select和radio和checkbox
+            console.log($(':selected').length)
+        })
+    </script>
+</head>
+<body>
+    <form>
+        <input type="text" placeholder="我是你爸爸"><br>
+        <input type="button" value="点我"><br>
+        <input type="submit" value="提交"><br>
+        <input type="reset" value="重置"><br>
+        <input type="checkbox" value="游泳">游泳
+        <input type="checkbox" value="rap">rap
+        <input type="checkbox" value="篮球">篮球<br>
+        <input type="radio" value="男"> 男
+        <input type="radio" value="女"> 女<br>
+        <select multiple="multiple">
+            <option>我</option>
+            <option>是</option>
+            <option>你</option>
+        </select><br>
+        <button>我的老天爷呀</button><br>
+        <textarea rows="5" cols="20">
+        </textarea>
+    </form>
+</body>
+</html>

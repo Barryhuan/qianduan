@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>表单元素的新属性</title>
+</head>
+<body>
+    <form action="http://www.baidu.com" id="myform">
+        <!-- 文本框新添加了placeholder 默认文本 autofocus 自动获取焦点 autocomplete 记录输入的内容 条件：1.必须要有提交 2.必要要有name属性-->
+        文本框：<input type="text" placeholder="请输入正确的格式" autofocus autocomplete="on" name="userName"><br>
+        <!-- 手机号可以提示：required 也可以有正则表达式：pattern-->
+        手机号：<input type="tel" required pattern="\d+" name="userPhone"> <br>
+        <!-- 文件和邮箱可以多选-->
+        文件：<input type="file" multiple name="userFile">
+        邮箱：<input type="email" multiple name="userEmail">
+        <input type="submit">
+    </form>
+    <!-- 可以在域外通过form属性锁定id-->
+    域外的文本框：<input type="text" form="myform" name="siteout">
+    <input type="tel" pattern="" required>
+</body>
+</html>

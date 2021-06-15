@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>视频和音频</title>
+</head>
+<body>
+    <!-- 1.controls是显示音频面板的属性
+         2.loop 循环播放
+         3.autoplay 自动播放，选择chrome已经不支持了
+         4.muted 静音属性
+         5.scr 路径位置
+         6.preload 加载，但是有autoplay属性则无效
+    -->
+    <audio src="music/1.mp3" controls loop muted preload></audio>
+    <!-- 
+         1.controls 显示视频模板
+         2.poster 视频的封面
+         3.loop 循环
+         4.width和height 只能存在一个，同时存在按比例放大
+         5.muted 静音
+         6.preload 加载
+         7.autoplay chrome取消了这个属性-->
+    <!-- <video src="music/2.mp4" controls poster="music/3.png" width="1000" preload muted></video> -->
+    <!-- 如果浏览器不支持视频或一瓶格式则用这个标签看浏览器能不能支持 -->
+    <video  controls>
+        <source src="music/2.mp4" type="video/mp4">
+    </video>
+</body>
+</html>

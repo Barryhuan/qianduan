@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>其他伪类元素</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			/*一行首字母的样式， 和first-line有冲突(可以一起修改显示样式，但无法改变大小)*/
+			p::first-letter {
+				font-size: 40px;
+				/* left属性可以造成元素下沉的样子 */
+				float: left;
+			}
+			/* 修改第一行的样式 */
+			/* p::first-line {
+				font-size: 35px;
+			} */
+			/* 只能修改显示样式无法改变大小 */
+			/* 鼠标选中后的效果 */
+			p::selection {
+				color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<p>我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我</p>
+		<a>我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我</a>
+	</body>
+</html>

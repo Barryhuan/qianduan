@@ -1,0 +1,14 @@
+.li:nth-child(1n + 3) {
+    color: red;
+}
+
+//.class:extend(.li:nth-child(n + 3)){}
+// 结果为.class没有继承到养海参
+
+// .li:nth-child(1n + 3) {
+//  color: red;
+// }
+
+.class:extend(.li:nth-child(1n + 3)){}
+
+

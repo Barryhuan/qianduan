@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>点击实现全部品牌</title>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            var lihien = $('ul li:gt(3):not(:last)')
+            lihien.hide()
+            var smalla = $('.small a')
+            $(smalla).click(function () {
+                console.log(smalla)
+                if ($(lihien).is(':hidden')) {
+                    $(lihien).show()
+                    $('.small').css('background', 'url(img/up.gif) no-repeat 4px center')
+                    .find('span').text('精简品牌')
+                } else {
+                    $(lihien).hide()
+                    $('.small').css('background', 'url(img/down.gif) no-repeat 4px center')
+                    .find('span').text('显示所有品牌')
+                }
+                return false;
+            }
+            )
+
+        })
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #box {
+            width: 432px;
+            height: 300px;
+            margin: 50px auto;
+            padding: 5px;
+        }
+
+
+        #box ul li {
+            float: left;
+            padding: 10px 20px;
+        }
+
+        #box .small {
+            margin-top: 20px;
+            clear: both;
+            width: 135px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #000;
+            margin: 0 auto;
+            background: url(img/down.gif) no-repeat 4px center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul>
+            <li><a href="###">佳能（30440）</a></li>
+            <li><a href="###">佳能（30440）</a></li>
+            <li><a href="###">佳能（30440）</a></li>
+            <li><a href="###">佳能（30440）</a></li>
+            <li><a href="###">佳能（30440）</a></li>
+            <li><a href="###">佳能（30440）</a></li>
+            <li><a href="###">佳能（30440）</a></li>
+            <li><a href="###">佳能（30440）</a></li>
+            <li><a href="###">佳能（30440）</a></li>
+            <li><a href="###">佳能（30440）</a></li>
+            <li><a href="###">佳能（30440）</a></li>
+            <li><a href="###">佳能（30440）</a></li>
+            <li><a href="###">佳能（30440）</a></li>
+            <li class="last"><a href="###">其他品牌</a></li>
+        </ul>
+        <div class="small">
+            <a href="###"><span>显示所有品牌</span></a>
+        </div>
+    </div>
+
+</body>
+
+</html>

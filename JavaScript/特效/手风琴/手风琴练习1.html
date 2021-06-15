@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>手风琴练习1</title>
+        <meta charset="UTF-8">
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+
+            #box {
+                width: 1150px;
+                height: 460px;
+                margin: 100px auto;
+                overflow: hidden;
+                border: 1px solid #000;
+            }
+
+            #box ul {
+                width: 1300px;
+            }
+
+            #box li {
+                width: 240px;
+                height: 460px;
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <script>
+            var box = document.getElementById('box')
+            var ul = box.children[0]
+            var lis = ul.children
+
+            for (var i =0; i < lis.length; i++) {
+                lis[i].style.background = 'url(img/' + (i+1) + '.jpg)'
+                lis[i].onmouseover = function () {
+                    for (var j = 0; j < lis.length; j++) {
+                        animate(lis[j], {'width' : 100})
+                    }
+                    animate(this, {'width' : 800})
+                }
+            }
+
+            box.onmouseout = function () {
+                for (var i = 0; i < lis.length; i++) {
+                    animate(lis[i], {'width' : 240})
+                }
+            }
+            function animate(obj, json, fn) {
+                clearInterval(obj.timer)
+                obj.timer = setInterval(function () {
+                    var flag = true
+                    for (var k in json) {
+                        if (k === 'opacity') {
+                            var leader = getStyle(obj, k) * 100
+                            var target = json[k] * 100
+                            var speed = (target - leader) / 10
+                            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed)
+                            leader += speed
+                            obj.style[k] = leader / 100
+                        } else if (k === 'zIndex') {
+                            obj.style.zIndex = json[k]
+                        } else {
+                            var leader = parseInt(getStyle(obj, k))
+                            var target = json[k]
+                            var speed = (target - leader) /10
+                            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed)
+                            leader += speed
+                            obj.style[k] = leader + 'px'
+                        }
+                        if (leader !== target) {
+                            flag = false
+                        }  
+                    }
+                    if (flag) {
+                        clearInterval(obj.timer)
+                        if (fn) {
+                            fn()
+                        }
+                    }
+                }, 15)
+            }
+            function getStyle(obj, attr) {
+                if (window.getComputedStyle) {
+                    return window.getComputedStyle(obj, null)[attr]
+                } else {
+                    return obj.currentStyle[attr]
+                }
+            }
+        </script>
+    </body>
+</html>

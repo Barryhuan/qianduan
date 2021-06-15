@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Window对象的方法</title>
+</head>
+
+<body>
+    <button id="b1">setIimeout</button>
+    <button id="b2">setInterval</button>
+    <button id="b3">CleansetIimeout</button>
+    <button id="b4">CleanInterval</button>
+    <script>
+        let b1 = document.getElementById('b1')
+        let b2 = document.getElementById('b2')
+        let b3 = document.getElementById('b3')
+        let b4 = document.getElementById('b4')
+        let clearI1,clearS1
+        b1.onclick = function () {
+           // 一次性定时器
+           // setTimeout不会反悔id值
+           clearS1 = setTimeout(function () {
+                console.log('我是window的setTimeout方法，我是一次性的')
+           }, 3000)
+        }
+        console.log(clearS1)
+        b2.onclick = function () {
+            clearI1 = setInterval(function () {
+            console.log('我是window的setInterval方法，我是重复性的')
+           }, 1000)
+        }
+        // clearTimeout方法要在函数体内加个return才能阻止创建新的定时器
+        b3.onclick = function () {
+           clearTimeout(clearS1)
+           return;
+        }
+        b4.onclick = function () {
+           clearInterval(clearI1)
+        }
+    </script>
+</body>
+
+</html>

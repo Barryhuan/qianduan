@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>动画跳转</title>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            // 设置初始页面
+            var page = 1;
+            // 设置一个页面有多少li
+            var i = 4;
+            // 获取最外面的盒子
+            var parent = $('#box')
+            // 获取要移动的盒子
+            var main = parent.find('.main')
+            // 获取要移动值和外层盒子
+            var box_bottom = parent.find('.box_bottom')
+            // 获取要移动的距离
+            var box_bottomWidth = box_bottom.width()
+            // 获取li的数量
+            var liWidth = $('li').length // 16
+            // 取页面数量
+            var page_count = Math.ceil(liWidth / i)
+            $('.next').click(function () {
+                // 判断是否处于动画状态
+                if (!main.is(':animated')) {
+                    // 判断是否在最后一个页面
+                    if (page === page_count) {
+                        $(main).stop().animate({ left: 0 }, 'fast')
+                        page = 1
+                    } else {
+                    // 否则就每次递减一个页面的距离
+                        $(main).animate({ left: '-=' + box_bottomWidth + 'px' }, 'slow')
+                        page++
+                    }
+                    // 将每一个
+                    $('.lis span').eq(page - 1).addClass('curron')
+                        .siblings().removeClass('curron')
+                }
+            })
+
+            $('.prev').click(function () {
+                if (!main.is(':animated')) {
+                    if (page === 1) {
+                        $(main).animate({ left: -((page_count - 1) * box_bottomWidth)}, 'slow')
+                        page = page_count
+                    } else {
+                        $(main).animate({ left: '+=' + box_bottomWidth + 'px' }, 'slow')
+                        page--
+                    }
+
+                    $('.lis span').eq(page - 1).addClass('curron')
+                        .siblings().removeClass('curron')
+                }
+            })
+        })
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        a {
+            color: #2B93D2;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: red;
+            text-decoration: none;
+        }
+
+        #box {
+            width: 594px;
+            margin: 20px 0 0 50px;
+        }
+
+        #box .box_top {
+            height: 35px;
+            background: url(img/btn_cartoon.gif) no-repeat 0 0;
+        }
+
+        .box_top h2 {
+            float: left;
+            width: 90px;
+            height: 35px;
+            background: url(img/btn_cartoon.gif) no-repeat 0 -100px;
+        }
+
+        .box_top .lis {
+            float: left;
+            margin: 15px 0 0 20px;
+        }
+
+        .box_top .lis span {
+            float: left;
+            width: 7px;
+            height: 7px;
+            margin: 0 2px;
+            background: url(img/btn_cartoon.gif) no-repeat 0 -320px;
+        }
+
+        .box_top .lis .curron {
+            background-position: 0 -220px;
+        }
+
+        .box_top .page {
+            float: left;
+            margin: 5px 0 0 20px;
+        }
+
+        .box_top .page span {
+            float: left;
+            width: 30px;
+            height: 23px;
+            cursor: pointer;
+            background: url(img/btn_cartoon.gif) no-repeat 0 -320px;
+        }
+
+        .box_top .page .next {
+            background-position: -30px -400px;
+
+        }
+
+        .box_top .page .prev {
+            background-position: 0 -400px;
+        }
+
+        .box_top em {
+            float: right;
+            color: #2B93D2;
+            line-height: 35px;
+            padding-right: 15px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .box_bottom {
+            position: relative;
+            border: 1px solid #EEE;
+            border-top: none;
+            overflow: hidden;
+            height: 160px;
+        }
+
+        .box_bottom .main {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2500px;
+            height: 160px;
+        }
+
+        .main li {
+            float: left;
+            width: 128px;
+            margin: 10px;
+        }
+
+        .main a,
+        span {
+            padding: 3px 0;
+            display: block;
+            font-size: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="box_top">
+            <h2></h2>
+            <div class="lis">
+                <span class="curron"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="page">
+                <span class="prev"></span>
+                <span class="next"></span>
+            </div>
+            <em>更多</em>
+        </div>
+        <div class="box_bottom">
+            <div class="main">
+                <ul>
+                    <li>
+                        <img src="img/01.jpg">
+                        <a href="###">海贼王</a>
+                        <span>播放：20，276</span>
+                    </li>
+                    <li>
+                        <img src="img/01.jpg">
+                        <a href="###">海贼王</a>
+                        <span>播放：20，276</span>
+                    </li>
+                    <li>
+                        <img src="img/01.jpg">
+                        <a href="###">海贼王</a>
+                        <span>播放：20，276</span>
+                    </li>
+                    <li>
+                        <img src="img/01.jpg">
+                        <a href="###">海贼王</a>
+                        <span>播放：20，276</span>
+                    </li>
+                    <li>
+                        <img src="img/02.jpg">
+                        <a href="###">哆啦A梦</a>
+                        <span>播放：33，326</span>
+                    </li>
+                    <li>
+                        <img src="img/02.jpg">
+                        <a href="###">哆啦A梦</a>
+                        <span>播放：33，326</span>
+                    </li>
+                    <li>
+                        <img src="img/02.jpg">
+                        <a href="###">哆啦A梦</a>
+                        <span>播放：33，326</span>
+                    </li>
+                    <li>
+                        <img src="img/02.jpg">
+                        <a href="###">哆啦A梦</a>
+                        <span>播放：33，326</span>
+                    </li>
+                    <li>
+                        <img src="img/03.jpg">
+                        <a href="###">火影忍者</a>
+                        <span>播放：28,276</span>
+                    </li>
+                    <li>
+                        <img src="img/03.jpg">
+                        <a href="###">火影忍者</a>
+                        <span>播放：28,276</span>
+                    </li>
+                    <li>
+                        <img src="img/03.jpg">
+                        <a href="###">火影忍者</a>
+                        <span>播放：28,276</span>
+                    </li>
+                    <li>
+                        <img src="img/03.jpg">
+                        <a href="###">火影忍者</a>
+                        <span>播放：28,276</span>
+                    </li>
+                    <li>
+                        <img src="img/04.jpg">
+                        <a href="###">龙珠</a>
+                        <span>播放：57,865</span>
+                    </li>
+                    <li>
+                        <img src="img/04.jpg">
+                        <a href="###">龙珠</a>
+                        <span>播放：57,865</span>
+                    </li>
+                    <li>
+                        <img src="img/04.jpg">
+                        <a href="###">龙珠</a>
+                        <span>播放：57,865</span>
+                    </li>
+                    <li>
+                        <img src="img/04.jpg">
+                        <a href="###">龙珠</a>
+                        <span>播放：57,865</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

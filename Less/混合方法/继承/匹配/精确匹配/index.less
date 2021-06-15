@@ -1,0 +1,9 @@
+.a.li,
+.li .a,
+.li > .a {
+    color: red;
+}
+
+//.class:extend(.li > .a) {}
+// 如果为 .class:extend(.li) {} 则无法继承
+.class:extend(.li > .a) {}

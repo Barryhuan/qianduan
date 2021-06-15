@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>控制字体大小</title>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            $('.left_box').click(function () {
+                $('.text').css('font-size', '+=1px')
+            })
+            $('.right_box').click(function () {
+                $('.text').css('font-size', '-=1px')
+            })
+        })
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            width: 500px;
+            margin: 200px auto;
+        }
+
+        #box .left_box, .right_box{
+            width: 60px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #999;
+            float: left;
+            cursor: pointer;
+            margin: 0 20px;
+        }
+
+        #box .text {
+            clear: both;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="left_box">放大</div>
+        <div class="right_box">缩小</div>
+        <div class="text">
+                This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+        </div>
+    </div>
+</body>
+</html>

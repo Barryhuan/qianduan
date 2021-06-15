@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>冒泡事件</title>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script>
+        $(function () {
+            $('#d1').click(function () {
+                alert('d1')
+            })
+            $('#d2').click(function () {
+                alert('d2')
+            })
+            $('#d3').click(function (event) {
+                var event = event
+                // 阻止冒泡事件
+                event.stopPropagation()
+                alert('d3')
+            })
+            // 阻止提交
+            $('#d4').click(function (event) {
+                var event = event
+                event.preventDefault()
+            })
+        })
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #d1 {
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+            background-color: red;
+        }
+
+        #d2 {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            background-color: blue;
+        }
+
+        #d3 {
+            width: 50px;
+            height: 50px;
+            margin: 10px auto;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">
+        <div id="d2">
+            <div id="d3"></div>
+        </div>
+    </div>
+    <form>
+        <input type="submit" value="提交" id="d4">
+    </form>
+</body>
+</html>

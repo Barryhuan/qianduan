@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>重复图片</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        #box {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #FFF;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .6);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./lamp.gif">
+    <button onclick="draw('repeat')">repeat</button>
+    <button onclick="draw('repeat-x')">repeat-x</button>
+    <button onclick="draw('repeat-y')">repeat-y</button>
+    <button onclick="draw('no-repeat')">no-repeat</button>
+    <canvas id="box" width="800px" height="800px"></canvas>
+    <script>
+        function draw(key) {
+            console.log(key)
+           
+            let cav = document.querySelector('#box').getContext('2d')
+            let img = document.querySelector('img')
+            cav.clearRect(0, 0, 800, 800)
+            let pat =  cav.createPattern(img, key)
+            cav.fillStyle = pat
+            cav.rect(0, 0, 800, 800)
+            cav.fill()
+        }
+    </script>
+</body>
+</html>

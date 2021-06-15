@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>缓存函数</title>
+        <meta charset="UTF-8">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            #d1 {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                position: absolute;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <button id="b1">200px</button>
+        <button id="b2">400px</button>
+        <div id="d1"></div>
+        <script>
+            var b1 = document.getElementById('b1')
+            var b2 = document.getElementById('b2')
+            var d1 = document.getElementById('d1')
+            b1.onclick = function () {
+                animate(d1, 200)
+            }
+            b2.onclick = function () {
+                animate(d1, 400)
+            }
+            function animate(obj, target) {
+                // 第一次是未定义，不会报错
+                clearInterval(obj.timer)     
+                obj.timer = setInterval(function (){
+                    // // 每次循环都会让leader变为整数，大于6则向下去取整，小于或等于6向上取整，
+                    // // 获取对象长度
+                    var leader = obj.offsetWidth
+                    console.log('leader：' + leader)
+                    // 取逐渐小的值
+                    var speed = (target - leader) / 10    
+                    console.log(speed)
+                    // 判断是正还是负，正则前，负则退
+                    speed =  speed > 0 ? Math.ceil(speed) : Math.floor(speed)
+                    console.log('speed：' + speed)
+                    leader += speed
+                    console.log('结果leader：' + leader)
+                    obj.style.width = leader + 'px'
+                    if (leader === target) {
+                        clearInterval(obj.timer)
+                    }
+                },15)
+            }
+        </script>
+    </body>
+</html>

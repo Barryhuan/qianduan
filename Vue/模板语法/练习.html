@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>模板语法</title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="myself">
+			<p v-text="text"></p>
+			<p v-html="a"></p>
+			<a v-bind:href="href">百度</a><br><br>
+			<p>{{text}}</p>
+			<button v-on:click="updata">点我</button><br>
+			<button @click="upmyself('我好烦啊')">快</button>
+		</div>
+		<script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+					myself: '我是个呆逼，哈哈',
+					text: '我是个帅逼，哈哈',
+					a: '<a href="https://www.baidu.com">百度</a>',
+					href: 'https://www.baidu.com'
+				},
+				methods: {
+					updata() {
+						alert(this.myself)
+					},
+					upmyself(value) {
+						alert(value)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

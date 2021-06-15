@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>选项框的全选和反选</title>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            $('.all').click(function () {
+                $(':checkbox').attr('checked', true)
+            })
+            $('.unall').click(function () {
+                $(':checkbox').attr('checked', false)
+            })
+            $('.fx').click(function () {
+                $(':checkbox').each(function () {
+                    this.checked = !this.checked
+                })
+            })
+            $('.tj').click(function () {
+                var str = '现在提交的是：'+'\r\n'
+                $(':checkbox:checked').each(function () {
+                    str += $(this).val()+'\r\n'
+                }) 
+                alert(str)
+            })
+        })
+    </script>
+</head>
+<body>
+    <p>你爱好的运动是什么</p>
+    <input type="checkbox" value="篮球"> 篮球
+    <input type="checkbox" value="足球"> 足球
+    <input type="checkbox" value="羽毛球"> 羽毛球
+    <input type="checkbox" value="乒乓球"> 乒乓球<br>
+    <button class="all">全选</button>
+    <button class="unall">全选</button>
+    <button class="fx">全选</button>
+    <button class="tj">提交</button>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Window对象的属性</title>
+</head>
+
+<body>
+    <button id="b1">点击</button>
+    <script>
+        let b1 = document.getElementById('b1')
+        b1.onclick = function () {
+            // 窗口的名称,可以设置和获取名字
+            console.log(window.name = '老王 ')
+
+            // 设置和获取当前框架数量
+            console.log('返回当前框架数量：' + window.length)
+
+            // 设置和获取窗口状态栏的文本
+            window.status = '老许'
+
+            // 设置或获取状态栏的默认文本（opear浏览器支持）
+            window.defaultStatus = '老王'
+
+            // 获取窗口关闭信息（只读）true and false
+            window.closed
+        }
+    </script>
+</body>
+
+</html>

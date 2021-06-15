@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>属性过滤选择器t</title>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script>
+        $(function () {
+            // 属性过滤选择器
+            // 1.id
+            $('div[id=d1]').text('我可是有id的人')
+            // 2.[title=title]
+            $('div[title=title]').text('我的属性是title，而且值也是title')
+            // 3.[title!=title]
+            $('div[title!=title]').text('只要是title属性不是为title，其他的都是')
+            // 4.[title^=mm]
+            $('div[title^=mm]').text('我是title属性前缀的值：mmp')
+            // 5.[title$=nm]
+            $('div[title$=nm]').text('我是title属性后缀的值：wcnm')
+            // 6.[title|=no] 不包含空格
+            $('div[title|=no]').text('我是title属性拥有|的no-mmp或者只是no')
+            // 7.[title~=no]
+            $('div[title~=no]').text('我是title属性拥有 的no mmp')
+        })
+    </script>
+</head>
+<body>
+    <div id="d1"></div>
+    <div title="title"></div>
+    <div title="mmp"></div>
+    <div title="wcnm"></div>
+    <div title="no-mmp"></div>
+    <div title="no"></div>
+    <div title="no mmp"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

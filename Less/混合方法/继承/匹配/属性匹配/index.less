@@ -1,0 +1,16 @@
+[title = 'mmp'] {
+    color: red;
+}
+
+[title = "mmp"] {
+    color: red;
+}
+
+[title = mmp] {
+    color: red;
+}
+
+// 上面3中表达式都是一样的，每个都有继承
+.class:extend([title = 'mmp']){}
+.one:extend([title = mmp]) {}
+.two:extend([title = "mmp"]) {}

@@ -1,0 +1,26 @@
+.juzhong {
+  color: red;
+}
+.juzhong .son,
+#one {
+  padding: 10px;
+}
+.center {
+  color: purple;
+}
+
+.center .mmp,
+#one {
+  margin: 50px;
+}
+
+#one {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
+
+.qq .bucket,
+.some-class {
+  color: blue;
+}

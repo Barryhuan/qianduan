@@ -1,0 +1,1 @@
+// Promise.prototyoe.catch()

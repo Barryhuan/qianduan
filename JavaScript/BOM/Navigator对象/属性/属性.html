@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Navigator的属性</title>
+</head>
+
+<body>
+    <button id="b1">点击</button>
+    <script>
+        let b1 = document.getElementById('b1')
+        b1.onclick = function () {
+            // 浏览器的名字
+            console.log('浏览器的名字：' + window.navigator.appName)
+
+            // 浏览器的代码名
+            console.log('浏览器的代码名：' + window.navigator.appCodeName)
+
+            // 浏览器的版本信息
+            console.log('浏览器的版本信息：' + window.navigator.appVersion)
+
+            // 当前浏览器的语言
+            console.log('当前浏览器使用的语言：' + window.navigator.language)
+
+            // 当前浏览器的语言
+            console.log('当前浏览器使用的语言集：' + window.navigator.languages)
+
+            // 当前系统平台的信息    platform = 平台   
+            console.log('当前系统的信息：' + window.navigator.platform)    
+
+            // 当前系统是否处于脱机模式
+            console.log('当前系统是否处于脱机模式：' + window.navigator.onLine) 
+
+            // 浏览器中是否启用 cookie 的布尔值
+            console.log('浏览器中是否启用 cookie 的布尔值：' + window.navigator.cookieEnabled) 
+
+            // 返回由客户机发送服务器的 user-agent 头部的值
+            console.log('返回由客户机发送服务器的 user-agent 头部的值：' + window.navigator.userAgent)
+
+            // 返回浏览器所用的插件组成的数组
+            console.log(window.navigator.plugins)
+        }
+    </script>
+</body>
+
+</html>

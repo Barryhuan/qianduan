@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>canvas绘制矩形</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			body {
+				background-color: gray;
+			}
+			
+			#canvas {
+				position: absolute;
+				margin: auto;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+		<script>
+			var canvas = document.getElementById('canvas')
+			if (canvas.getContext) {
+				var can = canvas.getContext('2d')
+				can.fillStyle = 'pink'
+				can.fillRect(0, 0, 200, 200)
+				can.lineWidth = '10'
+				can.lineJoin = "bevel"
+				can.strokeStyle = 'yellow'
+				can.strokeRect(200.5, 200.5, 100, 100)
+				can.fillStyle = 'black'
+				can.fillRect(301, 301, 100, 100)
+				can.clearRect(0, 0, 150, 150)
+			}
+		</script>
+	</body>
+</html>

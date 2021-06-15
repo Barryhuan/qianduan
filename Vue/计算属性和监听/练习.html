@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>计算属性的练习</title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			FirtName：<input type="text" placeholder="FirstName" v-model="FirstName"><br>
+			LastName：<input type="text" placeholder="LastName" v-model="LastName"><br>
+			计算属性：（单向）<input type="text" v-model="FullName1"><br>
+			监察属性：（单向）<input type="text" v-model="FullName2"><br>
+			计算高级：（双向）<input type="text" v-model="FullName3">
+		</div>
+		<script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+					FirstName: 'A',
+					LastName: 'B',
+					FullName2: 'A B'
+				},
+				computed: {
+					FullName1() {
+						return this.FirstName + ' ' + this.LastName;
+					},
+					FullName3: {
+						get() {
+							return this.FirstName + ' ' + this.LastName;
+						},
+						set(value) {
+							const names = value.split(' ');
+							this.FirstName = names[0];
+							this.LastName = names[1];
+						}
+					}
+				},
+				watch: {
+					FirstName(value) {
+						this.FullName2 = value + ' ' + this.LastName; 
+					},
+					LastName(value) {
+						this.FullName2 = this.FirstName + ' ' + value;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

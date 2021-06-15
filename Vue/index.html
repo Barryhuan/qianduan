@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p v-bind:title="add()">{{items}}</p>
+		</div>
+		<script>
+			var item = {
+				a: "1",
+			};
+			var vm = new Vue({
+				el: "#app",
+				data() {
+					return {
+						items: [0, 0, 0, 0, 0],
+					};
+				},
+				methods: {
+					add() {
+						return "页面加载于" + new Date().toLocaleString();
+					},
+				},
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Navigator的方法</title>
+</head>
+
+<body>
+    <button id="b1">点击</button>
+    <script>
+        let b1 = document.getElementById('b1')
+        b1.onclick = function () {
+            // 规定浏览器是否启用java
+            console.log(window.navigator.javaEnabled()) // 结果为false
+        }
+    </script>
+</body>
+
+</html>

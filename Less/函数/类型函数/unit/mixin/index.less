@@ -1,0 +1,16 @@
+// px
+@color16: isunit(11px, px);  // true
+// %, px 
+@color: isunit(2.2%, px);  // false
+// px, rm
+@string: isunit(33px, rem); // false
+// rem
+@number: isunit(4rem, rem); // true
+// px, %
+@pix: isunit(56px, "%"); // false
+// %, %
+@bfb: isunit(7.8%, '%'); // true
+// number, em
+@keyword: isunit(1234, em);  // false
+// color, pt
+@url: isunit(#ff0, pt);  // false

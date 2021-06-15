@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>克隆节点</title>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script>
+        $(function () {
+            $('#d1').click(function () {
+                var a = $(this).clone(true)
+                $('body').append(a)
+            })
+        })
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #d1 {
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">我的老天呀</div>
+</body>
+</html>

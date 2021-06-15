@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Location对象的属性</title>
+</head>
+
+<body>
+    <button id="b1">点击</button>
+    <script>
+        let b1 = document.getElementById('b1')
+        b1.onclick = function () {
+            // 加载新的文档
+            location.assign('http://www.baidu.com')
+
+            // 重新加载本文档，当参数为true时，重新从服务器下载，为false时，从缓存里拿取
+            location.reload() // 跟浏览器的刷新键一样
+
+            // 替换文档
+            // location.replace('http://www.taobao.com')
+        }
+    </script>
+</body>
+
+</html>

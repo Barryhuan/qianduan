@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>地理位置定位</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #position {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="position"></div>
+    <script>
+        var x = document.querySelector('#position')
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showposition, showerror, {
+                    timeout: 1000
+                })
+            } else {
+                x.innerHTML = '获取失败'
+            }
+
+        }
+
+        function showposition(position) {
+            x.innerHTML = '横坐标：' + position.coords.latitude + 
+            '<br>' + '纵坐标：' + position.coords.longitude
+        }
+
+        function showerror(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                x.innerHTML = '权限被拒绝'
+                break;
+                case error.POSITION_UNAVAILABLE:
+                x.innerHTML = '位置不可用的'
+                break;
+                case error.TIMEOUT:
+                x.innerHTML = '超时'
+                break;
+                case error.UNKNOWN_ERROR:
+                x.innerHTML = '未知错误'
+                break;
+            }
+        }
+
+        getLocation();
+    </script>
+</body>
+</html>

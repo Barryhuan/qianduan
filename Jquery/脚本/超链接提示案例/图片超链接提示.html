@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>图片超链接提示</title>
+    <script src="../jquery.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            padding: 0 10px;
+        }
+
+        #smallbox {
+            width: 400px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid #000;
+            color: white;
+            background-color: #000;
+        }
+
+        #smallbox img{
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <h4>有效果</h4>
+        <a href="img/apple_1_bigger.jpg" title="MP3"><img src="img/apple_1.jpg"></a>
+        <a href="img/apple_2_bigger.jpg" title="苹果Ipand"><img src="img/apple_2.jpg"></a>
+        <a href="img/apple_3_bigger.jpg" title="苹果Iphone"><img src="img/apple_3.jpg"></a>
+        <a href="img/apple_4_bigger.jpg" title="苹果Mac"><img src="img/apple_4.jpg"></a>
+    </div>
+    <script>
+        $(function () {
+            $('#box a').mouseover(function (e) {
+                this.Title = this.title
+                this.title = ''
+                this.imgtitle = this.Title ? '<br>' + this.Title : ''
+                console.log(this.imgtitle)
+                var smabox = $('<div id="smallbox"><img src="' + this.href + '">'+ this.imgtitle +'</div>')
+                $('body').append(smabox)
+                $('#smallbox').css({
+                    top: e.pageY + 10 + 'px',
+                    left: e.pageX + 10 + 'px'
+                }).show('slow')
+            }).mouseout(function () {
+                this.title = this.Title
+                $('#smallbox').remove()
+            }).mousemove(function (e) {
+                $('#smallbox').css({
+                    top: e.pageY + 10 + 'px',
+                    left: e.pageX + 10 + 'px'
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

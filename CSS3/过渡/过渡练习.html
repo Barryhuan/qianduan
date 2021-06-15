@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过渡练习</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			
+			#box {
+				width: 300px;
+				height: auto;
+				margin: 50px auto;
+			}
+			
+			#box .item {
+				width: 100%;
+				height: auto;
+			}
+			
+			#box .item h3 {
+				width: 100%;
+				height: 40px;
+				line-height: 40px;
+				padding-left: 10px;
+				background-color: #00F7DE;
+				border-bottom: 1px solid #000;
+			}
+			
+			#box .item .item-box ul {
+				width: 100%;
+				height: 0px;
+				background-color: orange;
+				overflow: hidden;
+				transition-property: height;
+				transition-duration: 2s;
+			}
+			
+			#box .item:hover ul{
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div class="item">
+				<h3>八百标兵奔北坡</h3>
+				<div class="item-box">
+					<ul>
+						<li>八百标兵奔北坡</li>
+						<li>八百标兵奔北坡</li>
+						<li>八百标兵奔北坡</li>
+						<li>八百标兵奔北坡</li>
+						<li>八百标兵奔北坡</li>
+					</ul>
+				</div>
+			</div>
+			<div class="item">
+				<h3>八百标兵奔北坡</h3>
+				<div class="item-box">
+					<ul>
+						<li>八百标兵奔北坡</li>
+						<li>八百标兵奔北坡</li>
+						<li>八百标兵奔北坡</li>
+						<li>八百标兵奔北坡</li>
+						<li>八百标兵奔北坡</li>
+					</ul>
+				</div>
+			</div>
+			<div class="item">
+				<h3>八百标兵奔北坡</h3>
+				<div class="item-box">
+					<ul>
+						<li>八百标兵奔北坡</li>
+						<li>八百标兵奔北坡</li>
+						<li>八百标兵奔北坡</li>
+						<li>八百标兵奔北坡</li>
+						<li>八百标兵奔北坡</li>
+					</ul>
+				</div>
+			</div>
+			<div class="item">
+				<h3>八百标兵奔北坡</h3>
+				<div class="item-box">
+					<ul>
+						<li>八百标兵奔北坡</li>
+						<li>八百标兵奔北坡</li>
+						<li>八百标兵奔北坡</li>
+						<li>八百标兵奔北坡</li>
+						<li>八百标兵奔北坡</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>响应式布局</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="d1"></div>
+        <script>
+            var d1 = document.getElementById('d1')
+            a()
+
+            window.onresize = function () {
+                a()
+                console.log(client().clientWidth)
+            }
+            function a() {
+                if (client().clientWidth > 960) {
+                    document.body.style.backgroundColor = 'red'
+                    d1.innerText = '我是电脑'
+                
+                } else if ( client().clientWidth > 620) {
+                    document.body.style.backgroundColor = 'blue'
+                    d1.innerText = '我是平板'
+                } else {
+                    document.body.style.backgroundColor = 'green'
+
+                    d1.innerText = '我是手机'
+                }
+            }
+            function client() {
+                var clientWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0
+                var clientHeight = window.innerHeight || document.documentElement.clientHeight || document.body.client || 0
+                console.log(clientWidth)
+                return {
+                    clientWidth : clientWidth,
+                    clientHeight : clientHeight
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>自动触发事件</title>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script>
+        $(function () {
+            // 触发监听事件
+            // 在弄了触发事件才会，同时给对象使用自定义事件和事件，会覆盖事件，自定义事件
+            // 自定义事件则无法使用
+            $('#d1').click(function () {
+                console.log('我操')
+            }) 
+            $('#d1').bind('myclick', function () {
+                console.log('自定义事件')
+            })
+            $('#b1').click(function () {
+                $('#d1').trigger('myclick')
+            })
+            // 阻止自动获取焦点
+            $('#d3').focus(function () {
+                $(this).val('操')
+            })
+            $('#d4').click(function () {
+                $('input').triggerHandler('focus')
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="d1"></div>
+    <button id="b1">点我</button>
+    <form action="#">
+        <input type="text" placeholder="mmp" id="d3">
+        <input type="button" value="点怕" id="d4">
+    </form>
+</body>
+</html>

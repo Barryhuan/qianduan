@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>简单轮播图</title>
+        <meta charset="UTF-8">
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            #box {
+                width: 490px;
+                margin: 20px auto;
+                padding: 10px;
+                border: 1px solid #000;
+            }
+
+            #box .inner {
+                width: 490px;
+                height: 276px;
+                overflow: hidden;
+                position: relative;
+            }
+
+            #box .inner ul {
+                width: 1000%;
+                position: absolute;
+                top: 0;
+            }
+
+            #box .inner ul li {
+                float: left;
+            }
+           
+            #box .inner .spans {
+                width: 200px;
+                margin: 10px auto 0;
+                text-align: center;
+                position: absolute;
+                left: 155px;
+                top: 235px;
+            }
+
+            #box .inner .spans span {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                line-height: 20px;
+                cursor: pointer;
+                background-color: orange;
+            }
+
+            #box .inner .spans .curss {
+                background-color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <div class="inner">
+                <ul style="left: 0px;">
+                    <li><a href="#"><img src="img/1.jpg"></a></li>
+                    <li><a href="#"><img src="img/2.png"></a></li>
+                    <li><a href="#"><img src="img/3.png"></a></li>
+                    <li><a href="#"><img src="img/4.jpg"></a></li>
+                    <li><a href="#"><img src="img/5.png"></a></li>
+                    <li><a href="#"><img src="img/6.png"></a></li>
+                </ul>
+                <div class="spans">
+                    <span class="curss">1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                </div>
+            </div>
+        </div>
+        <script>
+            var box = document.getElementById('box')
+            var inner = box.children[0]
+            var ul = inner.children[0]
+            var span = inner.children[1]
+            var spans = span.children
+            var imgWidth = inner.offsetWidth
+
+            for (var i = 0; i < spans.length; i++) {
+                spans[i].index = i;
+                spans[i].onmouseover = bl  
+            }
+
+            function bl () {
+                for (var j = 0; j < spans.length; j++) {
+                        spans[j].className = ''
+                    }
+                    this.className = 'curss'
+                    // 每个索引的长度：1:0-490，2:490-980 3：980-1470， 4：1470-1960， 5：1960-2450， 6:2450-2940
+                    var target = -(this.index * imgWidth)
+                    animate(ul, target)
+                }
+            // 设置动画函数
+            function animate(obj, target) {
+                // 结束周期定时器，以免每次重叠
+                clearInterval(obj.timer)
+                // 设置周期定时器
+                obj.timer = setInterval( function(){
+                    // 每次获取开头位置
+                    var leader = obj.offsetLeft
+                    console.log('目前位置的值：' + leader)
+                    // 设置轮播方向是向前还是向后，每次以10px前进或后退
+                    var speed = target > leader ? 490 : -490
+                    console.log('每次递增的值：' + speed)
+                    // 判断每次当前位置和目标位置的差（当前位置以10px的大小向目标位置前进，当前位置不断增大）是否大于10px（前进大小）
+                    if ( Math.abs(target - leader) >= Math.abs(speed)) {
+                            leader += speed // 当向后移动时，speed的为正数，说明往前走，leader为正数
+                            obj.style.left = leader + 'px'
+                    //（当差小于10的时候就说明差不多到了目标位置）将ul的位置设置为目标位置，不然的话会多10px，然后停止
+                    } else {
+                            obj.style.left = target + 'px'
+                            clearInterval(obj.timer)
+                    }
+                },35)
+            }
+        </script>
+    </body>
+</html>

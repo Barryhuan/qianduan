@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>HTMLElement接口</title>
+	</head>
+	<body>
+		<div id="d1" data-user="老王" title="我是老王" style="display: block">哈哈哈哈哈</div>
+
+		<script type="text/javascript">
+			var d1 = document.querySelector("#d1");
+			// HTMLElemen继承于EventTarget接口，Node接口，Element接口
+
+			// 属性
+			// 获取/设置元素的可编辑状态
+			// "true" 表明该元素可编辑
+			// "false" 表明该元素不可编辑
+			// "inherit" 表明该元素继承了其父元素的可编辑状态
+			console.log("contentEditable：" + d1.contentEditable);
+
+			// 如果当前元素的内容为可编辑状态，则返回 true，否则返回 false
+			console.log("isContentEditable：" + d1.isContentEditable);
+
+			// 获取自定义属性
+			console.log("dataset：" + d1.dataset["user"]);
+
+			// 获取/设置元素是否隐藏
+			console.log("hidden：" + d1.hidden);
+
+			// 获取/设置元素的（content + padding + border）的宽度值
+			console.log("offsetWidth：" + d1.offsetWidth);
+
+			// 获取/设置元素的（content + padding + border）的高度值
+			console.log("offsetHeight：" + d1.offsetHeight);
+
+			// 获取元素到父元素左边界的距离（子元素的border开始，到父元素的padding，包含padding）
+			console.log("offsetLeft：" + d1.offsetLeft);
+
+			// 获取元素到父元素上0边界的距离（子元素的border开始，到父元素的padding，包含padding）
+			console.log("offsetTop：" + d1.offsetTop);
+
+			// 获取元素的父元素（有定位属性的父元素就是上一级，没有定位属性则是body）
+			console.log("offsetParent：" + d1.offsetParent);
+
+			// 获取/设置元素的title属性
+			console.log("style：" + d1.style);
+
+			// 获取或设置当前元素的tab键激活顺序.
+			console.log("tabIndex：" + d1.tabIndex);
+
+			// 获取/设置元素是否可以被翻译
+			console.log("translate ：" + d1.translate);
+
+			// 是否对元素内容进行拼写检查
+			// 类型为 text 的 input 元素中的值（非密码）
+			// textarea 元素中的值
+			// 可编辑元素中的值
+			console.log("spellcheck：" + d1.spellcheck);
+
+			// 	设置/获取元素是否可以拖拽
+			console.log("draggable：" + d1.draggable);
+		</script>
+	</body>
+</html>

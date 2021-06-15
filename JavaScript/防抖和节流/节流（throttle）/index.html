@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+		/>
+		<title>节流（throttle）</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			div {
+				height: 40px;
+				line-height: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<p>节流（throttle）：当持续触发事件时，按照一定的时间间隔的去调用处理函数</p>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<div>123123</div>
+		<script type="text/javascript">
+			function throttle(fn, delay) {
+				let canRun = false
+				return () => {
+					if (canRun) return
+					canRun = true
+					setTimeout(() => {
+						fn()
+						canRun = false
+					}, delay)
+				}
+			}
+
+			function handle() {
+				console.log(Math.random())
+			}
+
+			document.addEventListener('scroll', throttle(handle, 2000))
+		</script>
+	</body>
+</html>

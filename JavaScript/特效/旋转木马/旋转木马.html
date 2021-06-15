@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>旋转木马</title>
+        <meta charset="UTF-8">
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+
+            #box {
+                width: 100%;
+                margin: 50px auto;
+                border: 1px solid #000;
+                padding: 0;
+                overflow: hidden;
+            }
+
+            #inner {
+                width: 1300px;
+                height: 600px;
+                margin: 20px auto;
+                position: relative;
+                border: 1px solid #000;
+            }
+
+            #inner ul li {
+                position: absolute;
+                overflow: hidden;
+            }
+
+            #wrap {
+                overflow: hidden;
+                position: absolute;
+                width: 1300px;
+                top: 450px;
+                opacity: 0;
+            }
+
+            #LinkLeft {
+                float: left;
+                width: 48px;
+                height: 48px;
+                cursor: pointer;
+            }
+
+            #LinkRight {
+                float: right;
+                width: 48px;
+                height: 48px;
+                cursor: pointer;
+            } 
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <div id="inner">
+                <ul>
+                    <li><img src="img/1.png"></li>
+                    <li><img src="img/2.png"></li>
+                    <li><img src="img/3.png"></li>
+                    <li><img src="img/4.png"></li>
+                    <li><img src="img/5.png"></li>
+                </ul>  
+                <div id="wrap">
+                    <span id="LinkLeft" ><img src="img/left.png"></span>
+                    <span id="LinkRight" ><img src="img/right.png"></span>
+                </div>
+            </div>
+        </div>
+        <script>
+            var box = document.getElementById('box')
+            var inner = box.children[0]
+            var ul = inner.children[0]
+            var lis = ul.children
+            var wrap = inner.children[1]
+            var linkLeft = wrap.children[0]
+            var linkRight = wrap.children[1]
+            var flag = true
+
+            box.onmouseover = function () {
+                animate(wrap, {'opacity' : 1})
+            }
+
+            box.onmouseout = function () {
+                animate(wrap, {'opacity' : 0})
+            }
+            var confin = [
+                {
+                    'width' : 400,
+                    'top' : 60,
+                    'left' : 50,
+                    'opacity' : 0.2,
+                    'zIndex' : 2
+                },{
+                    'width' : 600,
+                    'top' : 120,
+                    'left' : 20,
+                    'opacity' : 0.8,
+                    'zIndex' : 3
+                },{
+                    'width' : 800,
+                    'top' : 170,
+                    'left' : 250,
+                    'opacity' : 1,
+                    'zIndex' : 4
+                },{
+                    'width' : 600,
+                    'top' : 120,
+                    'left' : 700,
+                    'opacity' : 0.8,
+                    'zIndex' : 3
+                },{
+                    'width' : 400,
+                    'top' : 60,
+                    'left' : 800,
+                    'opacity' : 0.2,
+                    'zIndex' : 2
+                }
+            ]
+            aass()
+            
+            linkRight.onclick = function () {
+                if (flag) {
+                    flag = false
+                    confin.push(confin.shift())
+                    aass()
+                }
+            }
+            
+            linkLeft.onclick = function () {
+                if (flag) {
+                    flag = false
+                    confin.unshift(confin.pop())
+                    aass()
+                }
+            }
+            
+            function aass() {
+                for (var i = 0; i < lis.length; i++) {
+                animate(lis[i], confin[i],function () {
+                        return flag = true;
+                    })
+                }
+            }
+
+            function animate(obj, json, fn){
+                clearInterval(obj.timer)
+                obj.timer = setInterval(function () {
+                    var flag = true
+                    for (var k in json) {
+                        if (k === 'opacity') {
+                            var leader = getStyle(obj, k) * 100
+                            var target = json[k] * 100
+                            var speed = (target - leader) / 10
+                            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed)
+                            leader += speed
+                            obj.style[k] = leader / 100
+                        } else if (k === 'zIndex') {
+                            obj.style.zIndex = json[k]                           
+                        } else {
+                            var leader = parseInt(getStyle(obj, k))
+                            var target = json[k]
+                            var speed = (target - leader) / 10
+                            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed)
+                            leader += speed
+                            obj.style[k] = leader + 'px'
+                        }
+                        if (leader !== target) {
+                            flag = false
+                        }
+                    } 
+                    if (flag) {
+                        clearInterval(obj.timer)
+                        if (fn) {
+                            fn()
+                        }
+                    }
+                }, 15)
+            }
+
+            function getStyle(obj, attr) {
+                if (window.getComputedStyle) {
+                    return window.getComputedStyle(obj, null)[attr]
+                } else {
+                    return obj.currentStyle[attr]
+                }
+            }
+        </script>
+    </body>
+</html>

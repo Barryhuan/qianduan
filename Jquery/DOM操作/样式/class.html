@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>class</title>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script>
+        $(function () {
+            // addclass和removeClass都可以添加或删除类
+            $('#d1').addClass('d1 d2')
+
+            // 判断元素中有没有这个样式，只能判断一个
+            var a = $('#d1').hasClass('d1') // true
+            // 也可以通过is来判断元素是否有这个类，只能判断一个
+            var b = $("#d1").is(".d1") // true
+            console.log(a)
+            console.log(b)
+            // 切换样式
+            // $('#d1').removeClass('d2')
+
+            // toggleClass要是传入的类名没有的话添加，再次切换
+
+            $('#d1').click(function () {
+                $(this).toggleClass('d2')
+            })
+            // 删除样式            
+            // 删除多个样式
+            // $('#d1').removeClass('d2 d1')
+            // 删除所有的样式
+            // $('#d1').removeClass()
+        })
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .d1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .d2 {
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1"></div>
+</body>
+</html>

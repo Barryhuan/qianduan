@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>获取元素</title>
+		<style type="texxt/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			#father {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="father">
+			<div class="son"></div>
+			<p>我</p>
+			<input type="text" name="老王">
+			<span>操</span>
+		</div>
+	</body>
+	<script>
+	// 6种获取元素的方法(集合都是伪数组)
+		// 通过id获取元素,是一个元素
+		var father = document.getElementById('father') 
+		console.log(father) // <div id="father">...</div>
+		
+		// 通过类名获取元素,是一个元素结合HTMLCollection(就算只有一个元素也是一个集合)
+		var son = document.getElementsByClassName('son')
+		console.log(son)  // HTMLCollection[div.son]
+		
+		// 通过标签获取元素,是一个元素集合HTMLCollection
+		var div = document.getElementsByTagName('div')
+		console.log(div) // HTMLCollection(2) [div#father, div.son]
+		
+		// 通过名字获取元素,是一个接单集合NodeList
+		var input = document.getElementsByName('老王')
+		console.log(input) // NodeList [input]
+		
+		// 通过querySelector获取第一个元素,是一个元素
+		var father = document.querySelector('#father')
+		console.log(father) // <div id="father">...</div>
+		
+		// 通过querySelector获取全部元素,是一个NodeList集合
+		var divs = document.querySelectorAll('div')
+		console.log(divs) // NodeList(2)[div#father, div.son]
+	</script>
+</html>

@@ -1,0 +1,36 @@
+@a: .b;
+@{a} {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+}
+
+.class:extend(@{a}){
+
+}
+
+// 输出结果
+// .b {
+//   width: 50px;
+//   height: 50px;
+//   background-color: red;
+// }
+
+// 这种将选择器存储在变量里是无法实现编译的(下面)
+
+@selecte: .selecte;
+.ppp {
+    color: red;
+}
+
+@{selecte}:extend(.ppp) {}
+
+
+// 输出结果
+
+.ppp,
+.selecte {
+  color: red;
+}
+
+// 实现了继承

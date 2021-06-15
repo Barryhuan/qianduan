@@ -1,0 +1,13 @@
+ES6规范跟commonJs的客户端一样需要编译
+暴露：export
+导入：import
+
+命令：安装babel-cli
+npm install babel-cli browserify -g
+npm install babel-preset-es2515 --save-dev
+
+创建.babelrc文件，本质是一个json文件
+
+命令：转换成es5语法
+babel src -d bundle
+browserify bundle/main.js -o dist/bundle.js

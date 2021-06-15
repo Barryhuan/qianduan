@@ -1,0 +1,29 @@
+.div {
+    .pre {
+        width: 50px;
+    }
+}
+
+
+
+.juzhong:hover,
+.center {
+    &:extend(.div .pre);
+}
+
+// 输出到CSS中
+//  .div .pre,
+//  .juzhong:hover,
+//  .center {
+//  width: 50px;
+//  }
+
+
+
+
+// 另一种写法
+// .juzhong:hover:extend(.div .pre){};
+// .center:extend(.div .pre){};
+
+// 如果其他类     要    对同一个类实现（多对一）继承可以利用这种写法
+// 2种写法的结果是一样的

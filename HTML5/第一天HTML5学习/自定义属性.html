@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>自定义属性</title>
+</head>
+<body>
+    <p data-school-name="我操">传智播客</p>
+    <script>
+        // dataset里的方括号必须使用驼峰命名法
+        var p = document.querySelector('p')
+        var z = p.dataset['schoolName']
+        console.log(z)
+        console.log(p.dataset)
+    </script>
+</body>
+</html>

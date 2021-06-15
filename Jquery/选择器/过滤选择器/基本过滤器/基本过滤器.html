@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>基本过滤器</title>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script>
+        $(function () {
+            // 基本过滤选择器
+            // 第一个div
+            $('div:first').text('第一个div')
+            // 最后一个div
+            $('div:last').text('最后一个div')
+            // 索引
+            $('div:eq(1)').text('我是索引为1的div')
+            // 大于但不包括
+            $('div:gt(0)').css({'width': 100, 'height': 100, 'background': 'blue'})
+            // 小于但不包括
+            $('div:lt(5)').css({'width': 50, 'height': 50, 'background': 'pink'})
+            // 偶数按索引为0来算的，0也就是1
+            $('div:even').text('我是偶数')
+            // 奇数按索引为0来算的，0也就是1
+            $('div:odd').text('我是奇数')
+            // 我是除这个选择器外的所有
+            $('div:not("#d1")').text('我是除id为的元素')
+            // 选择所有的h1~h6的标签
+            $(':header').text('我的header的标签')
+            // 选择获取焦点的元素,要和其他的标签搭配才能使用
+            $('input').focus()
+            $(':focus').css('border', '2px solid red')
+            // 获取动画效果的元素
+            $('#d10').css({'width' : 100, 'height' : 100, 'background': 'red'})
+            .animate({'height': 50}, 1000, function() {
+                $(this).animate({'width':300}, 1000)
+            })
+            $(':animated').text('大家好，我会动')
+        })
+    </script>
+</head>
+<body>
+    <div id="d1"></div>
+    <div id="d2"></div>
+    <div id="d3"></div>
+    <div id="d4"></div>
+    <div id="d5"></div>
+    <div id="d6"></div>
+    <div id="d7"></div>
+    <div id="d8"></div>
+    <div id="d9"></div>
+    <h1>我是H1</h1>
+    <h2>我是H2</h2>
+    <h3>我是H3</h3>
+    <h4>我是H4</h4>
+    <h5>我是H5</h5>
+    <h6>我是H6</h6>
+    <input type="text">
+    <div id="d10"></div>
+</body>
+</html>

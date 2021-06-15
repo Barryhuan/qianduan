@@ -1,0 +1,9 @@
+#one (...) {
+    border: @arguments;
+}
+
+#two {
+    #one(1px, solid, #000);
+}
+
+// #one(...):代表数量不确定的参数，用@arguments

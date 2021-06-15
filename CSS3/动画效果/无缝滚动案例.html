@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>无缝滚动案例</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			div {
+				width: 882px;
+				height: 86px;
+				margin: 50px auto;
+				background-color: #DDD;
+				overflow: hidden;
+			}
+			
+			div ul {
+				width: 200%;
+				list-style: none;
+				animation-name: move;
+				animation-duration: 7s;
+				animation-iteration-count: infinite;
+				animation-timing-function: linear;
+			}
+			div ul:hover{
+				animation-play-state: paused;
+			}
+			div ul li {
+				float: left;
+			}
+			
+			@keyframes move{
+				from{
+					transform: translateX(0);
+				}
+				to{
+					transform: translateX(-882px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li><img src="img/1.jpg"></li>
+				<li><img src="img/2.jpg"></li>
+				<li><img src="img/3.jpg"></li>
+				<li><img src="img/4.jpg"></li>
+				<li><img src="img/5.jpg"></li>
+				<li><img src="img/6.jpg"></li>
+				<li><img src="img/7.jpg"></li>
+				<li><img src="img/1.jpg"></li>
+				<li><img src="img/2.jpg"></li>
+				<li><img src="img/3.jpg"></li>
+				<li><img src="img/4.jpg"></li>
+				<li><img src="img/5.jpg"></li>
+				<li><img src="img/6.jpg"></li>
+				<li><img src="img/7.jpg"></li>
+			</ul>
+		</div>
+	</body>
+</html>

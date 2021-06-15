@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document属性</title>
+    <link rel="stylesheet" href="###">
+</head>
+
+<body>
+    <a href="https://www.baidu.com" name="a1">百度1</a>
+    <a href="https://www.baidu.com" name="a2">百度2</a>
+    <a href="https://www.baidu.com" name="a3">百度3</a>
+    <a href="https://www.baidu.com">百度4</a>
+    <script type="text/javascript">
+        // 基础属性
+            //  ------------ 链接属性 -------------
+                // URL属性（返回当前文档的URL地址）
+                console.log(document.URL)
+
+                // baseURI属性（返回当前文档的基础URI）
+                // (继承自Node)
+                console.log(document.baseURI)
+
+                // documentURI属性(适合所有类型的文档)
+                console.log(document.documentURI)
+
+                // location属性（返回文档的location对象）
+                console.log(document.location)
+                
+                // domain属性（返回当前文档的域名）（以字符串的形式返回文档的位置）
+                console.log(document.domain)
+                
+                // namespaceURI属性(返回XHTML文档命名空间的URI)
+                //（继承自Node）
+                console.log(document.namespaceURI)
+
+                // referrer属性（返回来源页面的URI的字符串）
+                console.log(document.referrer)
+
+            // ------------- 集合属性 ------------
+                // all属性（返回页面中的所有元素组成的元素集合数组）
+                console.log(document.all)
+                
+                // scripts属性(返回页面中所有script标签组成的集合数组)
+                console.log(document.scripts)
+                
+                // anchors属性（返回页面中所有的锚元素集合数组，a标签必须包含name属性才能选中）
+                console.log(document.anchors)
+
+                // links属性（返回页面中的a和area标签集合数组，包含href属性的才能选中）
+                console.log(document.links)
+
+                // images属性（返回页面中所有图片标签的集合数组）
+                console.log(document.images)
+
+                // forms属性（返回页面中所有的form元素标签集合数组）
+                console.log(document.forms)
+
+                // embeds属性（返回页面中所有的embeds标签的集合数组）
+                console.log(document.embeds)
+
+                // plugins属性（返回一个可用的插件列表数组）
+                console.log(document.plugins)
+
+            // ----------- 元素属性 --------------
+                // documentElement属性（HTML标签）
+                console.log(document.documentElement)
+
+                // body属性（Body标签或者是frameset标签）
+                console.log(document.body)
+
+                // head属性（Head标签）
+                console.log(document.head)
+          
+            // ------------- 接口属性 ------------
+
+                // fonts属性（返回一个FontFaceSet接口）
+                // FontFaceSet 接口对 加载新字体、检查已加载字体的加载状态 来说非常有用
+                console.log(document.fonts)
+
+                // implem entation属性（返回一个和当前文档相关联的DOMImplementation对象）
+                console.log(document.implementation)
+
+                // cookie属性（获取并设置与当前文档相关联的 cookie）
+                console.log(document.cookie)
+
+                // defaultView属性（返回和doucment所关联的window对象，如果没有则返回null）
+                console.log(document.defaultView)
+
+            // ------------ 基础属性 -------------
+            
+                // compatMode属性(返回字符串说明当前文档是混杂模式还是标准模式)
+                console.log(document.compatMode)
+
+                // contentType属性（返回当前文档的类型）
+                console.log(document.contentType)
+
+                // doctype属性（返回当前文档关联的文档类型定义(DTD)）
+                
+                console.log(document.doctype) // <!DOCTYPE html>
+
+                // title属性（返回当前文档的标题）
+                console.log(document.title)
+
+                // linkColor属性（用来获取和设置文档内链接元素(<a>)的颜色）
+                console.log(document.linkColor)
+   
+                // charset属性（返回页面所用的字符集）
+                console.log(document.charset)
+                // 这2个属性是一样的，不过是因为历史问题多出来个名
+                // characterSet属性（返回页面所用的字符集）
+                console.log(document.characterSet)
+
+                // dir属性（获取和设置当前页面的文本方向）
+                // 默认是ltr，当为默认值是获取不到
+                console.log(document.dir = 'rtl')   
+                console.log(document.dir)   // rtl
+
+                // readyState属性（获取当前文档的加载状态）（1.loading（正在加载）2.interactive（可交互）3.complete（完成））
+                // 当该属性值发生变化时，会在 document 对象上触发 readystatechange 事件
+                // 1.document 仍在加载
+                // 2.文档已被解析，"正在加载"状态结束，但是诸如图像，样式表和框架之类的子资源仍在加载
+                // 3.文档和所有子资源已完成加载。表示 load 状态的事件即将被触发
+                console.log(document.readyState)
+
+                // lastModified（返回文档最后的修改时间）
+                console.log(document.lastModified) // 07/10/2020 16:41:54
+
+                // StyleSheetSet属性（返回一个样式表集合）
+                console.log(document.styleSheets)
+
+                // currentScript（返回当前正在运行的脚本所属的 <script> 元素，如果script是模块或者是被回调和被调用则会返回null）
+                console.log(document.currentScript)
+
+                // mozSyntheticDocument属性（返回布尔值，判断当前文档是否是合成文档，合成文档是由图像，视频，音频组成的文档混合文档，）
+                console.log(document.mozSyntheticDocument)
+
+
+                // tiemline属性（实验中的属性，是一个动画时间轴）
+                console.log(document.timeline)
+
+                // visibilityState属性（表示页面的是否可见）
+                // 拥有四个值
+                // 1.visible： 此时页面内容至少是部分可见. 即此页面在前景标签页中，并且窗口没有最小化
+                // 2.hidden：此时页面对用户不可见. 即文档处于背景标签页或者窗口处于最小化状态，或者操作系统正处于 '锁屏状态'
+                // 3.prerender：页面此时正在渲染中, 因此是不可见的;文档只能从此状态开始，永远不能从其他值变为此状态.注意: 浏览器支持是可选的.
+                // 4.unloaded：页面从内存中卸载清除. 注意: 浏览器支持是可选的
+                console.log(document.visibilityState)
+
+                // hidden属性（返回页面是否隐藏的布尔值） 
+                console.log(document.hidden)
+
+                // designMode属性（控制整个文档是否可编辑）
+                // 拥有2个值
+                // on 和 off
+                console.log(document.designMode)
+
+                // pointerLockElement（鼠标无限移动 || 鼠标锁定）（就是玩游戏的时候，鼠标移出界外也不会出去点击其他引用）
+                console.log(document.pointerLockElement)
+                
+            // ------------ 节点属性 -------------
+                // 获取父节点
+                document.parentNode
+
+                // 获取父元素
+                document.parentElement
+
+                // 获取子节点
+                document.childNodes
+
+                // 获取子元素
+                document.children
+
+                // 获取第一个子节点
+                document.firstChild
+
+                // 获取第一个子元素
+                document.firstElementChild
+
+                // 获取最后一个子节点
+                document.lastChild
+
+                // 获取最后一个子元素
+                document.lastElementChild
+
+                // 获取下一个兄弟节点
+                document.nextSibling
+
+                // 获取上一个兄弟节点
+                document.previousSibling
+
+                // 返回节点的名字
+                document.nodeName
+                
+                // 返回节点的类型
+                document.nodeType
+
+                // 返回节点的值
+                document.nodeValue
+
+                // 返回文本内容
+                document.textContent
+
+                // 返回document顶层元素，即document
+                document.ownerDocument 
+
+                // Document 对象与一般 DOM 树连接，ShadowRoot 与 shadow DOM 连接
+                document.isConnected
+    
+    </script>
+</body>
+
+</html>

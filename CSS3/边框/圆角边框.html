@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>圆角边框</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#box {
+				width: 150px;
+				height: 150px;
+				background-color: red;
+				margin: 50px auto;
+				/* 每个角都有水平和垂直 */
+				/* 每个都会创建一个以X和Y的交叉点位原心，创建一个圆 */
+				/* 不能为单独的角设置/格式的X和Y */
+				/* 只能为四个角一起使用才行 */
+				
+				
+				/* 这里包括了四个角:左上角,右上角,右下角,左下角 */
+				 /* 四个角的水平/四个角的垂直 */
+				border-radius: 75px/75px;
+				/* 也可以是这样 */
+				border-radius: 75px;
+				/* 这里的是:(左上角/右下角) || (右上角/左上角) */
+				/* border-radius: 30px 30px; */
+				
+				/* 这里的是左上角 右上角 右下角 左下角 */
+				/* border-radius: 30px 20px 60px 50px; */
+				
+				/* 分别为每个角添加*/
+				/* 分别是boder-上下-左右*/
+				/* 左上角 */
+				/* border-top-left-radius: 10px 10px; */
+				/* 右上角 */
+				/* border-top-right-radius: 20px 20px; */
+				/* 左下角 */
+				/* border-bottom-left-radius: 50px 50px; */
+				/* 右下角 */
+				/* border-bottom-right-radius: 125px 125px; */
+				
+				/* 以上的简写模式 */
+				/* 这里对应的是左上角X， 右上角X， 右下角X， 左下角X / 左上角Y， 右上角Y， 右下角Y， 左下角Y */
+				/* border-radius: 10px 20px 125px 50px/10px 20px 125px 50px; */
+			}
+			
+			#juxing {
+				width: 200px;
+				height: 100px;
+				background-color: red;
+				margin: 50px auto;
+				/* 绘制椭圆形 */
+				border-radius: 100px/50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="juxing"></div>
+	</body>
+</html>

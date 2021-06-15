@@ -1,0 +1,11 @@
+.one() {
+    transform+_: scale(2);
+}
+
+.two {
+    .one;
+    transform+_: rotate(15deg);
+}
+
+// 通过在属性名后添加：+_符号对属性值进行拼接
+//  transform: scale(2) rotate(15deg);

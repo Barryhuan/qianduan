@@ -1,0 +1,17 @@
+.a {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+.b {
+    background-color: black;
+}
+
+// 如果HTML的代码是这样的：<div class="a b"></div>，向通过b来代替a里的某样属性,可以这样
+
+.b {
+    &:extend(.a);
+}
+
+// 这样<div class="b"></div>，减少了代码量

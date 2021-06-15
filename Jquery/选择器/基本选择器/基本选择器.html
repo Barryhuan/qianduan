@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>基本选择器</title>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 基本选择器
+            // 1.id选择器
+            $('#d1').css({'width': '200px', 'height' : '200px', 'background-color' : 'red'})
+            // 2.类选择器
+            $('.d2').css({'width' : 200, 'height' : 200, 'background' : 'blue'})
+            // 3.标签选择器
+            $('p').css({'width' : 100, 'height' : 100, 'background' : 'red'})
+            // 4.并集选择器
+            $('#d1, .d2, p').css('border', '1px solid #000')
+            // 5.*选择器
+            $('*').css('margin' , 20)
+        })
+    </script>
+</head>
+<body>
+    <div id="d1">ID选择器</div>
+    <div class="d2">类选择器</div>
+    <p>我是帅哥</p>
+</body>
+</html>

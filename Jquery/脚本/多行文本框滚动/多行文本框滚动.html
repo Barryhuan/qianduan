@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>多行文本框滚动</title>
+    <script src="../jquery.js">
+
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box {
+            width: 200px;
+            height: 300px;
+            margin: 50px auto;
+        }
+
+        #box .top {
+            padding: 2px 0;
+        }
+
+        .top span {
+            float: left;
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+            margin: 0 20px;
+            background-color: #999;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="top">
+            <span class="up">向上</span>
+            <span class="down">向下</span>
+        </div>
+        <div class="bottom">
+            <textarea rows="9" cols="25" class="text">多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.
+            </textarea>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('.down').click(function () {
+                if(!$('.text').is(':animated')) {
+                $('.text').animate({scrollTop: '+=100PX'},'fast')
+                }
+            })
+            $('.up').click(function () {
+                if(!$('.text').is(':animated')) {
+                $('.text').animate({scrollTop: '-=100PX'},'fast')
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

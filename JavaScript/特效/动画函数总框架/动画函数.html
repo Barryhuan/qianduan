@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>动画函数</title>
+        <meta charset="UTF-8">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            #d1 {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                position: absolute;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <button id="b1">200px</button>
+        <button id="b2">400px</button>
+        <div id="d1"></div>
+        <script>
+            var b1 = document.getElementById('b1')
+            var b2 = document.getElementById('b2')
+            var d1 = document.getElementById('d1')
+            b1.onclick = function () {
+                animate(d1, 200)
+            }
+            b2.onclick = function () {
+                animate(d1, 400)
+            }
+            function animate(obj, target) {
+                // 第一次是未定义，不会报错
+                // 相当于Jquery的stop函数
+                clearInterval(obj.timer)      
+                obj.timer = setInterval(function (){
+                    var leader = obj.offsetLeft
+                    var speed = target > leader ? 10 : -10
+                    if (Math.abs(target - leader ) >= Math.abs(speed)) {
+                        leader += speed
+                        obj.style.left = leader + 'px'
+                    } else {
+                        obj.style.left = target + 'px'
+                        clearInterval(obj.timer)
+                    }
+                },15)
+            }
+        </script>
+    </body>
+</html>

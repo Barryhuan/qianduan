@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>替换节点</title>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script>
+        $(function () {
+            var a  = $('<p>我是老8</p>')
+            // 替换节点的replacewith方法
+            $('#d1').replaceWith(a)
+            // 替换节点的replaceAll方法
+            $(a).replaceAll('#d1')
+        })
+    </script>
+</head>
+<body>
+    <div id="d1">我的天天</div>
+</body>
+</html>

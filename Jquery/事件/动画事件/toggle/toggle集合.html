@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>toggle集合</title>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script>
+        $(function () {
+            // fadeToggle speed,easing,callback
+            $('#d2').click(function () {
+                $('#d1').fadeToggle()
+            })
+            // fadeTo只改变透明度
+            $('#d3').click(function () {
+                $('#d1').fadeTo(1000 ,0.5)
+            })
+            // slideToggle
+            $('#d4').click(function () {
+                $('#d1').slideToggle()
+            })
+            // toggle
+            $('#d5').click(function (){
+                $('#d1').toggle()
+            })
+
+            $('#d6').click(function (){
+                $('#d1').animate({width: '1000px', height: '500px', backgroundColor: '#000'}, function (){
+                    $('#d1').hide('slow')
+                })
+            })
+        })
+
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #d1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d1"></div>
+    <button id="d2">fadeToggle</button>
+    <button id="d3">fadeTo</button>
+    <button id="d4">slideToggle</button>
+    <button id="d5">toggle</button>
+    <button id="d6">animate</button>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>跟随鼠标移动</title>
+        <meta charset="UTF-8">
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            #box {
+                width: 250px;
+                height: 250px;
+                background-color: red;
+                position: absolute;
+                left: 200px;
+                top: 100px;
+            }
+
+            #son {
+                height: 40px;
+                background-color: blue; 
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <div id="son"></div>
+            <p>我啛啛喳喳错错错错错错错错错错错错错错错错错错错错错错错错错错错错错错错错错错错错错错我啛啛喳喳错错错错错错错错错错错错错错错错错错错错错错错错错错错错错错错错错错错错错错</p>
+        </div>
+        <script>
+            var box = document.getElementById('box')
+            var son = document.getElementById('son')
+            box.onmousedown = function (event) {
+                var event = event || window.event
+                var pageX = event.pageX || event.clientLeft + document.documentElement.scrollLeft
+                var pageY = event.pageY || event.clientTop + document.documentElement.scrollTop
+                console.log('X坐标：' + pageX + '-----' + 'Y坐标：' + pageY )
+                var boxX = pageX - this.offsetLeft
+                var boxY = pageY - this.offsetTop
+                console.log('鼠标在盒子里的X坐标：' + boxX + '-----' + '鼠标在盒子里的Y坐标：' + boxY )
+                document.onmousemove = function (event) {
+                    var event = event || window.event
+                    var pageX = event.pageX || event.clientLeft + document.documentElement.scrollLeft
+                    var pageY = event.pageY || event.clientTop + document.documentElement.scrollTop
+                    var targetX = pageX - boxX
+                    var targetY = pageY - boxY
+                    console.log('盒子的X坐标：' + targetX + '-----' + '盒子的Y坐标：' + targetY )
+                    box.style.left = targetX + 'px'
+                    box.style.top = targetY + 'px'
+                    window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty()
+                }
+            }
+            
+            document.onmouseup = function () {
+                document.onmousemove = null
+            }
+
+
+        </script>
+    </body>
+</html>

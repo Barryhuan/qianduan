@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>合成事件</title>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script>
+        // hover事件(enter和leave)
+        $(function () {
+            $('#d1').hover(
+            function () {
+                console.log('我进去了')
+            },
+            function () {
+                console.log('我出去了')
+            })
+        })
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #d1 {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <button id="d1">点老子</button>
+</body>
+</html>

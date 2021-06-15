@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>放大镜</title>
+        <meta charset="UTF-8">
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            /* 这里要为盒子添加position：relative*/
+            #box {
+                width: 350px;
+                margin: 200px 0 20px 200px; 
+                position: relative;
+                border: 1px solid #000;
+            }
+
+            /* 这里要为小盒子添加position：relative*/
+            #smallBox {
+                position: relative;
+            }
+
+            /* 这里要为遮罩添加position：absolute*/
+            #mask {
+                position: absolute;
+                width: 175px;
+                height: 175px;
+                background-color: yellow;
+                opacity: 0.5;
+                display : none ; 
+                left: 0;
+                top : 0;
+            }
+
+            /* 这里要为大盒子添加position：absolute*/
+            #bigBox {
+               width: 400px;
+               height: 400px;
+               overflow: hidden;
+               position: absolute;
+               top: 0;
+               left: 360px;
+               border: 1px solid #000;
+               display: none;
+            }
+            /* 这里要为图片添加position：absolute*/
+            #bigimg {
+                position: absolute;
+                left: 0; 
+                top : 0;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <div id="smallBox">
+                <img src="img/small.jpg" width="350" >
+                <div id="mask"></div>
+            </div>
+            <div id="bigBox">
+                <img id="bigimg" src="img/big.jpg" width="800">
+            </div>
+        </div>
+        <script>
+            var box = document.getElementById('box')
+            var smallBox = document.getElementById('smallBox')
+            var mask = document.getElementById('mask')
+            var bigBox = document.getElementById('bigBox')
+            var bigimg = document.getElementById('bigimg')
+            var boxLeft = box.offsetLeft
+            var boxTop = box.offsetTop
+            
+            // 1.1：当鼠标上浮时，显示大盒子和遮罩
+            smallBox.onmouseover = function () {
+                mask.style.display = 'block'
+                bigBox.style.display = 'block'
+            }
+            // 1.2：当鼠标离开时,隐藏大盒子和遮罩
+            smallBox.onmouseout = function () {
+                mask.style.display = 'none'
+                bigBox.style.display = 'none'
+            }
+            // 2: 社祝鼠标移动事件
+            smallBox.onmousemove = function (event) {
+                // 2.1 设置事件对象
+                var event = event || winodw.event
+
+                // 2.2 获取当前鼠标的坐标
+                var pageX = event.pageX || event.clientX + document.documentElement.scrollLeft
+                var pageY = event.pageY || event.clientY + document.documentElement.scrollTop
+
+                // console.log('鼠标X：' + pageX + '鼠标Y' + pageY)
+
+                // 2.3 获取当前鼠标在小盒子里的坐标
+                var boxX = pageX - boxLeft
+                var boxY = pageY - boxTop
+                // console.log('遮挡的X：' + boxX + '遮挡的Y：' + boxY)
+
+                // 2.4 将鼠标设置在遮罩里面，相当于将遮罩向左移动一半
+                var maskX = boxX - mask.offsetWidth / 2
+                var maskY = boxY - mask.offsetHeight / 2
+                console.log('遮挡的X：' + maskX + '遮挡的Y：' + maskY)
+                var maskXbest = smallBox.offsetWidth - mask.offsetWidth
+
+
+                // 3.1 判断当遮罩左边的位置小于0时，将遮罩的左边位置等于0
+                if (maskX < 0) {
+                    maskX = 0;
+                } 
+                // 3.2 判断当遮罩右边的位置小于0时，将遮罩的右边位置等于175
+                if (maskX > maskXbest) {
+                    maskX = maskXbest;
+                } 
+                // 3.3 判断当遮罩右边的位置小于0时，将遮罩的右边位置等于175
+                if (maskY < 0) {
+                    maskY = 0;
+                } 
+                 // 3.4 判断当遮罩右边的位置小于0时，将遮罩的右边位置等于175
+                if (maskY > maskXbest) {
+                    maskY = maskXbest;
+                } 
+                // 3.5 将值赋给遮罩的左上值
+                mask.style.left = maskX + 'px'
+                mask.style.top = maskY + 'px'    
+
+                // mask.style.left = boxX + 'px'
+                // mask.style.top = boxY + 'px'  
+
+                // 4.1 大图的最大运动距离
+                var bigToMove = bigimg.offsetWidth - bigBox.offsetWidth
+                // 4.2 小图的最大移动距离
+                var smallToMove = maskXbest
+                // 4.3 求比例
+                var rate = bigToMove / smallToMove
+
+                // 4.4 大图的移动距离左和上 乘以遮罩的移动距离
+                bigimg.style.left = -rate * maskX + 'px'
+                bigimg.style.top = -rate * maskY + 'px'
+            }
+            
+            // 第一步：设置移进移出
+            // 第二步：获取鼠标移动位置
+            // 第三步：设置移动范围限制
+            // 第四步：设置大图移动位置
+            
+        </script>
+    </body>
+</html>
+

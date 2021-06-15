@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Window对象的方法</title>
+</head>
+
+<body>
+    <button id="b1">点击</button>
+    <script>
+        let b1 = document.getElementById('b1')
+        b1.onclick = function () {
+            // 对话框方法alert
+            alert('我丢')
+
+            // 对话框方法confirm(确定),返回布尔值true和false
+            console.log(confirm('你是不是老王？')) // true和false
+
+            // 对话框方法prompt('提醒值'， '默认值), 会返回输出结果
+            console.log(prompt('请输入提醒值', '老许')) // 老许
+        }
+    </script>
+</body>
+
+</html>

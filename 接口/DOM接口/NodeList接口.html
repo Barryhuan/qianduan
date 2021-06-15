@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeList接口</title>
+</head>
+<body>
+    <div class="d1">1</div>
+    <div class="d2">2</div>
+    <div class="d3">3</div>
+    <div class="d4">4</div>
+    <div class="d5">5</div>
+<script type="text/javascript">
+    // NodeList是一个伪数组
+    // 获取到NodeList的方法有2种
+    // 属性
+    // Node.childNodes
+    var alls = document.body.childNodes // NodeList(12)
+
+    // 方法
+    // document.querySelectorAll()和document.getElementsByName()
+    var divs = document.querySelectorAll('div')
+    console.log(divs) // NodeList(4)
+    
+    // -----------------------------------------
+    
+    // NodeList的属性和方法
+    // 属性
+    alls.length // 12 
+    divs.length // 5   console.log()
+
+    // 方法
+    // 1.item(),效果跟alls[0]是一样的，但是这种方法比较麻烦就是了
+    console.log(alls.item(0)) // #text
+    console.log(divs.item(0))  // <div class="d1">1</div>
+
+    // 2.forEach() 跟数组的forEach的效果是一样的
+    alls.forEach(function (item) {
+        console.log(item)
+    })
+
+    // 3.entries() 跟数组的entries的效果是一样的
+    for (let x of divs.entries()) {   
+        console.log(x)
+    }
+
+    // (2)[0, div.d1]
+    // (2)[1, div.d2]
+    // (2)[2, div.d3]
+    // (2)[3, div.d4]
+    // (2)[4, div.d5]
+
+    // 4.keys() 只返回索引值
+    for(let x of divs.keys()) {
+        console.log(x)
+    }
+
+    // 0
+    // 1
+    // 2
+    // 3
+    // 4
+
+    // 5.value() 只返回值
+    for(let x of divs.values()) {
+        console.log(x)
+    }
+
+    // <div class="d1">1</div>
+    // <div class="d2">2</div>
+    // <div class="d3">3</div>
+    // <div class="d4">4</div>
+    // <div class="d5">5</div>
+</script>
+</body>
+</html>

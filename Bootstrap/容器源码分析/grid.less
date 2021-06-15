@@ -1,0 +1,43 @@
+// 固定容器
+
+.container {
+  .container-fixed();
+
+  @media (min-width: @screen-sm-min) {
+    width: @container-sm;
+  }
+  @media (min-width: @screen-md-min) {
+    width: @container-md;
+  }
+  @media (min-width: @screen-lg-min) {
+    width: @container-lg;
+  }
+}
+
+
+// 流动容器
+.container-fluid {
+  .container-fixed();
+}
+
+
+// 行
+.row {
+  .make-row();
+}
+
+
+// 列
+.make-grid-columns();
+.make-grid(xs);
+// 这里要移动端优先添加样式，从小到大 顺序
+@media (min-width: @screen-sm-min) {
+  .make-grid(sm);
+}
+@media (min-width: @screen-md-min) {
+  .make-grid(md);
+}
+@media (min-width: @screen-lg-min) {
+  .make-grid(lg);
+}
+// .make-grid(xs); 不然直接是无法读取到移动端的

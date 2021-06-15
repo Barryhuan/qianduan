@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>边框阴影</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			#box {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				margin: auto;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				/* 主要有6个参数： X, Y， 阴影模糊程度（不能为负数） 伸缩阴影大小 颜色 内阴影（inset），也可以设置多个阴影*/
+				box-shadow: 20px 20px 10px 30px yellow inset, -10px -10px 10px 10px blue inset;  
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>动画函数</title>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script>
+        $(function () {
+            $('#d1').click(function () {
+                $(this).stop().animate({width : 200, height: '+=200px'}, 3000, function () {
+                    $(this).stop().animate({width: 1000, height: 1000}, 2000)
+                })
+            })
+        })
+    </script>
+    <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+    
+            #d1 {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div id="d1"></div>
+    </body>
+</html>

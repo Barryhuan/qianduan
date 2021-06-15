@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>包裹浮动元素</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #d1 {
+            overflow: hidden;
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+
+        #d1 div {
+            float: left;
+            margin-right: 5px; 
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #d2 {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+
+        #d2 div {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">
+        <div class="son1_d1"></div>
+        <div class="son1_d2"></div>
+    </div>
+    <div id="d2">
+        <div class="son2_d1"></div>
+        <div class="son2_d2"></div>
+    </div>
+</body>
+</html>

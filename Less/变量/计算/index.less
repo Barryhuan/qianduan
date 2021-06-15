@@ -1,0 +1,46 @@
+// 简单的加减
+// 根据不同的单位
+@cm: 1cm + 5;
+@mm: 5mm + 5;
+@cmmm: @cm + @mm;
+@px: 6px;
+#one {
+    width: @cm;
+}
+
+#two {
+    height: @mm;
+}
+
+#three {
+    width: @cmmm;
+}
+
+#four {
+    width: @px + @cm;
+}
+
+// 根据数据最左边的单位来计算最后结果的单位
+
+// 乘除：注意单位的统一，但是结果运算多种单位
+
+.one {
+    width: @cm * @mm;    
+}
+
+.two {
+    height: @cm * @px;
+}
+
+
+// 颜色计算
+
+@color: #111;
+.three {
+    color: @color * 2;
+}
+// 颜色的加要#，才能正常计算
+.four {
+    background-color: @color + 22;
+}
+
