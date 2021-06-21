@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+		/>
+		<title>浏览器加载</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let q = this
+			console.log(this)
+		</script>
+		<script type="module">
+			import all from './导出.js'
+			console.log(all) // { a:1, b:2, c:3 }
+			console.log(this) // undefined
+			function a() {
+				console.log(this)
+			}
+			console.log(q)
+		</script>
+		<script type="text/javascript">
+			a() // 报错
+		</script>
+	</body>
+	<!--~ <script type="module"></script> === <script type="module" defer></script> -->
+	<!--~ 这样就可以在浏览器端使用ES6的模块语法了 -->
+	<!--~  注意 -->
+	<!--~  1.代码是在模块作用域之中运行，而不是在全局作用域运行。模块内部的顶层变量，外部不可见 -->
+	<!--~  2.模块脚本自动采用严格模式，不管有没有声明use strict -->
+	<!--~  3.模块之中，可以使用import命令加载其他模块（.js后缀不可省略，需要提供绝对 URL 或相对 URL），也可以使用export命令输出对外接口 -->
+	<!--~  4.模块之中，顶层的this关键字返回undefined，而不是指向window。也就是说，在模块顶层使用this关键字，是无意义的 -->
+	<!--~  5.同一个模块如果加载多次，将只执行一次 -->
+</html>
