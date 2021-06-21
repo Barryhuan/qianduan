@@ -21,7 +21,7 @@
 let m1 = new Map()
 let o1 = { p: 1 , q: 2 }
 
-m1.size // 2
+m1.size // 0
 m1.set(o1, 'hhh')
 m1.get(o1) // hhh
 

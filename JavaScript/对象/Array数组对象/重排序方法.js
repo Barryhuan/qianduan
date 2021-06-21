@@ -9,7 +9,7 @@ console.log(a.sort(con))
 function con(value1, value2) {
     // 1代表第一个参数在第二个参数的后面，也就是降序
     // -1代表第一个参数在第二个参数的前面，也就是升序
-    // 0代表第一个参数和第二个参数相等
+    // 0代表第一个参数和第二个参数相等, 不变
     // if (value1 < value2) {
     //     return 1
     // } else if (value1 > value2){

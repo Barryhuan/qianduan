@@ -19,19 +19,28 @@ console.log(add1({x: 1, y: 2})) // [ 1, 2 ]
 // 函数的参数也支持默认值
 
 // 数组的默认值
+// 数组的第一种情况：
 function add2 ([x, y] = [0, 0]) {
     return [x, y]
 }
 
 console.log(add2()) // [ 0, 0 ]
 console.log(add2([1, 3])) // [ 1, 3 ]
+console.log(add2([2])) // [ 2, undefined ]
+console.log(add2([])) // [ undefined, undefined ]
 
+// // 数组的第二种情况：(推荐)
 function add21 ([x = 0, y = 1]) {
-    return x + y
+    return [x, y]
 }
 
+// console.log(add21()) // [ 0, 0 ] 会报错
+console.log(add21([1, 3])) // [ 1, 3 ]
+console.log(add21([,2])) // [ 0, 2 ]
+console.log(add21([])) // [ 0, 1 ]
+
 // 对象的默认值
-// 对象的第一种情况：
+// 对象的第一种情况：(推荐)
 function add3 ({x = 0, y = 0} = {}) {
     return [x, y]
 }
@@ -40,8 +49,6 @@ console.log(add3()) // [ 0, 0 ]
 console.log(add3({x: 3, y: 4})) // [ 3, 4 ]
 console.log(add3({x: 3})) // [ 3, 0 ]
 console.log(add3({})) // [ 0, 0 ]
-
-
 
 
 // 对象的第二种情况
