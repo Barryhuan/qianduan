@@ -5,6 +5,8 @@ import Home from '../views/Home' // 导入Home组件
 import News from '../views/News' // 导入News组件
 import Message from '../views/Message' // 导入Message组件
 import MessageDetail from '../views/MessageDetail' // 导入MessageDetail组件
+import B from '../views/B/B'
+import CC from '../views/B/cc/cc'
 Vue.use(VueRouter) // 使用Vue对象的use来使用插件,使用后vue实例会有2个属性，一个是$route,一个是$router
 
 
@@ -24,15 +26,15 @@ export default new VueRouter({ // 向外暴露一个Vue-Router对象实例
             component: Home, // 存入导入的组件对象
             children: [ // 路由下面的子路由
                 {
-                    path: '/home/news',
+                    path: 'news',
                     component: News
                 },
                 {
-                    path: '/home/message',
+                    path: 'message',
                     component: Message,
                     children: [
                         {
-                            path: '/home/message/detail/:id',
+                            path: 'detail/:id',
                             component: MessageDetail
                         }
                     ]
@@ -40,6 +42,16 @@ export default new VueRouter({ // 向外暴露一个Vue-Router对象实例
                 {
                     path: '',
                     redirect: '/home/news'
+                }
+            ]
+        },
+        {
+            path: '/b',
+            component: B,
+            children: [
+                {
+                    path: 'cc',
+                    component: CC
                 }
             ]
         }

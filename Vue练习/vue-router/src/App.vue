@@ -12,6 +12,7 @@
           <!--生成路由链接-->
             <router-link to="/about" class="list-group-item">About</router-link>
             <router-link to="/home" class="list-group-item">Home</router-link>
+            <router-link to="/b" class="list-group-item">B</router-link>
         </div>
       </div>
       <div class="col-xs-6">
@@ -30,7 +31,7 @@
 </template>
 <script>
 export default {
-    
+
 }
 </script>
 
