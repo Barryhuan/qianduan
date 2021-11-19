@@ -22,60 +22,60 @@ JavasScript的数组和其它语言的数组不同，它可以保存任何数据
 
 ### 方法
 1. 数组构造函数独有的方法
-    * `Array.isArray()`
-    * `Array.from()`
-    * `Array.of()`
+    * `Array.isArray()` return：一个判断是否为数组类型的Boolean值
+    * `Array.from()` return：浅拷贝的数组
+    * `Array.of()` return：新数组
 2. 数组原型上的方法
 
     * 栈方法
-      * `Array.prototype.push()`
-      * `Array.prototype.pop()`
-      * `Array.prototype.shift()`
-      * `Array.prototype.unshift()`
+      * `Array.prototype.push()` return：数组长度，并修改了原数组
+      * `Array.prototype.pop()` return：最后一位元素，并修改了原数组
+      * `Array.prototype.shift()` return：第一个元素，并修改了原数组
+      * `Array.prototype.unshift()` return：数组长度，并修改了原数组
 
     * 遍历方法
-      * `Array.prototype.every()`
-      * `Array.prototype.some()`
-      * `Array.prototype.filter()`
-      * `Array.prototype.map()`
-      * `Array.prototype.forEach()`
-      * `Array.prototype.find()`
-      * `Array.prototype.findIndex()`
-      * `Array.prototype.reduce()`
-      * `Array.prototype.reduceRight()`
+      * `Array.prototype.every()` return：所有元素符合条件为true，要是有一个不符合为false
+      * `Array.prototype.some()` return：只要一个符合条件则为true，所有元素不符合则为false
+      * `Array.prototype.filter()` return：所有符合条件的元素的一个数组
+      * `Array.prototype.map()` return：处理所有元素后的结果数组
+      * `Array.prototype.forEach()` return：undefined
+      * `Array.prototype.find()` return：第一个符合条件的元素
+      * `Array.prototype.findIndex()` return：第一个符合条件的元素索引
+      * `Array.prototype.reduce()` return：遍历每一项元素之间的累计结果
+      * `Array.prototype.reduceRight()` return：遍历每一项元素之间的累计结果
 
     * 索引方法
-      * `Array.prototype.indexOf()`
-      * `Array.prototype.lastIndexOf()`
+      * `Array.prototype.indexOf()` return：元素索引
+      * `Array.prototype.lastIndexOf()` return：元素索引
 
     * 迭代方法
-      * `Array.prototype.keys()`
-      * `Array.prototype.entries()`
-      * `Array.prototype.values()`
+      * `Array.prototype.keys()` return：一个新的Array的只包含键的的迭代器 对象
+      * `Array.prototype.entries()` return：一个新的Array的包含键/值的的迭代器对象
+      * `Array.prototype.values()` return：一个新的Array的包含值的的迭代器对象
 
     * 操作方法
-      * `Array.prototype.concat()`
-      * `Array.prototype.slice()`
-      * `Array.prototype.splice()`
+      * `Array.prototype.concat()` return: 一个深度只有1层的浅拷贝合并数组
+      * `Array.prototype.slice()` return：截取指定位置的浅拷贝数组
+      * `Array.prototype.splice()` return: 被删除的元素组成的一个数组，如何没有删除数组则返回空数组，并修改了原数组
 
     * 排序方法
-      * `Array.prototype.reverse()`
-      * `Array.prototype.sort()`
+      * `Array.prototype.reverse()` return：返回排序后的数组，并修改了原数组
+      * `Array.prototype.sort()` return：返回排序后的数组，并修改了原数组
 
     * 填充方法
-      * `Array.prototype.fill()`
-      * `Array.prototype.copyWithin()`
+      * `Array.prototype.fill()` return：返回填充后的数组，并修改了原数组
+      * `Array.prototype.copyWithin()` return：返回复制后的数组，并修改了原数组
 
     * 判断方法
-      * `Array.prototype.includes()`
+      * `Array.prototype.includes()` return: 一个判断该数组是否含有某个符合条件的元素的Boolean值
 
     * 字符方法
-      * `Array.prototype.join()`
-      * `Array.prototype.toString()`
-      * `Array.prototype.toLocalString()`
+      * `Array.prototype.join()` return：一个以指定字符连接成的数组字符串
+      * `Array.prototype.toString()` return：一个以逗号字符连接成的数组字符串
+      * `Array.prototype.toLocalString()` return：一个以逗号字符连接成的数组字符串
     * 深度方法
-      * `Array.prototype.flat()`
-      * `Array.prototype.flatMap()`
+      * `Array.prototype.flat()` return：一个指定深度递归数组合并为一个的新数组
+      * `Array.prototype.flatMap()` return：一个指定深度为1的处理数组结构后并递归的新数组
 
 ### 会改变数组结构的方法
 

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>绑定class和style</title>
+  <style type="text/css">
+    section:nth-of-type(1) {
+      border-bottom: 1px solid red;
+    }
+    .str-method {
+      font-size: 40px;
+    }
+    .obj-method {
+      font-size: 20px;
+      color: rgba(255, 0, 0, .5);
+    }
+    .arr-method {
+      font-weight: 900;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <section class="class-methods">
+      <h2 style="color: red;">Class的绑定方法</h2>
+      <div  :class="a">
+        <h3>字符串的方式</h3>
+      </div>
+      <hr/>
+      <div :class="{ 'obj-method': a1 }">
+        <h3>对象的方式1: 根据布尔来判断是否用该类名</h3>
+      </div>
+      <div :class="a_plus">
+        <h3>对象的方式2: 传入一个定义好的类名对象</h3>
+      </div>
+      <div :class="obj_methods3">
+        <h3>对象的方式3：用计算属性的返回值</h3>
+      </div>
+      <hr/>
+      <div :class="['obj-method', 'str-method', 'arr-method']">
+        <h3>数组字符串的方式1：直接按组的形式传入类名</h3>
+      </div>
+
+      <div :class="[a_plus]">
+        <h3>数组字符串的方式2：在数组里添加对象</h3>
+      </div>
+
+      <div :class="[a1 ? 'arr-method' : '' ]">
+        <h3>数组字符串的方式3：三元运算符</h3>
+      </div>
+
+      <div :class="[...arr_methods4]">
+        <h3>数组字符串的方式4：用计算属性的返回值</h3>
+      </div>
+    </section>
+    <section class="style-methods">
+      <h2 style="color: red;">style的绑定方法</h2>
+      <div :style="style1">
+        <h3>字符串的方式：直接传入字符串变量</h3>
+      </div>
+      <hr/>
+      <div :style="{ backgroundColor: color, color: fontColor }">
+        <h3>对象方法1：直接将属性定义在对象里</h3>
+      </div><div :style="{ ...styleList }">
+        <h3>对象方法2：传入定义好的对象</h3>
+      </div>
+      <hr/>
+      <div :style="[ styleList1 ]">
+        <h3>数组字符串的方式3：传递数组对象或者是定义好的内联变量</h3>
+      </div>
+    </section>
+  </div>
+  <script type="text/javascript" src="../js/vue.js"></script>
+  <script type="text/javascript">
+    let em = new Vue({
+      el: '#app',
+      data: () => {
+        return {
+          a: 'str-method',
+          a1: !0,
+          a_plus: {
+            'str-method': !0,
+            'obj-method': !1,
+            'arr-method': !0
+          },
+          str: 'str-method',
+          obj: 'obj-method',
+          arr: 'arr-method',
+          style1: 'color: blue',
+          color: 'pink',
+          fontColor: '#fff',
+          styleList: {
+            backgroundColor: 'purple',
+            color: '#000'
+          },
+          styleList1: {
+            backgroundColor: 'orange',
+            color: 'blue'
+          }
+        }
+      },
+      methods: {},
+      computed: {
+        obj_methods3() {
+          return {
+            'str-method': !1,
+            'obj-method': !0,
+            'arr-method': !0
+          }
+        },
+        arr_methods4() {
+          return [
+            this.str,
+            this.arr
+          ]
+        }
+      }
+    })
+  </script>
+</body>
+</html>

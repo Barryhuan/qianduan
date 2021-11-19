@@ -7,7 +7,7 @@ console.log(a)
 // 通过slice方法选取方位内的值可以创建一个新的数组，不包括最后一项
 console.log(a.slice()) // [ 10, 50, 20, 30, 10 ]
 console.log(a.slice(1)) // [ 50, 20, 30, 10 ]
-console.log(a.slice(0, 4)) // [ 10, 50, 20, 30, 10 ]
+console.log(a.slice(0, 4)) // [ 10, 50, 20, 30]
 console.log(a.slice(-2, -1)) // -2 == 5 - 2 = 3， -1 == 5-1 = 4 // 30
 
 // 通过splice方法在数组中插入项
